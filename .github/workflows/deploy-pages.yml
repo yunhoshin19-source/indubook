@@ -1,0 +1,54 @@
+name: Deploy IndustryBook design draft
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare clean static site (allowlist)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/assets
+          for page in index catalogs catalog-detail companies company-profile dashboard feed login mypage notifications register signup; do
+            test -f "${page}.html"
+            cp "${page}.html" dist/
+          done
+          test -f assets/style.css
+          test -f assets/app.js
+          cp assets/style.css assets/app.js dist/assets/
+          touch dist/.nojekyll
+          echo 'Published files:'
+          find dist -type f | sort
+          test "$(find dist -type f | wc -l)" -eq 15
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload clean site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
