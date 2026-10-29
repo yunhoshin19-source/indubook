@@ -102,3 +102,26 @@ body{background:var(--bg);color:var(--ink)}
   .hero{border-radius:18px}
   .card:hover{transform:none}
 }
+
+/* IndustryBook v1 White — complete light surface, 2026-10-30 */
+:root{--bg:#ffffff;--orange:#245eea}
+body{background:#fff}
+.main{background:#fff}
+.hero,.company-head{
+ background:linear-gradient(120deg,#ffffff 0%,#f7faff 100%)!important;
+ color:#17253a!important;
+ border:1px solid #e4eaf2;
+ box-shadow:0 12px 32px rgba(37,70,110,.045)
+}
+.hero h1,.company-head h1{color:#142a46}
+.hero p,.company-head p{color:#65748a!important}
+.hero .eyebrow,.company-head .eyebrow{color:#245eea!important}
+.hero .searchbox{border:1px solid #dce4ee;box-shadow:none}
+.section-heading{margin-top:38px}
+.thumb{background:linear-gradient(140deg,#e7f2fc,#bdd9ef)}
+.thumb.green{background:linear-gradient(140deg,#e6f6f3,#b6dbd2)}
+.thumb.purple{background:linear-gradient(140deg,#f0effc,#d5d2f5)}
+.thumb.gray{background:linear-gradient(140deg,#edf1f6,#cfdeeb)}
+.thumb svg{filter:drop-shadow(0 7px 14px rgba(31,67,115,.13))}
+.thumb:before{border-color:rgba(36,94,234,.06)}
+.panel,.card{box-shadow:0 2px 16px rgba(31,54,82,.045)}
