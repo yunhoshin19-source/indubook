@@ -1,1 +1,139 @@
-<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IndustryBook · signup</title><link rel="stylesheet" href="assets/style.css?v=reference-v1-20261030"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><section class="container main"><div class="auth panel"><div class="eyebrow">JOIN INDUSTRYBOOK</div><h1>기업회원 가입</h1><p class="muted">개인회원 유형은 없으며 기업 단위로 가입합니다.</p><form data-demo-form><div class="form-grid"><div class="field"><label>회사명 *</label><input required placeholder="회사명"></div><div class="field"><label>사업자등록번호 *</label><input required placeholder="000-00-00000"></div><div class="field"><label>담당자명 *</label><input required></div><div class="field"><label>부서/직책</label><input></div><div class="field"><label>업무 이메일 *</label><input type="email" required></div><div class="field"><label>연락처 *</label><input type="tel" required></div><div class="field"><label>비밀번호 *</label><input type="password" required minlength="8"></div><div class="field"><label>비밀번호 확인 *</label><input type="password" required minlength="8"></div></div><div class="field"><label><input type="checkbox" required style="width:auto"> 필수 약관 동의 (데모)</label></div><button class="button primary" style="width:100%">기업회원 가입 신청</button></form><p class="small"><a href="login.html" style="color:var(--blue)">로그인으로 돌아가기</a></p></div></section><footer class="footer"><div class="container footer-inner"><div><a class="logo" href="index.html">industry<span>book</span></a><p class="small">24시간 영업하는 디지털 영업사원</p></div><div class="small"><a href="catalogs.html">카탈로그</a> · <a href="companies.html">기업</a> · <a href="login.html">기업회원 로그인</a></div><div class="small">© 2026 IndustryBook · UX prototype</div></div></footer><script src="assets/app.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="IndustryBook B2B 기업회원 가입 디자인 시안">
+<title>기업회원 가입 | IndustryBook</title>
+<link rel="stylesheet" href="assets/style.css?v=signup-v2-20261030">
+</head>
+<body>
+<header class="topbar">
+  <div class="top-inner">
+    <a class="logo" href="index.html" aria-label="IndustryBook 홈">industry<span>book</span></a>
+    <nav class="toplinks" aria-label="메인 메뉴">
+      <a href="index.html">홈</a><a href="catalogs.html">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a>
+    </nav>
+    <div class="top-actions">
+      <a class="button primary small" href="register.html">+ 등록</a>
+      <select id="language" aria-label="언어 선택"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select>
+      <a href="notifications.html" aria-label="알림">♧</a>
+      <a href="login.html" aria-label="로그인">◉</a>
+    </div>
+  </div>
+</header>
+<main class="container signup-shell">
+  <section class="signup-intro" aria-labelledby="signupTitle">
+    <span class="signup-eyebrow"><span class="signup-dot"></span> B2B MEMBERSHIP</span>
+    <h1 id="signupTitle">비즈니스의 연결,<br><em>IndustryBook에서 시작하세요.</em></h1>
+    <p class="signup-lead">기업의 기술과 제품을 알리고, 잠재 고객과 연결하세요.<br>기업회원 계정으로 카탈로그 등록부터 문의 관리까지 시작할 수 있습니다.</p>
+    <div class="signup-steps" aria-label="가입 진행 단계">
+      <div class="signup-step current" data-step-label="1"><b>01</b><span>담당자 정보</span></div>
+      <span class="signup-step-line"></span>
+      <div class="signup-step" data-step-label="2"><b>02</b><span>회사 정보</span></div>
+      <span class="signup-step-line"></span>
+      <div class="signup-step" data-step-label="3"><b>03</b><span>가입 완료</span></div>
+    </div>
+    <div class="signup-benefits">
+      <div class="signup-benefit"><span class="signup-benefit-icon">▣</span><div><strong>하나의 기업 계정</strong><p>IndustryBook의 기업용 서비스를 일관되게 관리합니다.</p></div></div>
+      <div class="signup-benefit"><span class="signup-benefit-icon">◎</span><div><strong>카탈로그로 기업 홍보</strong><p>PDF · PPTX · 동영상 콘텐츠로 제품을 소개합니다.</p></div></div>
+      <div class="signup-benefit"><span class="signup-benefit-icon">↗</span><div><strong>기업과 새로운 연결</strong><p>관심 기업 구독, 문의와 업데이트를 하나의 플랫폼에서 확인합니다.</p></div></div>
+    </div>
+    <div class="signup-note"><strong>협회 회원사이신가요?</strong><br>협회 인증코드 또는 초대코드를 보유한 경우 회사 정보 단계에서 입력할 수 있습니다.</div>
+  </section>
+
+  <section class="signup-form-panel" aria-labelledby="formTitle">
+    <div class="signup-panel-head">
+      <div><span class="signup-mini-label">CREATE AN ACCOUNT</span><h2 id="formTitle">기업회원 가입</h2><p>기업 담당자와 회사 정보를 입력해 주세요.</p></div>
+      <span class="signup-step-badge" id="stepBadge">STEP 1 / 3</span>
+    </div>
+    <div class="signup-auth-switch">
+      <a href="login.html">기존 회원 로그인</a><span class="selected" aria-current="page">신규 회원가입</span>
+    </div>
+
+    <form id="signupForm" novalidate>
+      <div class="signup-form-step" data-step="1">
+        <div class="signup-form-heading"><h3>담당자 기본 정보</h3><p>계정에 사용할 정보를 입력합니다.</p></div>
+        <div class="field"><label for="memberName">이름 <span class="required">*</span></label><input id="memberName" name="memberName" autocomplete="name" required placeholder="담당자 이름"></div>
+        <div class="field"><label for="memberEmail">이메일 <span class="required">*</span></label><input id="memberEmail" name="memberEmail" type="email" autocomplete="email" required placeholder="name@company.com"></div>
+        <div class="field"><label for="emailCode">이메일 인증번호</label><div class="signup-inline-input"><input id="emailCode" inputmode="numeric" placeholder="인증번호 6자리" maxlength="6" aria-describedby="verifyHelp"><button type="button" id="requestCode" class="button secondary">인증번호 받기</button></div><small id="verifyHelp" class="signup-hint">현재 디자인 시안입니다. 인증 메일 발송은 연동 전입니다.</small></div>
+        <div class="field"><label for="memberPassword">비밀번호 <span class="required">*</span></label><div class="signup-password"><input id="memberPassword" type="password" autocomplete="new-password" required minlength="8" placeholder="8자리 이상 입력"><button type="button" class="signup-eye" data-toggle-password="memberPassword" aria-label="비밀번호 표시">보기</button></div><small class="signup-hint">영문, 숫자, 특수문자를 조합하여 설정하세요.</small></div>
+        <div class="field"><label for="memberPasswordConfirm">비밀번호 확인 <span class="required">*</span></label><div class="signup-password"><input id="memberPasswordConfirm" type="password" autocomplete="new-password" required placeholder="비밀번호를 다시 입력해 주세요"><button type="button" class="signup-eye" data-toggle-password="memberPasswordConfirm" aria-label="비밀번호 확인 표시">보기</button></div></div>
+        <button class="button primary signup-submit" type="button" id="continueSignup">회사 정보 입력 <span aria-hidden="true">→</span></button>
+      </div>
+
+      <div class="signup-form-step" data-step="2" hidden>
+        <div class="signup-form-heading"><h3>회사 정보</h3><p>회사 및 소속 정보를 등록해 주세요.</p></div>
+        <div class="field"><label for="companyName">회사명 <span class="required">*</span></label><input id="companyName" name="companyName" required placeholder="회사명을 입력해 주세요"></div>
+        <div class="field"><label for="companyEnglish">회사명 (영문) <span class="required">*</span></label><input id="companyEnglish" name="companyEnglish" required placeholder="Company name in English"></div>
+        <div class="field"><label for="representative">대표자명 <span class="required">*</span></label><input id="representative" name="representative" required placeholder="대표자 성명"></div>
+        <div class="field"><label for="bizNumber">사업자등록번호 <span class="required">*</span></label><input id="bizNumber" name="bizNumber" inputmode="numeric" required placeholder="123-45-67890"></div>
+        <div class="field"><label for="inviteCode">협회 인증코드 / 초대코드 <span class="signup-optional">(선택)</span></label><input id="inviteCode" name="inviteCode" placeholder="보유하신 코드가 있다면 입력해 주세요"></div>
+        <div class="field"><label for="organization">소속 기관 <span class="signup-optional">(자동 확인)</span></label><input id="organization" readonly placeholder="사업자번호 또는 코드 입력 시 확인" aria-describedby="organizationHelp"><small id="organizationHelp" class="signup-hint">실제 소속 기관 조회 기능은 연동 전입니다.</small></div>
+        <div class="signup-consents">
+          <label class="signup-checkbox signup-consent-all"><input type="checkbox" id="agreeAll"> <span>모두 동의합니다.</span></label>
+          <label class="signup-checkbox"><input type="checkbox" class="consent-required" required> <span>(필수) 이용약관에 동의합니다.</span></label>
+          <label class="signup-checkbox"><input type="checkbox" class="consent-required" required> <span>(필수) 개인정보 수집 및 이용에 동의합니다.</span></label>
+          <label class="signup-checkbox"><input type="checkbox" class="consent-required" required> <span>(필수) 만 14세 이상입니다.</span></label>
+        </div>
+        <div class="signup-form-actions"><button type="button" class="button signup-back" id="backSignup">← 이전</button><button type="submit" class="button primary signup-submit">회원가입 신청하기</button></div>
+      </div>
+
+      <div class="signup-form-step signup-finish" data-step="3" hidden>
+        <span class="signup-finish-icon">✓</span>
+        <h3>가입 정보 입력 완료</h3>
+        <p>디자인 시안에서 입력 단계를 모두 확인했습니다.<br>실제 계정 생성 및 인증은 서버 연결 후 가능합니다.</p>
+        <a class="button primary signup-submit" href="login.html">로그인 화면 보기</a>
+      </div>
+      <p id="signupError" class="signup-error" role="alert" aria-live="polite" hidden></p>
+    </form>
+    <div class="signup-panel-footer">이미 기업회원이신가요? <a href="login.html">로그인하기 →</a><div class="signup-demo-mark">UI PROTOTYPE · 실제 이메일 인증·회원 생성 미연결</div></div>
+  </section>
+</main>
+<footer class="footer"><div class="container footer-inner"><div><a class="logo" href="index.html">industry<span>book</span></a><p class="small">24시간 영업하는 디지털 영업사원</p></div><div class="small"><a href="catalogs.html">카탈로그</a> · <a href="companies.html">기업</a> · <a href="login.html">기업회원 로그인</a></div><div class="small">© 2026 IndustryBook · UX prototype</div></div></footer>
+<script src="assets/app.js"></script>
+<script>
+(function(){
+  const steps=[...document.querySelectorAll('.signup-form-step')];
+  const labels=[...document.querySelectorAll('[data-step-label]')];
+  const error=document.getElementById('signupError');
+  const showError=(message)=>{error.textContent=message;error.hidden=false;};
+  function setStep(n){
+    steps.forEach(el=>el.hidden=Number(el.dataset.step)!==n);
+    labels.forEach(el=>{const x=Number(el.dataset.stepLabel);el.classList.toggle('current',x===n);el.classList.toggle('completed',x<n)});
+    document.getElementById('stepBadge').textContent='STEP '+n+' / 3';
+    error.hidden=true;
+    document.querySelector('.signup-form-panel').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function verifyFields(fields){
+    for(const id of fields){const el=document.getElementById(id);if(!el.checkValidity()){el.reportValidity();el.focus();return false}}
+    return true;
+  }
+  document.querySelectorAll('[data-toggle-password]').forEach(btn=>btn.addEventListener('click',()=>{
+    const input=document.getElementById(btn.dataset.togglePassword);
+    input.type=input.type==='password'?'text':'password';
+    btn.textContent=input.type==='password'?'보기':'숨기기';
+  }));
+  document.getElementById('requestCode').addEventListener('click',()=>{
+    showError('디자인 시안에서는 인증번호가 발송되지 않습니다. 실제 이메일 인증은 서버 연동 후 지원됩니다.');
+  });
+  document.getElementById('continueSignup').addEventListener('click',()=>{
+    if(!verifyFields(['memberName','memberEmail','memberPassword','memberPasswordConfirm']))return;
+    const pw=document.getElementById('memberPassword').value;
+    if(pw!==document.getElementById('memberPasswordConfirm').value){showError('비밀번호와 확인값이 일치하지 않습니다.');return}
+    setStep(2);
+  });
+  document.getElementById('backSignup').addEventListener('click',()=>setStep(1));
+  const consents=[...document.querySelectorAll('.consent-required')],all=document.getElementById('agreeAll');
+  all.addEventListener('change',()=>consents.forEach(x=>x.checked=all.checked));
+  consents.forEach(x=>x.addEventListener('change',()=>all.checked=consents.every(y=>y.checked)));
+  document.getElementById('signupForm').addEventListener('submit',event=>{
+    event.preventDefault();
+    if(!verifyFields(['companyName','companyEnglish','representative','bizNumber']))return;
+    if(!consents.every(x=>x.checked)){showError('필수 약관에 모두 동의해 주세요.');return}
+    setStep(3);
+  });
+})();
+</script>
+</body>
+</html>
