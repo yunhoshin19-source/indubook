@@ -31,11 +31,12 @@ jobs:
           done
           test -f assets/style.css
           test -f assets/app.js
-          cp assets/style.css assets/app.js dist/assets/
+          test -f assets/register.js
+          cp assets/style.css assets/app.js assets/register.js dist/assets/
           touch dist/.nojekyll
           echo 'Published files:'
           find dist -type f | sort
-          test "$(find dist -type f | wc -l)" -eq 15
+          test "$(find dist -type f | wc -l)" -eq 16
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload clean site
