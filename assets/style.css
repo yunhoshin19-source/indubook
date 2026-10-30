@@ -159,3 +159,20 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
 .signup-finish p{font-size:13px;color:#77879b;line-height:1.9;margin:0 0 24px}
 @media(max-width:950px){.signup-shell{grid-template-columns:1fr;max-width:670px;padding-top:26px;gap:27px}.signup-intro{position:static;padding-top:8px}.signup-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.signup-benefit{display:block;padding:15px}.signup-benefit-icon{margin-bottom:12px}.signup-step{font-size:11px}.signup-lead{margin-bottom:25px}.signup-steps{margin-bottom:25px}}
 @media(max-width:650px){.signup-shell{padding-top:24px;padding-bottom:50px}.signup-intro h1{font-size:30px}.signup-intro h1 em{display:inline}.signup-lead{font-size:13px;line-height:1.8}.signup-benefits{grid-template-columns:1fr}.signup-benefit{display:flex;align-items:center}.signup-benefit-icon{margin-bottom:0}.signup-step-line{min-width:8px}.signup-step{gap:6px;font-size:10px}.signup-step b{width:28px;height:28px}.signup-form-panel{padding:22px 17px;border-radius:15px}.signup-panel-head h2{font-size:23px}.signup-step-badge{font-size:10px}.signup-inline-input .button{padding:0 9px;font-size:11px}}
+
+
+/* Footer: content and hierarchy adapted from the supplied existing IndustryBook footer */
+.footer{background:#0f172a!important;color:#9bb4d4!important;border-top:0!important;padding:0!important}
+.footer .ib-footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;column-gap:54px;padding-top:34px;padding-bottom:26px}
+.footer .ib-footer-brand .logo{font-size:17px;letter-spacing:-.6px;color:#f5f7ff!important}
+.footer .ib-footer-brand .logo span{color:#ff7a25!important}
+.footer .ib-footer-brand p{font-size:12px;line-height:1.5;color:#92add3;margin:16px 0}
+.footer .ib-footer-group{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.footer .ib-footer-group h2{font-size:12px;line-height:1.4;margin:0 0 7px;font-weight:750;color:#fff}
+.footer .ib-footer-group a,.footer .ib-footer-group span{font-size:12px;line-height:1.5;color:#9eb9d9!important}
+.footer .ib-footer-group a:hover{color:#fff!important;text-decoration:underline}
+.footer .ib-footer-contact{border-top:1px solid #243148;margin-top:8px;padding-top:14px;width:100%;display:flex;flex-direction:column;gap:3px}
+.footer .ib-footer-contact a,.footer .ib-footer-contact span{font-size:12px}
+.footer .ib-footer-bottom{padding-top:21px;padding-bottom:19px;border-top:1px solid #263249;color:#597293;text-align:center;font-size:11px}
+@media(max-width:850px){.footer .ib-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 28px}}
+@media(max-width:520px){.footer .ib-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px;padding-top:28px}.footer .ib-footer-brand{grid-column:1/-1}.footer .ib-footer-group:last-child{grid-column:1/-1}.footer .ib-footer-contact{max-width:100%}.footer .ib-footer-bottom{text-align:left}}
