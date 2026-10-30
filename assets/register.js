@@ -59,7 +59,41 @@ function getYoutubeId(raw){try{const u=new URL(raw);if(['www.youtube.com','youtu
 $('#youtubeConfirm').addEventListener('click',()=>{const url=$('#youtubeUrl').value.trim(),id=getYoutubeId(url);if(!id||!/^[a-zA-Z0-9_-]{11}$/.test(id)){notice('올바른 YouTube 영상 주소를 입력해 주세요.');return}if(state.contents.length>=30){notice('콘텐츠는 최대 30개까지 추가할 수 있습니다.');return}state.contents.push({id:uid(),kind:'youtube',name:'YouTube · '+id,size:0,url});$('#youtubeForm').hidden=true;$('#youtubeUrl').value='';renderContents();updateStatus()});
 function status(){const missing=[];if(!$('#regTitle').value.trim())missing.push('제목');if(state.industries.length===0)missing.push('인더스트리');if(!state.contents.length)missing.push('콘텐츠');if(state.mode==='upload'&&!state.coverFile)missing.push('대표 이미지');if(state.mode==='first'&&!firstImage())missing.push('첫 이미지 또는 PDF/PPT 파일');return missing}
 function updateStatus(){const missing=status();if(missing.length)notice('아직 채우지 않은 항목: '+missing.join(', '));else notice('필수 항목이 모두 준비되었습니다. (실제 업로드는 연결되지 않음)',true)}
-$('#catalogForm').addEventListener('submit',e=>{e.preventDefault();if(tagInput.value.trim()){addTags(tagInput.value);tagInput.value=''}const missing=status();if(missing.length){updateStatus();$('#registerValidation').scrollIntoView({behavior:'smooth',block:'center'});return}notice('등록 전 화면 검사가 완료되었습니다. 실제 데이터 전송은 수행되지 않았습니다.',true);if(typeof notify==='function')notify('등록 화면 데모 검사가 완료되었습니다.')});
-$('#resetForm').addEventListener('click',()=>{if(!window.confirm('입력 중인 내용을 초기화할까요?'))return;state.contents.forEach(c=>{if(c.preview)URL.revokeObjectURL(c.preview)});if(state.coverUrl)URL.revokeObjectURL(state.coverUrl);state.contents=[];state.coverFile=null;state.coverUrl=null;state.tags=[];state.industries=[];$('#catalogForm').reset();$('#regTitle').value='';$('#regDescription').value='';tagInput.value='';$('#titleCount').textContent='0/30';$('#descCount').textContent='0/300';renderTags();renderIndustries();renderContents();refreshCover();updateStatus()});
+$('#catalogForm').addEventListener('submit',e=>{e.preventDefault();if(tagInput.value.trim()){addTags(tagInput.value);tagInput.value=''}const missing=status();if(missing.length){updateStatus();$('#registerValidation').scrollIntoView({behavior:'smooth',block:'center'});return}saveCurrentDraft();notice('최종 저장 버튼을 확인했습니다. 실제 서버 저장은 연결되지 않았으며 입력 정보만 브라우저에 저장됩니다.',true);if(typeof notify==='function')notify('등록 화면 데모 검사가 완료되었습니다.')});
+$('#resetForm').addEventListener('click',()=>{if(!window.confirm('입력 중인 내용을 초기화할까요?'))return;state.contents.forEach(c=>{if(c.preview)URL.revokeObjectURL(c.preview)});if(state.coverUrl)URL.revokeObjectURL(state.coverUrl);state.contents=[];state.coverFile=null;state.coverUrl=null;state.tags=[];state.industries=[];localStorage.removeItem(draftKey);localStorage.removeItem('ib-draft');$('#catalogForm').reset();$('#regTitle').value='';$('#regDescription').value='';tagInput.value='';$('#titleCount').textContent='0/30';$('#descCount').textContent='0/300';renderTags();renderIndustries();renderContents();refreshCover();updateStatus()});
+
+/* Save only lightweight form metadata in the browser.
+   Selected File objects, upload bytes, and generated previews are not persisted. */
+const draftKey='ib-catalog-register-draft-v4';
+function saveCurrentDraft(){
+  if(tagInput.value.trim()){addTags(tagInput.value);tagInput.value=''}
+  const draft={
+    title:$('#regTitle').value,
+    description:$('#regDescription').value,
+    industries:[...state.industries],
+    tags:[...state.tags],
+    visibility:document.querySelector('input[name="visibility"]:checked')?.value||'public',
+    coverMode:document.querySelector('input[name="coverMode"]:checked')?.value||'first',
+    lastSaved:new Date().toISOString()
+  };
+  try{localStorage.setItem(draftKey,JSON.stringify(draft));localStorage.setItem('ib-draft',draft.title);notice('임시 저장했습니다. (텍스트 설정만 이 브라우저에 저장됨 · 첨부 파일 제외)',true)}
+  catch(err){notice('브라우저 저장 공간에 저장하지 못했습니다.')}
+}
+$('#saveDraftCatalog').addEventListener('click',saveCurrentDraft);
+function restoreDraft(){
+  try{
+    const raw=localStorage.getItem(draftKey);if(!raw)return;
+    const d=JSON.parse(raw);
+    if(typeof d.title==='string')$('#regTitle').value=d.title.slice(0,30);
+    if(typeof d.description==='string')$('#regDescription').value=d.description.slice(0,300);
+    if(Array.isArray(d.industries))state.industries=d.industries.filter(x=>industries.includes(x)).slice(0,3);
+    if(Array.isArray(d.tags))state.tags=d.tags.filter(x=>typeof x==='string').slice(0,15);
+    if(d.visibility==='private')document.querySelector('input[name="visibility"][value="private"]').checked=true;
+    if(d.coverMode==='upload')document.querySelector('input[name="coverMode"][value="upload"]').checked=true;
+    $('#titleCount').textContent=$('#regTitle').value.length+'/30';
+    $('#descCount').textContent=$('#regDescription').value.length+'/300';
+  }catch(err){/* Ignore malformed old drafts */ }
+}
+restoreDraft();
 renderIndustries();renderTags();renderContents();refreshCover();updateStatus();
 })();
