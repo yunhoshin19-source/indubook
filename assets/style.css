@@ -89,3 +89,73 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
   .viewer{border-radius:0}
   .company-head{padding:24px}
 }
+
+/* Enterprise signup v2 — matches IndustryBook white/navy draft */
+.signup-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(425px,500px);gap:clamp(36px,5vw,90px);align-items:start;padding-top:58px;padding-bottom:100px;max-width:1180px}
+.signup-intro{padding:36px 0 0;position:sticky;top:128px}
+.signup-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:850;letter-spacing:1.5px;color:#245eea}
+.signup-dot{width:8px;height:8px;border-radius:100%;background:#245eea;box-shadow:0 0 0 5px #245eea16}
+.signup-intro h1{font-size:clamp(31px,3.35vw,44px);line-height:1.23;letter-spacing:-1.8px;margin:20px 0 18px;color:#172e4d}
+.signup-intro h1 em{color:#245eea;font-style:normal}
+.signup-lead{font-size:15px;line-height:1.95;color:#697d95;margin:0 0 39px}
+.signup-steps{display:flex;align-items:center;gap:9px;margin:0 0 38px}
+.signup-step{display:flex;align-items:center;gap:8px;color:#8b9bb0;font-size:12px;white-space:nowrap}
+.signup-step b{width:34px;height:34px;display:grid;place-items:center;background:#e9eef5;color:#8b9bb0;border-radius:50%;font-size:12px}
+.signup-step.current{color:#174ec0;font-weight:750}
+.signup-step.current b{background:#245eea;color:#fff}
+.signup-step.completed{color:#245eea}
+.signup-step.completed b{background:#e6efff;color:#245eea}
+.signup-step-line{height:1px;background:#dce4ef;min-width:18px;flex:1}
+.signup-benefits{display:flex;flex-direction:column;gap:13px}
+.signup-benefit{display:flex;align-items:flex-start;gap:16px;background:#fff;padding:20px;border:1px solid #e3eaf3;border-radius:15px;box-shadow:0 3px 13px #102d5410}
+.signup-benefit-icon{width:46px;height:46px;flex:none;border-radius:12px;display:grid;place-items:center;font-size:22px;font-weight:750;background:#e8f0ff;color:#245eea}
+.signup-benefit:nth-child(2) .signup-benefit-icon{background:#e4f7f1;color:#16866b}
+.signup-benefit:nth-child(3) .signup-benefit-icon{background:#f2eafe;color:#8c52dc}
+.signup-benefit strong{font-size:15px;color:#1d324d}
+.signup-benefit p{font-size:12px;color:#6b7d95;line-height:1.8;margin:6px 0 0}
+.signup-note{margin-top:18px;border:1px solid #d7e5fc;color:#4a6687;background:#edf5ff;padding:17px 18px;border-radius:12px;font-size:12px;line-height:1.85}
+.signup-note strong{color:#245eea}
+.signup-form-panel{background:#fff;border:1px solid #e4eaf2;border-radius:20px;padding:32px;box-shadow:0 15px 45px #10274e11;scroll-margin-top:100px}
+.signup-panel-head{display:flex;justify-content:space-between;gap:16px;align-items:start}
+.signup-mini-label{font-size:10px;color:#7090b5;letter-spacing:1.65px;font-weight:850}
+.signup-panel-head h2{font-size:26px;letter-spacing:-.8px;margin:9px 0}
+.signup-panel-head p{color:#76859a;font-size:13px;margin:0}
+.signup-step-badge{flex:none;border-radius:20px;background:#edf3ff;color:#245eea;font-size:11px;font-weight:800;padding:8px 11px;margin-top:8px}
+.signup-auth-switch{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:27px 0 29px;border-bottom:1px solid #e7edf5}
+.signup-auth-switch a,.signup-auth-switch span{font-size:13px;color:#8895a7;text-align:center;text-decoration:none;padding:14px 6px;font-weight:650;white-space:nowrap}
+.signup-auth-switch .selected{color:#245eea;border-bottom:2px solid #245eea}
+.signup-form-step[hidden],.signup-error[hidden]{display:none!important}
+.signup-form-heading{margin-bottom:26px}
+.signup-form-heading h3{margin:0 0 5px;font-size:17px;color:#1c3554}
+.signup-form-heading p{color:#8493a7;margin:0;font-size:12px}
+.signup-form-panel .field{margin-bottom:20px;gap:8px}
+.signup-form-panel .field label{font-weight:700;font-size:12px;color:#344862}
+.signup-form-panel .field input{height:45px;border:1px solid #d7e0ec;border-radius:9px;padding:11px 13px;font-size:13px}
+.signup-form-panel .field input:focus{outline:2px solid #245eea50;border-color:#245eea}
+.signup-form-panel .field input[readonly]{background:#f3f6fb;color:#8a99ac}
+.required{color:#ed6470}
+.signup-optional{font-weight:500;color:#a0acbc}
+.signup-inline-input{display:flex;gap:8px;align-items:stretch}
+.signup-inline-input input{flex:1;width:0}
+.signup-inline-input .button{white-space:nowrap;padding:0 13px;font-size:12px}
+.signup-hint{display:block;font-size:11px;color:#90a0b4;line-height:1.6}
+.signup-password{position:relative}
+.signup-password input{padding-right:63px!important}
+.signup-eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#768aa4;font-size:11px;padding:10px;cursor:pointer}
+.signup-submit{width:100%;height:48px;justify-content:center;margin-top:10px}
+.signup-consents{display:flex;flex-direction:column;border-top:1px solid #e4eaf2;margin:29px 0 15px;padding-top:18px;gap:15px}
+.signup-checkbox{display:flex;align-items:center;gap:9px;font-size:12px;color:#61738d}
+.signup-checkbox input{accent-color:#245eea;width:15px;height:15px;flex:none}
+.signup-consent-all{font-weight:800;color:#233b58;margin-bottom:1px}
+.signup-form-actions{display:flex;gap:10px}
+.signup-form-actions .signup-back{min-width:105px;margin-top:10px}
+.signup-panel-footer{text-align:center;border-top:1px solid #edf1f7;margin-top:30px;padding-top:22px;color:#8795a8;font-size:12px}
+.signup-panel-footer a{color:#245eea;font-weight:800}
+.signup-demo-mark{font-size:10px;color:#a3afc0;margin-top:20px}
+.signup-error{background:#fff1f2;border:1px solid #f8ccd2;padding:12px;border-radius:9px;color:#b83b55;font-size:12px}
+.signup-finish{text-align:center;padding:35px 0 8px}
+.signup-finish-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#e6f7ee;color:#159264;font-size:40px;margin:0 auto 19px}
+.signup-finish h3{font-size:23px;margin:0 0 10px}
+.signup-finish p{font-size:13px;color:#77879b;line-height:1.9;margin:0 0 24px}
+@media(max-width:950px){.signup-shell{grid-template-columns:1fr;max-width:670px;padding-top:26px;gap:27px}.signup-intro{position:static;padding-top:8px}.signup-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.signup-benefit{display:block;padding:15px}.signup-benefit-icon{margin-bottom:12px}.signup-step{font-size:11px}.signup-lead{margin-bottom:25px}.signup-steps{margin-bottom:25px}}
+@media(max-width:650px){.signup-shell{padding-top:24px;padding-bottom:50px}.signup-intro h1{font-size:30px}.signup-intro h1 em{display:inline}.signup-lead{font-size:13px;line-height:1.8}.signup-benefits{grid-template-columns:1fr}.signup-benefit{display:flex;align-items:center}.signup-benefit-icon{margin-bottom:0}.signup-step-line{min-width:8px}.signup-step{gap:6px;font-size:10px}.signup-step b{width:28px;height:28px}.signup-form-panel{padding:22px 17px;border-radius:15px}.signup-panel-head h2{font-size:23px}.signup-step-badge{font-size:10px}.signup-inline-input .button{padding:0 9px;font-size:11px}}
