@@ -484,3 +484,35 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
 .ib-following-empty{grid-column:1/-1;text-align:center;padding:35px 12px;color:#899bad;border:1px dashed #d8e4f0;border-radius:12px}
 @media(max-width:1080px){.ib-member-columns{grid-template-columns:1fr}.ib-member-aside{display:grid;grid-template-columns:1fr 1fr}.ib-pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.ib-member-page-head h1{font-size:28px}.ib-member-panel{padding:19px}.ib-member-aside{grid-template-columns:1fr}.ib-member-tile-grid{grid-template-columns:1fr}.ib-member-tile{flex-direction:row;flex-wrap:wrap;align-items:center}.ib-member-tile small{width:100%}.ib-member-section-heading{flex-wrap:wrap}.ib-pricing-grid{grid-template-columns:1fr}.ib-following-list{grid-template-columns:1fr}.ib-account-line .ib-photo-preview{width:67px;height:67px}.ib-account-name h2{font-size:19px}}
+
+/* Profile editing page from supplied screenshot, retaining IndustryBook design */
+.ib-edit-layout{max-width:1000px;padding-top:34px}
+.ib-edit-heading{display:flex;align-items:center;gap:13px;margin:0 0 26px}
+.ib-edit-heading h1{font-size:27px;letter-spacing:-.8px;margin:0}
+.ib-edit-back{font-size:23px;color:#4b6586}
+.ib-edit-form{width:min(100%,720px);margin:auto;background:#fff;border:1px solid #e1e8f2;border-radius:18px;padding:30px;box-shadow:0 5px 26px #1a345510}
+.ib-edit-photo-row{display:flex;align-items:center;gap:17px;margin-bottom:28px}
+.ib-edit-photo-row .ib-photo-preview{height:75px;width:75px;border-radius:18px;background:#eaf1fc;display:block;overflow:hidden;flex:none}
+.ib-edit-photo-row .ib-photo-preview img,.ib-edit-photo-row .ib-photo-preview svg{width:100%;height:100%;object-fit:cover}
+.ib-edit-photo-row p{color:#899ab0;font-size:11px;line-height:1.6;margin:8px 0 0}
+.ib-edit-field{margin-bottom:23px}
+.ib-edit-field>label{display:block;margin-bottom:9px;font-weight:750;font-size:13px;color:#2c4361}
+.ib-edit-field>label strong{color:#f05a6a}
+.ib-edit-field>label span{font-weight:500;color:#93a5bd;font-size:12px}
+.ib-edit-field input,.ib-edit-field textarea,.ib-edit-field select,.ib-edit-social-line input{width:100%;background:#fff;color:#213a5a;border:1px solid #dce5f0;border-radius:9px;padding:12px 14px;font-size:14px;font:inherit;box-sizing:border-box}
+.ib-edit-field textarea{min-height:130px;resize:vertical;line-height:1.7}
+.ib-edit-field input:focus,.ib-edit-field textarea:focus,.ib-edit-field select:focus,.ib-edit-social-line input:focus{outline:2px solid #b4caff;border-color:#245eea}
+.ib-edit-categories{display:flex;flex-wrap:wrap;gap:7px}
+.ib-edit-category{border:1px solid #e5ebf3;background:#f2f5f9;color:#58718e;border-radius:30px;padding:8px 12px;cursor:pointer;font-size:12px}
+.ib-edit-category:hover{border-color:#b7ccf3}
+.ib-edit-category.active{background:#245eea;color:#fff;border-color:#245eea}
+.ib-edit-social{margin:12px 0 28px;padding:0;border:0}
+.ib-edit-social legend{font-size:13px;font-weight:750;color:#2c4361;margin:0 0 12px}
+.ib-edit-social-line{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:center;margin:0 0 9px}
+.ib-edit-social-icon{display:grid;place-items:center;background:#f1f5fa;color:#6d8cb3;border-radius:9px;height:40px;font-size:16px;font-weight:850}
+.ib-edit-feedback{padding:12px 14px;border-radius:9px;background:#eaf9f0;border:1px solid #b7e8ce;color:#197b4b;font-size:13px}
+.ib-edit-feedback.is-error{background:#fff2f3;border-color:#f1c2ca;color:#a73250}
+.ib-edit-actions{border-top:1px solid #e4eaf3;padding-top:18px;display:flex;justify-content:flex-end;gap:9px}
+.ib-edit-actions .button{min-width:105px}
+.ib-edit-notice{font-size:11px;color:#9aaac0;margin:17px 0 0;line-height:1.7}
+@media(max-width:680px){.ib-edit-layout{padding-top:22px}.ib-edit-form{padding:20px 15px;border-radius:14px}.ib-edit-heading h1{font-size:24px}.ib-edit-actions .button{flex:1}.ib-edit-photo-row .ib-photo-preview{width:66px;height:66px}}
