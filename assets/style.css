@@ -531,3 +531,23 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
 .ib-info-subtitle{font-size:17px;font-weight:800;color:#1f3e62;margin:28px 0 20px;padding-bottom:12px;border-bottom:1px solid #e5ebf4}
 .ib-edit-field>label span{font-size:12px;color:#8c9cb2;font-weight:500}
 .ib-edit-field input[readonly]{background:#f3f6fa;color:#8090a5;cursor:not-allowed}
+
+/* Member information email verification, demo gate */
+.ib-email-auth-panel{margin-bottom:18px}
+.ib-auth-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.ib-auth-title h2{font-size:18px;margin:0;color:#1b395d}
+.ib-auth-step{font-size:11px;font-weight:800;color:#245eea;background:#edf3ff;border-radius:18px;padding:7px 10px}
+.ib-auth-title+p{font-size:13px;line-height:1.8;color:#697e9b}
+.ib-email-auth-panel>label{display:block;font-size:13px;font-weight:750;margin:18px 0 8px;color:#293f60}
+.ib-email-auth-panel>input{width:100%;box-sizing:border-box;border:1px solid #dbe5f1;border-radius:9px;padding:12px;background:#f5f8fd;color:#59718e}
+.ib-auth-controls{display:grid;grid-template-columns:auto minmax(135px,1fr) auto;gap:8px;margin-top:20px}
+.ib-auth-controls input{width:100%;min-width:0;border-radius:9px;border:1px solid #d8e3f0;padding:10px 12px;font-size:13px}
+.ib-auth-controls .button{font-size:12px;padding:10px}
+.ib-auth-test-hint{background:#f0f5ff;border:1px solid #d9e7ff;border-radius:9px;padding:12px;color:#4a6ca1;font-size:12px;line-height:1.8}
+.ib-auth-lock-label{font-size:11px;background:#f1f4f8;color:#687d98;border-radius:15px;padding:7px 10px}
+.ib-member-locked fieldset{opacity:.55}
+.ib-member-locked fieldset input{background:#f4f7fb}
+.ib-member-locked fieldset{border:0;padding:0;margin:0;min-width:0}
+.ib-member-locked .ib-edit-actions button[type="submit"]{pointer-events:none;opacity:.5}
+.ib-auth-controls button:disabled{opacity:.6;cursor:default}
+@media(max-width:640px){.ib-auth-controls{grid-template-columns:1fr 1fr}.ib-auth-controls input{grid-column:1/-1;grid-row:1}.ib-auth-controls .button{justify-content:center}}
