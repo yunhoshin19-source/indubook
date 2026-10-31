@@ -406,3 +406,81 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
  .ib-register-bottom>div{width:100%}
  .ib-register-bottom .button{flex:1}
 }
+ 
+/* Enterprise My Page & Subscriptions: light v1 style, 2026-10-31 */
+.ib-member-layout{max-width:1256px}
+.ib-member-page-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.ib-member-page-head h1{font-size:32px;letter-spacing:-1px;color:#183454;margin:8px 0}
+.ib-member-page-head p{margin:0;color:#74859c;font-size:14px}
+.ib-member-columns{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.8fr);gap:23px;align-items:start}
+.ib-member-primary,.ib-member-aside{display:flex;flex-direction:column;gap:20px}
+.ib-member-panel{background:#fff;border:1px solid #e0e8f3;border-radius:18px;box-shadow:0 3px 17px #152e5109;padding:26px}
+.ib-member-panel h2{margin:0;font-size:19px;letter-spacing:-.55px;color:#1d395b}
+.ib-member-panel p{color:#8291a4;font-size:13px;line-height:1.7}
+.ib-account-banner{background:linear-gradient(120deg,#fff,#f5f9ff)}
+.ib-account-line{display:flex;gap:18px;align-items:center;margin-bottom:18px}
+.ib-account-line .ib-photo-preview{display:block;flex:none;width:82px;height:82px;border-radius:50%;overflow:hidden;background:#e7efff;border:3px solid #dce9ff}
+.ib-account-line .ib-photo-preview img,.ib-account-line .ib-photo-preview svg{width:100%;height:100%;object-fit:cover}
+.ib-status-label{font-size:10px;font-weight:850;color:#5583d7;letter-spacing:1.5px}
+.ib-account-name h2{font-size:23px;margin:7px 0 5px}
+.ib-account-name p{margin:0}
+.ib-account-tags{display:flex;gap:7px;margin-top:9px}
+.ib-account-tags span{font-size:11px;border-radius:30px;padding:5px 10px;color:#426fba;background:#eaf1ff}
+.ib-photo-upload-label{cursor:pointer;display:inline-flex}
+.ib-small-note{font-size:11px!important;line-height:1.7}
+.ib-member-section-heading{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:17px}
+.ib-member-section-heading p{margin:6px 0 0}
+.ib-member-empty{text-align:center;padding:38px 12px 32px;border:1px dashed #dce5f0;border-radius:13px;background:#fafcff}
+.ib-member-empty>span{display:block;color:#7c9dc8;font-size:36px;margin-bottom:11px}
+.ib-member-empty strong{font-size:15px}
+.ib-member-empty p{margin:8px 0 18px}
+.ib-text-link{color:#245eea;font-size:12px;font-weight:700}
+.ib-member-tile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ib-member-tile{border:1px solid #e3ebf5;background:#fbfcff;border-radius:12px;padding:17px 12px;display:flex;flex-direction:column;gap:8px}
+.ib-member-tile>span{color:#245eea;font-size:25px}
+.ib-member-tile strong{font-size:13px}
+.ib-member-tile small{color:#8193ab;font-size:11px;line-height:1.5}
+.ib-member-tile:hover{background:#f0f5ff;border-color:#b7cdf5}
+.ib-member-stat-list{display:flex;flex-direction:column;margin:19px 0;border-block:1px solid #e8eef5}
+.ib-member-stat-list>div{padding:13px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #edf1f6}
+.ib-member-stat-list>div:last-child{border-bottom:0}
+.ib-member-stat-list span{font-size:13px;color:#7989a0}
+.ib-member-stat-list strong{font-size:20px;color:#1c395c}
+.ib-member-stat-list small{font-size:11px;color:#8c9aaf}
+.ib-full-button{display:flex;width:100%;justify-content:center}
+.ib-member-setting-list{margin:16px 0 12px}
+.ib-member-setting-list a,.ib-member-setting-list button{display:flex;width:100%;justify-content:space-between;text-align:left;padding:13px 2px;background:none;border:0;border-bottom:1px solid #edf1f6;color:#405773;font-size:13px;cursor:pointer}
+.ib-member-setting-list a:hover,.ib-member-setting-list button:hover{color:#245eea}
+.ib-member-setting-list span{font-size:19px;color:#9eafc2}
+.ib-member-logout{padding:11px 0;border:0;background:transparent;color:#9a6873;font-size:13px;cursor:pointer}
+.ib-member-modal[hidden],.ib-sub-panel[hidden]{display:none!important}
+.ib-member-modal{position:fixed;inset:0;background:#0c20367a;display:grid;place-items:center;z-index:110;padding:15px}
+.ib-member-dialog{background:white;padding:27px;border-radius:17px;width:min(450px,100%);position:relative;box-shadow:0 25px 80px #051d3c38}
+.ib-member-dialog h2{margin:0 0 16px}
+.ib-member-dialog p{line-height:1.8;color:#71859e;font-size:13px}
+.ib-member-modal-close{position:absolute;right:15px;top:10px;font-size:26px;border:0;background:none;color:#8395a9;cursor:pointer}
+.ib-sub-tabs{display:flex;gap:30px;border-bottom:1px solid #e0e8f3;margin:12px 0 26px}
+.ib-sub-tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:14px 4px;cursor:pointer;color:#6e8099;font-size:15px;font-weight:750}
+.ib-sub-tabs button[aria-selected="true"]{color:#245eea;border-bottom-color:#245eea}
+.ib-sub-tabs span{font-size:12px;margin-left:4px}
+.ib-current-plan{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.ib-current-plan>span{padding:8px 13px;background:#ecf3ff;border-radius:20px;color:#245eea;font-size:11px;white-space:nowrap}
+.ib-pricing-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ib-pricing-card{background:white;border:1px solid #e2e9f2;border-radius:17px;padding:23px 19px;display:flex;flex-direction:column}
+.ib-pricing-card.featured{border:2px solid #245eea;box-shadow:0 10px 35px #245eea16}
+.ib-pricing-kicker{font-size:10px;color:#6084c0;letter-spacing:1.6px;font-weight:850}
+.ib-pricing-card h3{font-size:19px;margin:9px 0}
+.ib-pricing-price{font-size:23px;font-weight:800;white-space:nowrap}
+.ib-pricing-price small{font-size:12px;font-weight:500;color:#8594a7}
+.ib-pricing-card p{color:#8393a9;font-size:12px;min-height:34px}
+.ib-pricing-card ul{padding-left:18px;margin:15px 0 24px;flex:1;color:#657991;font-size:12px;line-height:2}
+.ib-pricing-card>.button{font-size:12px}
+.ib-plan-disclaimer{font-size:12px;color:#8b9bb0;line-height:1.8;margin-top:18px}
+.ib-following-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ib-following-item{background:#f9fbff;border:1px solid #e2ebf5;border-radius:12px;padding:17px;display:flex;flex-direction:column;gap:11px}
+.ib-following-item strong{font-size:15px}
+.ib-following-item p{margin:0}
+.ib-following-item .button{align-self:start}
+.ib-following-empty{grid-column:1/-1;text-align:center;padding:35px 12px;color:#899bad;border:1px dashed #d8e4f0;border-radius:12px}
+@media(max-width:1080px){.ib-member-columns{grid-template-columns:1fr}.ib-member-aside{display:grid;grid-template-columns:1fr 1fr}.ib-pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.ib-member-page-head h1{font-size:28px}.ib-member-panel{padding:19px}.ib-member-aside{grid-template-columns:1fr}.ib-member-tile-grid{grid-template-columns:1fr}.ib-member-tile{flex-direction:row;flex-wrap:wrap;align-items:center}.ib-member-tile small{width:100%}.ib-member-section-heading{flex-wrap:wrap}.ib-pricing-grid{grid-template-columns:1fr}.ib-following-list{grid-template-columns:1fr}.ib-account-line .ib-photo-preview{width:67px;height:67px}.ib-account-name h2{font-size:19px}}
