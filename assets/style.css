@@ -732,3 +732,30 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-demo-org-choice[hidden]{display:none!important}
 @media(max-width:800px){.ib-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-table-search{width:100%}.ib-table-search input{min-width:0;width:100%}}
 @media(max-width:560px){.ib-manage-heading h1{font-size:24px}.ib-stat-card{padding:16px}.ib-stat-card strong{font-size:25px}.ib-manage-form-grid{grid-template-columns:1fr}.ib-table-heading{padding:16px}.ib-manage-dialog{padding:18px}}
+
+/* Home catalog discover — recommended / recent / popular, personalized interests */
+.ib-home-discover{margin:34px 0 56px}
+.ib-home-discover-head{margin-bottom:22px}
+.ib-home-discover-head h2{font-size:26px;font-weight:700;letter-spacing:-.025em;margin:5px 0 9px;color:#182d48}
+.ib-home-discover-head p{font-size:14px;line-height:1.65}
+.ib-discover-tabs{display:flex;gap:8px;align-items:center;margin:0 0 24px;flex-wrap:wrap}
+.ib-discover-tabs button{border:1px solid #e7edf6;background:white;color:#71819a;font-size:13px;font-weight:600;padding:11px 21px;border-radius:30px;min-width:95px;cursor:pointer}
+.ib-discover-tabs button.active,.ib-discover-tabs button[aria-selected="true"]{color:#fff;background:#245eea;border-color:#245eea}
+.ib-discover-tabs button:focus-visible,.ib-home-interests button:focus-visible{outline:3px solid #9ebaff;outline-offset:2px}
+.ib-home-interest-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:12px}
+.ib-home-interest-top strong{font-size:14px;font-weight:650;color:#1d3657}
+.ib-home-interest-top a{font-size:12px;color:#245eea;font-weight:600}
+.ib-home-interest-top a[hidden]{display:none}
+.ib-home-interests{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:23px}
+.ib-home-interests button{border:1px solid #e6ecf6;border-radius:30px;background:#fff;font-size:12px;font-weight:500;color:#6d7f99;cursor:pointer;padding:9px 16px}
+.ib-home-interests button.active{background:#245eea;color:#fff;border-color:#245eea}
+.ib-interest-profile-summary{display:block;color:#5278b9;font-size:12px;margin:-12px 0 20px}
+.ib-home-catalog-grid [hidden]{display:none!important}
+.ib-home-catalog-grid .catalog-item{display:flex;flex-direction:column}
+.ib-home-catalog-grid .card-body{flex:1}
+.ib-home-card-meta{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #eaf0f7;margin:0 17px;padding:11px 0;color:#879ab2;font-size:11px}
+.ib-home-noresults{padding:40px 18px;text-align:center;border:1px dashed #cbd9ed;background:#f9fbff;color:#7789a1;border-radius:12px}
+.ib-home-noresults[hidden]{display:none}
+.ib-home-view-more{display:flex;justify-content:center;margin-top:28px}
+.ib-home-demo-note{font-size:11px;color:#9aa9be;margin:20px 0 0;line-height:1.7}
+@media(max-width:680px){.ib-home-discover-head h2{font-size:23px}.ib-discover-tabs button{flex:1;min-width:0;padding:11px 7px}.ib-home-interests button{padding:9px 13px}.ib-home-card-meta{font-size:10px}}
