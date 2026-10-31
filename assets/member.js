@@ -4,6 +4,7 @@
  const notifyDemo=s=>{if(typeof notify==='function')notify(s);else alert(s)};
  const email=localStorage.getItem('ib-demo-email');
  if($('#ib-account-title')){$('#ib-account-title').textContent=email?email.split('@')[0]+'님, 안녕하세요':'기업회원님, 안녕하세요';$('#ib-account-email').textContent=email||'기업회원 계정 · 디자인 시안'}
+ try{const saved=JSON.parse(localStorage.getItem('ib-demo-profile-v1')||'{}');const heading=$('#ib-account-title');if(heading&&saved.nickname)heading.textContent=saved.nickname+'님, 안녕하세요';const subtitle=$('#ib-account-email');if(subtitle&&saved.shortIntro)subtitle.textContent=saved.shortIntro;}catch(e){}
  const likes=JSON.parse(localStorage.getItem('ib-likes')||'[]'),subs=JSON.parse(localStorage.getItem('ib-subs')||'[]');
  if($('#ib-member-following-count'))$('#ib-member-following-count').innerHTML=subs.length+' <small>개</small>';
  if($('#ib-member-like-count'))$('#ib-member-like-count').innerHTML=likes.length+' <small>개</small>';
