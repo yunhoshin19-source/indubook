@@ -1,1 +1,37 @@
-<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IndustryBook · mypage</title><link rel="stylesheet" href="assets/style.css?v=lang-profile-20261030"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><section class="container main"><div class="section-heading"><div><div class="eyebrow">INDUSTRYBOOK</div><h2>마이페이지</h2><p class="muted">기업회원 계정 및 관심 정보를 관리합니다.</p></div></div><div class="ib-photo-editor"><span class="ib-photo-preview" id="ib-profile-photo-preview"></span><div><label for="ib-profile-photo-input">프로필 사진 설정</label><input type="file" id="ib-profile-photo-input" accept="image/png,image/jpeg,image/webp"><p>사진을 선택하면 오른쪽 상단 프로필에 표시됩니다.<br>브라우저에만 저장되는 시안 기능입니다. 최대 1.5MB.</p></div></div><div class="grid three"><a class="panel" href="dashboard.html"><h2>기업 관리</h2><p class="muted">카탈로그와 기업 프로필 관리 →</p></a><a class="panel" href="feed.html"><h2>관심 피드</h2><p class="muted">기업 구독과 관심 콘텐츠 →</p></a><a class="panel" href="notifications.html"><h2>알림</h2><p class="muted">문의·구독 업데이트 →</p></a></div></section><footer class="footer"><div class="container footer-inner"><div><a class="logo" href="index.html">industry<span>book</span></a><p class="small">24시간 영업하는 디지털 영업사원</p></div><div class="small"><a href="catalogs.html">카탈로그</a> · <a href="companies.html">기업</a> · <a href="login.html">기업회원 로그인</a></div><div class="small">© 2026 IndustryBook · UX prototype</div></div></footer><script src="assets/app.js?v=lang-profile-20261030"></script></body></html>
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>마이페이지 | IndustryBook</title><link rel="stylesheet" href="assets/style.css?v=mypage-v2-20261031"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><main class="container main ib-member-layout">
+  <div class="ib-member-page-head"><div><div class="eyebrow">MY WORKSPACE</div><h1>마이페이지</h1><p>기업 프로필과 등록 콘텐츠, 계정 설정을 관리합니다.</p></div><a class="button secondary" href="subscriptions.html">이용 플랜·구독 관리 ↗</a></div>
+  <div class="ib-member-columns">
+    <div class="ib-member-primary">
+      <section class="ib-account-banner ib-member-panel">
+        <div class="ib-account-line"><span class="ib-photo-preview" id="ib-profile-photo-preview" aria-label="현재 프로필 사진"></span><div class="ib-account-name"><div class="ib-status-label">ENTERPRISE MEMBER</div><h2 id="ib-account-title">기업회원님, 안녕하세요</h2><p id="ib-account-email">기업회원 계정 · 디자인 시안</p><div class="ib-account-tags"><span>기업회원</span><span>프로필 관리</span></div></div></div>
+        <label class="button secondary small ib-photo-upload-label">프로필 사진 변경<input type="file" id="ib-profile-photo-input" accept="image/png,image/jpeg,image/webp" hidden></label>
+        <p class="ib-small-note">이미지는 현재 브라우저에만 보관됩니다. 실제 서버 계정에는 반영되지 않습니다.</p>
+      </section>
+      <section class="ib-member-panel">
+        <div class="ib-member-section-heading"><div><h2>내가 등록한 카탈로그</h2><p>등록 콘텐츠를 확인하고 새 카탈로그를 추가하세요.</p></div><a class="button primary small" href="register.html">+ 카탈로그 등록</a></div>
+        <div class="ib-member-empty"><span>▤</span><strong>등록된 카탈로그가 없습니다.</strong><p>카탈로그를 추가해 기업의 제품과 서비스를 소개하세요.</p><a class="button secondary small" href="register.html">첫 카탈로그 등록하기</a></div>
+        <p class="ib-small-note">참고 HTML의 등록 콘텐츠 영역을 유지했습니다. 데이터 연결 전이므로 실제 등록 목록은 표시되지 않습니다.</p>
+      </section>
+      <section class="ib-member-panel">
+        <div class="ib-member-section-heading"><div><h2>내 회사 정보</h2><p>기업 소개와 관리 기능에 빠르게 접근하세요.</p></div><a href="company-profile.html" class="ib-text-link">회사 페이지 보기 →</a></div>
+        <div class="ib-member-tile-grid">
+          <a class="ib-member-tile" href="company-profile.html"><span>⌂</span><strong>회사 소개</strong><small>기업 프로필 및 카탈로그</small></a>
+          <a class="ib-member-tile" href="dashboard.html"><span>▥</span><strong>기업 대시보드</strong><small>기업 활동 현황</small></a>
+          <a class="ib-member-tile" href="subscriptions.html#following"><span>♡</span><strong>구독 기업 관리</strong><small>팔로우한 기업·업데이트</small></a>
+        </div>
+      </section>
+    </div>
+    <aside class="ib-member-aside">
+      <section class="ib-member-panel"><div class="ib-member-section-heading"><div><h2>이용 현황</h2><p>서비스 이용 현황을 확인하세요.</p></div></div><div class="ib-member-stat-list"><div><span>등록 카탈로그</span><strong>0 <small>개</small></strong></div><div><span>구독 중인 기업</span><strong id="ib-member-following-count">0 <small>개</small></strong></div><div><span>관심 카탈로그</span><strong id="ib-member-like-count">0 <small>개</small></strong></div></div><a class="button secondary ib-full-button" href="subscriptions.html">이용 플랜·구독 확인</a></section>
+      <section class="ib-member-panel"><h2>계정 설정</h2><div class="ib-member-setting-list">
+        <button type="button" data-account-setting="profile">프로필 및 연락처 <span>›</span></button>
+        <button type="button" data-account-setting="password">비밀번호 변경 <span>›</span></button>
+        <button type="button" data-account-setting="bizsync">BizSync 계정 연계 <span>›</span></button>
+        <a href="notifications.html">알림 설정 <span>›</span></a>
+        <button type="button" data-account-setting="blocked">차단 사용자 관리 <span>›</span></button>
+        <button type="button" data-account-setting="policy">약관 및 정책 <span>›</span></button>
+      </div><button type="button" class="ib-member-logout" id="ib-member-logout">로그아웃</button></section>
+    </aside>
+  </div>
+  <div id="ib-member-modal" class="ib-member-modal" hidden><div class="ib-member-dialog" role="dialog" aria-modal="true" aria-labelledby="ib-member-dialog-title"><button type="button" id="ib-member-modal-close" class="ib-member-modal-close" aria-label="닫기">×</button><h2 id="ib-member-dialog-title">계정 설정</h2><div id="ib-member-dialog-body"></div><button type="button" class="button primary ib-full-button" id="ib-member-modal-ok">확인</button></div></div>
+</main><footer class="footer"><div class="container footer-inner"><div><a class="logo" href="index.html">industry<span>book</span></a><p class="small">24시간 영업하는 디지털 영업사원</p></div><div class="small"><a href="catalogs.html">카탈로그</a> · <a href="companies.html">기업</a> · <a href="login.html">기업회원 로그인</a></div><div class="small">© 2026 IndustryBook · UX prototype</div></div></footer><script src="assets/app.js?v=mypage-v2-20261031"></script><script src="assets/member.js?v=mypage-v2-20261031"></script></body></html>
