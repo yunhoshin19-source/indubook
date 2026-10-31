@@ -679,3 +679,56 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
  .ib-chat-messages{padding:17px 12px}.ib-chat-bubble-row{max-width:88%}
  .ib-header-message-link{width:31px;height:31px}
 }
+
+/* IndustryBook role dashboards */
+.ib-management{max-width:1360px}
+.ib-manage-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:24px}
+.ib-manage-heading h1{font-size:28px;margin:5px 0 7px}
+.ib-manage-heading p{color:#74859c;font-size:13px;margin:0}
+.ib-manage-heading-actions{display:flex;gap:9px;flex-wrap:wrap}
+.ib-management-permission{background:#fff5f1;color:#984825;border:1px solid #f5d8c3;padding:25px;border-radius:14px;line-height:1.8}
+.ib-management-permission a{margin:15px 0 0;display:table}
+.ib-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}
+.ib-stat-card{background:#fff;border:1px solid #e1e8f2;border-radius:15px;padding:23px;display:flex;flex-direction:column;gap:10px}
+.ib-stat-card>span{font-size:13px;color:#7a8aa3}
+.ib-stat-card strong{font-size:30px;color:#1c3559;font-weight:700}
+.ib-stat-card small{font-size:11px;color:#98a6ba}
+.ib-management-panel{background:#fff;border:1px solid #e0e7f1;border-radius:16px;overflow:hidden}
+.ib-table-heading{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap;padding:22px;border-bottom:1px solid #e7edf5}
+.ib-table-heading h2{font-size:18px;margin:0 0 7px}
+.ib-table-heading p{font-size:12px;color:#8191a5;margin:0}
+.ib-table-search{background:#f4f7fb;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px;color:#91a3bb}
+.ib-table-search input{background:transparent;border:0;outline:0;color:#1a3558;font-size:13px;min-width:240px}
+.ib-table-scroll{overflow:auto;max-width:100%}
+.ib-table{border-collapse:collapse;width:100%;font-size:13px;min-width:860px}
+.ib-table th{font-weight:600;font-size:12px;text-align:left;padding:14px 16px;color:#697d97;background:#f7f9fc;border-bottom:1px solid #e6edf5;white-space:nowrap}
+.ib-table td{padding:15px 16px;color:#3b516b;border-bottom:1px solid #edf1f7;vertical-align:middle;white-space:nowrap}
+.ib-table tr:hover td{background:#fafcff}
+.ib-table td a{color:#245eea;font-weight:600}
+.ib-table-footer{display:flex;justify-content:space-between;padding:16px 22px;font-size:12px;color:#8b9caf}
+.ib-row-actions{display:flex;gap:6px}
+.ib-danger-button{border:1px solid #ffced6;background:#fff6f7;color:#ad4154;padding:8px 10px;border-radius:9px;cursor:pointer}
+.ib-manage-dialog{border:1px solid #e0e8f3;border-radius:18px;box-shadow:0 25px 70px #071d3c43;width:min(630px,calc(100% - 22px));padding:25px;color:#203c5c;max-height:89vh;overflow-y:auto}
+.ib-manage-dialog.wide{width:min(1050px,calc(100% - 22px))}
+.ib-manage-dialog::backdrop{background:#132c48a1}
+.ib-manage-dialog h2{font-size:21px;margin:0 0 18px}
+.ib-manage-dialog h3{font-size:16px;margin:24px 0 15px}
+.ib-manage-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ib-manage-form-grid label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:12px}
+.ib-manage-form-grid input,.ib-manage-form-grid select,.ib-dialog-toolbar input{padding:12px;border:1px solid #dbe4f0;border-radius:9px;font-size:13px;min-width:0;background:#fff}
+.ib-dialog-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:22px}
+.ib-dialog-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 15px}
+.ib-dialog-toolbar>input{flex:1;min-width:190px}
+.ib-manage-upload-drop{border:1px dashed #bcd1ec;border-radius:10px;padding:18px;background:#f7faff;color:#7088a4;text-align:center;font-size:12px;margin:16px 0}
+.ib-manage-upload-drop.hover{background:#eaf3ff;border-color:#245eea}
+.ib-management-warning{margin-top:19px;font-size:12px;color:#8d9eb4}
+.ib-role-nav{color:#245eea!important;font-weight:650!important;background:#edf4ff}
+.ib-role-login{margin-bottom:20px;padding:16px;background:#f6f9ff;border:1px solid #dee9f8;border-radius:12px}
+.ib-role-login>label,.ib-demo-org-choice label{display:block;font-weight:600;font-size:13px;margin-bottom:8px}
+.ib-role-login select{width:100%;border:1px solid #d6e1ef;border-radius:9px;background:white;padding:12px;font-size:14px}
+.ib-role-login p{font-size:12px;color:#7689a2;line-height:1.7;margin:10px 0 0}
+.ib-prototype-label{font-size:11px;color:#7e9cc2;font-weight:400}
+.ib-demo-org-choice{margin-top:14px}
+.ib-demo-org-choice[hidden]{display:none!important}
+@media(max-width:800px){.ib-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-table-search{width:100%}.ib-table-search input{min-width:0;width:100%}}
+@media(max-width:560px){.ib-manage-heading h1{font-size:24px}.ib-stat-card{padding:16px}.ib-stat-card strong{font-size:25px}.ib-manage-form-grid{grid-template-columns:1fr}.ib-table-heading{padding:16px}.ib-manage-dialog{padding:18px}}
