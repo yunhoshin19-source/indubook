@@ -131,6 +131,19 @@
     event.preventDefault();
     if(!verifyFields(['companyName','companyEnglish','representative','bizNumber']))return;
     if(!consents.every(x=>x.checked)){showError('필수 약관에 모두 동의해 주세요.');return}
+    // Carry non-secret signup fields into the membership editor in this tab only.
+    // Passwords, authentication codes and consent decisions are not stored.
+    const saved={
+      memberName:document.getElementById('memberName').value.trim(),
+      memberEmail:document.getElementById('memberEmail').value.trim(),
+      companyName:document.getElementById('companyName').value.trim(),
+      companyEnglish:document.getElementById('companyEnglish').value.trim(),
+      representative:document.getElementById('representative').value.trim(),
+      bizNumber:document.getElementById('bizNumber').value.trim(),
+      inviteCode:document.getElementById('inviteCode').value.trim(),
+      organization:document.getElementById('organization').value.trim()
+    };
+    try{sessionStorage.setItem('ib-demo-member-info',JSON.stringify(saved))}catch(e){}
     setStep(3);
   });
 })();
