@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
 :root{--navy:#162747;--blue:#245eea;--orange:#ff9247;--ink:#17253a;--muted:#728096;--line:#dfe6f0;--bg:#f5f7fb;--white:#fff;--radius:16px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Pretendard,"Noto Sans KR",system-ui,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:var(--navy);color:white;position:sticky;top:0;z-index:30}.top-inner{max-width:1440px;margin:auto;min-height:76px;display:flex;align-items:center;gap:28px;padding:12px 28px}.logo{font-size:25px;font-weight:850;letter-spacing:-1.2px;white-space:nowrap}.logo span{color:var(--orange)}.toplinks{display:flex;align-items:center;gap:22px;flex:1;font-weight:600;font-size:14px}.toplinks a:hover{color:#bcd1ff}.top-actions{display:flex;align-items:center;gap:10px}.top-actions select{background:#2a3b59;color:white;border:1px solid #55647c;padding:10px;border-radius:9px}.pill,.button{border:1px solid var(--line);border-radius:10px;background:white;padding:11px 17px;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:650}.button.primary,.pill.active{background:var(--blue);border-color:var(--blue);color:white}.button.secondary{background:#eef3ff;color:var(--blue);border-color:#dce6ff}.button.small{padding:8px 12px;font-size:13px}.container{width:min(1320px,calc(100% - 48px));margin:0 auto}.main{padding:36px 0 90px}.hero{background:linear-gradient(125deg,#162747,#294d83);color:white;border-radius:23px;padding:54px 60px;margin:0 0 38px}.hero h1{font-size:clamp(28px,4vw,45px);letter-spacing:-1.3px;margin:7px 0 16px}.hero p{color:#d6e3f8;line-height:1.7}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:34px 0 18px}.section-heading h2{font-size:25px;margin:0}.eyebrow{color:var(--blue);font-size:12px;letter-spacing:.1em;font-weight:800;text-transform:uppercase}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.card-body{padding:18px}.card h3{margin:6px 0 8px;font-size:17px}.muted{color:var(--muted)}.small{font-size:13px}.thumb{height:178px;background:linear-gradient(135deg,var(--navy),#5688b1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.thumb:before{content:"";position:absolute;width:210px;height:210px;border:32px solid #ffffff1c;border-radius:50%;left:-45px;top:-90px}.thumb svg{position:relative;width:70%;height:70%;filter:drop-shadow(0 5px 12px #0003)}.thumb.green{background:linear-gradient(125deg,#155f68,#67a6a8)}.thumb.purple{background:linear-gradient(125deg,#35315f,#8d80b9)}.thumb.gray{background:linear-gradient(125deg,#37495c,#94aebd)}.row{display:flex;align-items:center;gap:12px}.between{justify-content:space-between}.stack{display:flex;flex-direction:column;gap:18px}.filters{display:flex;gap:9px;flex-wrap:wrap}.searchbox{width:100%;padding:15px 18px;border:1px solid var(--line);border-radius:12px;background:#fff}.split{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:24px;align-items:start}.panel{padding:26px;background:white;border:1px solid var(--line);border-radius:var(--radius)}.panel h2{margin-top:0}.field{display:flex;flex-direction:column;gap:7px;margin:0 0 17px}.field label{font-size:13px;font-weight:700}.field input,.field textarea,.field select{padding:13px 14px;border:1px solid #d5deea;border-radius:10px;background:#fff;width:100%;min-width:0}.field textarea{min-height:120px;resize:vertical}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}.span2{grid-column:1/-1}.upload{padding:32px 18px;text-align:center;background:#f6f8fd;border:2px dashed #c9d7ee;border-radius:12px}.upload input{max-width:100%}.badge{font-size:12px;padding:6px 10px;background:#eaf0ff;color:var(--blue);border-radius:20px}.company-head{background:linear-gradient(120deg,#162747,#344e76);color:white;border-radius:18px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:20px}.company-head p{color:#d9e3f4}.auth{max-width:640px;margin:30px auto}.auth h1{margin-top:0}.footer{background:#111d30;color:#ced8e9;padding:42px 0}.footer a{color:#dbe8ff}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.viewer{width:100%;background:#e8edf4;border-radius:12px;overflow:hidden}.viewer-page{display:block;width:100%;height:auto;background:#fff}.viewer-page+.viewer-page{border-top:5px solid #e8edf4}.viewer-caption{padding:9px 14px;color:#66758a;font-size:12px;background:#f7f9fc;text-align:right}.video{aspect-ratio:16/9;background:#111d30;color:white;display:grid;place-content:center;text-align:center}.notice{padding:14px;border:1px solid #d8e5ff;background:#f1f6ff;border-radius:10px;color:#3b5579}.result-hide{display:none!important}.toast{position:fixed;bottom:22px;right:24px;background:#162747;color:white;border-radius:12px;padding:14px 20px;z-index:60;box-shadow:0 8px 30px #1114}@media(max-width:1050px){.toplinks{gap:13px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}}@media(max-width:680px){.top-inner{padding:13px 15px;gap:14px;flex-wrap:wrap}.toplinks{order:3;width:100%;overflow:auto;padding:5px 0}.top-actions{margin-left:auto}.top-actions .button{font-size:12px;padding:8px}.container{width:calc(100% - 28px)}.hero{padding:35px 23px}.grid,.grid.three,.grid.two{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card-body{padding:11px}.card h3{font-size:14px}.thumb{height:120px}.form-grid{grid-template-columns:1fr}.span2{grid-column:auto}.company-head{padding:24px;flex-direction:column;align-items:flex-start}.panel{padding:18px}.section-heading h2{font-size:21px}.viewer-wrap{margin-left:-14px;margin-right:-14px}.viewer{border-radius:0}.viewer-caption{display:none}.footer-inner{display:block}}
 
 
@@ -555,73 +555,69 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
 
 
 /* ============================================================
-  IndustryBook Typography — reference ZIP implementation
-  Source: uploaded HTML/CSS using Inter 300,400,500,600,700,800
-  Keeps the existing design system colors/layout/components.
-  ============================================================ */
+   IndustryBook Typography v2 — Korean-first clean design
+   Pretendard Variable with system fallback, no fake glyph weights.
+   All previous component colours and layout preserved.
+   ============================================================ */
 :root{
-  --ib-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  --ib-body:14px;
-  --ib-caption:12px;
-  --ib-label:13px;
+ --ib-font:"Pretendard Variable","Pretendard","Apple SD Gothic Neo",
+           "Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+ --ib-body:14px;
+ --ib-muted:13px;
+ --ib-caption:12px;
+ --ib-title:26px;
 }
-html{font-size:14px}
+html{font-size:14px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body,button,input,select,textarea{
-  font-family:var(--ib-font);
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+ font-family:var(--ib-font)!important;
+ font-synthesis:none;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
 }
-body{font-size:var(--ib-body);font-weight:400;line-height:1.65;letter-spacing:0}
-button,input,select,textarea{font-size:14px;font-weight:400;line-height:1.5;letter-spacing:0}
-h1,h2,h3,h4,h5,h6{font-weight:700;letter-spacing:-.025em;line-height:1.35;word-break:keep-all}
-p{line-height:1.65}
-.toplinks,.toplinks a{font-size:14px;font-weight:500;letter-spacing:0}
-.toplinks a.active,.toplinks a[aria-current="page"]{font-weight:600}
+body{font-size:14px;font-weight:400;line-height:1.65;letter-spacing:-.012em}
+button,input,select,textarea{font-weight:400;line-height:1.5;letter-spacing:-.012em}
+h1,h2,h3,h4,h5,h6{font-family:var(--ib-font);font-weight:700;letter-spacing:-.025em;line-height:1.35;word-break:keep-all}
+p{font-weight:400;line-height:1.65;word-break:keep-all}
 .logo{font-weight:800;letter-spacing:-.045em}
-.hero h1{font-size:clamp(30px,3.3vw,42px);font-weight:700;letter-spacing:-.035em}
-.hero p{font-size:15px;font-weight:400;line-height:1.7}
+.toplinks,.toplinks a{font-size:14px;font-weight:500;letter-spacing:-.01em}
+.toplinks a.active,.toplinks a[aria-current="page"]{font-weight:600}
+.hero h1{font-size:clamp(30px,3.3vw,42px);font-weight:700;letter-spacing:-.025em}
+.hero p{font-size:15px;font-weight:400;letter-spacing:-.01em}
 .section-heading h2,.ib-edit-heading h1,.ib-member-page-head h1,.ib-register-title h1{
-  font-size:26px;font-weight:700;letter-spacing:-.025em;line-height:1.35;
+ font-size:26px;font-weight:700;letter-spacing:-.025em;
 }
-.section-heading p,.ib-member-page-head p,.ib-register-title p,.signup-panel-head p,.ib-member-section-heading p{
-  font-size:14px;font-weight:400;
-}
-.card h3,.ib-member-panel h2,.ib-reg-sectionhead h2,.ib-auth-title h2,.ib-info-subtitle{
-  font-size:18px;font-weight:600;letter-spacing:-.02em;
-}
-.eyebrow,.signup-eyebrow,.signup-mini-label,.ib-status-label,.ib-pricing-kicker,.ib-aside-subtitle{
-  font-size:11px;font-weight:700;letter-spacing:.05em;
-}
-.button,.pill,.signup-submit,.ib-add-actions .button,.ib-reg-segment label span,.ib-auth-controls .button{
-  font-size:13px;font-weight:600;letter-spacing:0;
-}
+.section-heading p,.ib-member-page-head p,.ib-register-title p,
+.signup-panel-head p,.ib-member-section-heading p{font-size:14px;font-weight:400}
+.card h3,.ib-member-panel h2,.ib-reg-sectionhead h2,
+.ib-auth-title h2,.ib-info-subtitle{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.eyebrow,.signup-eyebrow,.signup-mini-label,.ib-status-label,
+.ib-pricing-kicker,.ib-aside-subtitle{font-size:11px;font-weight:600;letter-spacing:.055em}
+.button,.pill,.signup-submit,.ib-add-actions .button,
+.ib-reg-segment label span,.ib-auth-controls .button{font-size:13px;font-weight:600;letter-spacing:0}
 .button.small,.ib-photo-upload-label{font-size:12px;font-weight:600}
-.field label,.ib-reg-field>label,.ib-edit-field>label,.signup-form-panel .field label,.ib-email-auth-panel>label,.ib-youtube-form label{
-  font-size:13px;font-weight:600;letter-spacing:0;
-}
+.field label,.ib-reg-field>label,.ib-edit-field>label,.signup-form-panel .field label,
+.ib-email-auth-panel>label,.ib-youtube-form label{font-size:13px;font-weight:600;letter-spacing:0}
 .field input,.field select,.field textarea,.ib-reg-field>input,.ib-reg-field>textarea,
-.ib-edit-field input,.ib-edit-field select,.ib-edit-field textarea,.ib-edit-social-line input,
-.signup-form-panel .field input,.ib-email-auth-panel>input,.ib-auth-controls input{
-  font-size:14px;font-weight:400;letter-spacing:0;
-}
-.small,small,.ib-small-note,.ib-edit-notice,.ib-plan-disclaimer,.ib-catalog-disclaimer,.ib-field-note,
-.ib-photo-editor p,.signup-hint,.ib-member-help,.ib-auth-test-hint{
-  font-size:12px;font-weight:400;letter-spacing:0;line-height:1.65;
-}
-.ib-reg-chip,.ib-edit-category,.ib-industry-options button,.ib-detail-tags span{
-  font-size:12px;font-weight:500;
-}
-.ib-member-setting-list a,.ib-member-setting-list button,.ib-profile-menu a,.ib-profile-menu button,
-.ib-language-item,.ib-language-trigger{font-size:13px;font-weight:500}
+.ib-edit-field input,.ib-edit-field select,.ib-edit-field textarea,
+.ib-edit-social-line input,.signup-form-panel .field input,
+.ib-email-auth-panel>input,.ib-auth-controls input{font-size:14px;font-weight:400;letter-spacing:-.01em}
+.small,small,.ib-small-note,.ib-edit-notice,.ib-plan-disclaimer,
+.ib-catalog-disclaimer,.ib-field-note,.ib-photo-editor p,.signup-hint,
+.ib-member-help,.ib-auth-test-hint{font-size:12px;font-weight:400;letter-spacing:-.005em;line-height:1.65}
+.ib-reg-chip,.ib-edit-category,.ib-industry-options button,.ib-detail-tags span{font-size:12px;font-weight:500}
+.ib-member-setting-list a,.ib-member-setting-list button,
+.ib-profile-menu a,.ib-profile-menu button,.ib-language-item,
+.ib-language-trigger{font-size:13px;font-weight:500}
 .ib-language-item.selected{font-weight:600}
 .ib-account-name h2,.signup-panel-head h2,.ib-member-dialog h2{font-weight:700}
 .ib-member-stat-list strong,.ib-pricing-price{font-weight:700}
 .ib-footer-group h2{font-size:12px;font-weight:600}
 .ib-footer-group a,.ib-footer-group span,.ib-footer-brand p{font-size:12px;font-weight:400}
 @media(max-width:680px){
-  .hero h1{font-size:30px}
-  .section-heading h2,.ib-edit-heading h1,.ib-member-page-head h1,.ib-register-title h1{font-size:24px}
-  .signup-intro h1{font-size:29px}
-  .ib-detail-heading h1{font-size:24px}
-  .card h3{font-size:15px}
+ .hero h1{font-size:30px}
+ .section-heading h2,.ib-edit-heading h1,.ib-member-page-head h1,
+ .ib-register-title h1{font-size:24px}
+ .signup-intro h1{font-size:29px}
+ .ib-detail-heading h1{font-size:24px}
+ .card h3{font-size:15px}
 }
