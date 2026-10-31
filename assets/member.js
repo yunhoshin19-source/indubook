@@ -1,0 +1,19 @@
+/* IndustryBook member workspace: local-only UI prototype */
+(function(){
+ const $=s=>document.querySelector(s);
+ const notifyDemo=s=>{if(typeof notify==='function')notify(s);else alert(s)};
+ const email=localStorage.getItem('ib-demo-email');
+ if($('#ib-account-title')){$('#ib-account-title').textContent=email?email.split('@')[0]+'님, 안녕하세요':'기업회원님, 안녕하세요';$('#ib-account-email').textContent=email||'기업회원 계정 · 디자인 시안'}
+ const likes=JSON.parse(localStorage.getItem('ib-likes')||'[]'),subs=JSON.parse(localStorage.getItem('ib-subs')||'[]');
+ if($('#ib-member-following-count'))$('#ib-member-following-count').innerHTML=subs.length+' <small>개</small>';
+ if($('#ib-member-like-count'))$('#ib-member-like-count').innerHTML=likes.length+' <small>개</small>';
+ const logout=$('#ib-member-logout');if(logout)logout.addEventListener('click',()=>{localStorage.removeItem('ib-demo-logged-in');localStorage.removeItem('ib-demo-email');location.href='index.html'});
+ const modal=$('#ib-member-modal');
+ if(modal){const heading=$('#ib-member-dialog-title'),body=$('#ib-member-dialog-body');const messages={profile:['프로필 및 연락처','프로필 사진은 마이페이지 상단의 사진 변경 버튼을 이용해 주세요. 휴대폰과 이메일 정보 수정은 서버 계정 연동 후 지원됩니다.'],password:['비밀번호 변경','비밀번호 변경 및 재인증은 실제 계정 인증 서버 연결 후 제공됩니다.'],bizsync:['BizSync 계정 연계','참고 화면에 포함된 BizSync 연동 항목입니다. 실제 계정 연결·소속 회사 확인 기능은 현재 연결되어 있지 않습니다.'],blocked:['차단 사용자 관리','차단한 사용자 목록 및 해제 기능은 실제 계정 데이터 연결 후 제공됩니다.'],policy:['약관 및 정책','약관 열람 링크는 공식 문서가 연결된 후 제공됩니다.']};const close=()=>{modal.hidden=true;document.body.style.overflow=''};document.querySelectorAll('[data-account-setting]').forEach(b=>b.addEventListener('click',()=>{const m=messages[b.dataset.accountSetting];heading.textContent=m[0];body.textContent='';const p=document.createElement('p');p.textContent=m[1];body.append(p);modal.hidden=false;document.body.style.overflow='hidden'}));$('#ib-member-modal-close').onclick=close;$('#ib-member-modal-ok').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()})}
+ const tabs=[...document.querySelectorAll('[data-subtab]')];
+ function setTab(name){tabs.forEach(t=>{const active=t.dataset.subtab===name;t.setAttribute('aria-selected',String(active))});const a=$('#planPanel'),b=$('#followingPanel');if(a&&b){a.hidden=name!=='plans';b.hidden=name!=='following'}if(location.hash!=='#'+name)history.replaceState(null,'','#'+name)}
+ if(tabs.length){tabs.forEach(b=>b.onclick=()=>setTab(b.dataset.subtab));setTab(location.hash==='#following'?'following':'plans');if($('#ib-sub-follow-count'))$('#ib-sub-follow-count').textContent=subs.length}
+ const follows=$('#ib-following-list');
+ if(follows){const companies={'co-0':'A 로보틱스','co-1':'B 테크','co-2':'C 일렉트로닉스','co-3':'D 오토메이션','co-4':'E 모션','co-5':'F 솔루션','kar':'한국AI로봇산업협회'};const render=()=>{follows.replaceChildren();const current=JSON.parse(localStorage.getItem('ib-subs')||'[]');if($('#ib-sub-follow-count'))$('#ib-sub-follow-count').textContent=current.length;if(!current.length){const d=document.createElement('div');d.className='ib-following-empty';d.textContent='아직 구독한 기업이 없습니다. 기업 찾기에서 관심 기업을 구독해 보세요.';follows.append(d);return}current.forEach(k=>{const item=document.createElement('div');item.className='ib-following-item';const h=document.createElement('strong');h.textContent=companies[k]||'관심 기업';const p=document.createElement('p');p.textContent='구독 기업의 카탈로그와 활동을 확인하세요.';const b=document.createElement('button');b.type='button';b.className='button secondary small';b.textContent='구독 해제';b.addEventListener('click',()=>{const next=JSON.parse(localStorage.getItem('ib-subs')||'[]').filter(x=>x!==k);localStorage.setItem('ib-subs',JSON.stringify(next));render()});item.append(h,p,b);follows.append(item)})};render()}
+ document.querySelectorAll('[data-plan-demo]').forEach(b=>b.addEventListener('click',()=>notifyDemo('표시된 플랜은 디자인 시안입니다. 결제 또는 플랜 변경은 이루어지지 않습니다.')));
+})();
