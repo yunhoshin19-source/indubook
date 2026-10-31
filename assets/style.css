@@ -621,3 +621,61 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
  .ib-detail-heading h1{font-size:24px}
  .card h3{font-size:15px}
 }
+
+/* IndustryBook B2B messenger — current palette, responsive 3-column-like reference */
+.ib-messenger-page{padding-top:26px;max-width:1400px}
+.ib-messenger-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:20px}
+.ib-messenger-heading h1{font-size:26px;margin:6px 0;color:#1c3656}
+.ib-messenger-heading p{font-size:13px;color:#7587a0;margin:0}
+.ib-messenger-demo{font-size:11px;color:#5575aa;border:1px solid #d8e5f7;background:#f0f6ff;padding:8px 12px;border-radius:25px;white-space:nowrap}
+.ib-messenger-layout{display:grid;grid-template-columns:284px minmax(0,1fr);min-height:570px;height:min(74vh,790px);background:#fff;border:1px solid #dce5f0;border-radius:18px;overflow:hidden;box-shadow:0 5px 30px #1834510a}
+.ib-chat-list-panel{display:flex;flex-direction:column;min-height:0;border-right:1px solid #e1e8f2}
+.ib-chat-list-top{display:flex;align-items:center;justify-content:space-between;padding:18px 18px 12px}
+.ib-chat-list-top h2{font-size:16px;margin:0}
+.ib-chat-list-top>span{font-size:11px;color:#6c8cbc;background:#f0f4ff;border-radius:30px;padding:4px 8px}
+.ib-chat-search{display:flex;align-items:center;gap:9px;border-radius:24px;margin:2px 15px 14px;padding:10px 13px;background:#f1f4f8;color:#8ca0bc}
+.ib-chat-search input{width:100%;border:0;outline:0;background:transparent;font-size:13px;color:#273f60}
+.ib-chat-list{overflow-y:auto;flex:1}
+.ib-chat-list-item{display:flex;align-items:center;gap:11px;width:100%;min-height:76px;padding:12px 14px;background:#fff;border:0;border-bottom:1px solid #edf0f5;text-align:left;cursor:pointer}
+.ib-chat-list-item:hover{background:#f7faff}
+.ib-chat-list-item.selected{background:#eff3ff;border-left:3px solid #245eea;padding-left:11px}
+.ib-chat-avatar{display:grid;place-items:center;flex:none;width:41px;height:41px;border-radius:50%;background:linear-gradient(135deg,#16466c,#2e77a8);color:#fff;font-size:12px;font-weight:750}
+.ib-chat-list-copy{min-width:0;flex:1;display:flex;flex-direction:column;gap:5px}
+.ib-chat-list-copy strong{font-size:13px;color:#183250;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ib-chat-list-copy small{font-size:11px;color:#91a0b5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ib-chat-list-item time{font-size:10px;color:#8ea1ba;align-self:flex-start;white-space:nowrap}
+.ib-chat-empty-list{padding:22px;text-align:center;color:#8b9db3;font-size:13px}
+.ib-chat-main{display:flex;flex-direction:column;min-width:0;min-height:0;background:#f7f9fc}
+.ib-chat-room-header{background:#fff;border-bottom:1px solid #e3eaf3;display:flex;align-items:center;justify-content:space-between;padding:13px 19px;min-height:74px}
+.ib-chat-room-brand{display:flex;align-items:center;gap:12px}
+.ib-chat-room-brand strong{display:block;font-size:15px;color:#1b3554}
+.ib-chat-room-brand a{display:block;color:#245eea;font-size:11px;margin-top:4px}
+.ib-chat-more,.ib-chat-back{border:0;background:transparent;color:#8093ac;cursor:pointer;font-size:22px;padding:8px}
+.ib-chat-back{display:none}
+.ib-chat-messages{overflow-y:auto;flex:1;min-height:0;padding:25px 20px;display:flex;flex-direction:column;gap:14px}
+.ib-chat-room-guide{align-self:center;color:#a5b3c6;font-size:11px}
+.ib-chat-bubble-row{max-width:80%;display:flex;align-self:flex-start;flex-direction:column;gap:4px;align-items:flex-start}
+.ib-chat-bubble-row.mine{align-self:flex-end;align-items:flex-end}
+.ib-chat-bubble{font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;color:#2d4360;background:#fff;border:1px solid #e5eaf2;padding:11px 14px;border-radius:13px 13px 13px 3px}
+.ib-chat-bubble-row.mine .ib-chat-bubble{background:#245eea;border-color:#245eea;color:#fff;border-radius:13px 13px 3px 13px}
+.ib-chat-time{color:#96a6ba;font-size:10px}
+.ib-chat-empty-room{display:grid;place-content:center;flex:1;text-align:center;color:#7d91ac}
+.ib-chat-empty-room strong{font-size:15px;color:#55708e}
+.ib-chat-empty-room p{font-size:12px}
+.ib-chat-composer{display:flex;gap:10px;align-items:end;background:#fff;border-top:1px solid #e1e8f2;padding:14px 18px}
+.ib-chat-composer textarea{flex:1;resize:none;border:1px solid #dae3ef;border-radius:11px;padding:12px;min-height:48px;max-height:125px;min-width:0;font:inherit;font-size:13px}
+.ib-chat-composer .button{flex:none;min-height:45px}
+.ib-chat-notice{background:#fff;border-top:1px solid #edf1f7;padding:8px 18px;margin:0;color:#9eafc2;font-size:11px}
+.ib-header-message-link{display:grid;place-items:center;width:38px;height:38px;border:1px solid #e1e9f2;border-radius:10px;color:#60748e;background:#fff}
+.ib-header-message-link:hover{background:#eff4ff;color:#245eea}
+.ib-header-message-link svg{width:18px;height:18px}
+@media(max-width:800px){.ib-messenger-layout{grid-template-columns:245px minmax(0,1fr)}.ib-messenger-heading h1{font-size:23px}}
+@media(max-width:600px){
+ .ib-messenger-heading{align-items:flex-start}.ib-messenger-layout{display:block;position:relative;height:calc(100dvh - 205px);min-height:430px}
+ .ib-chat-list-panel{height:100%;width:100%}.ib-chat-main{display:none;height:100%}
+ .ib-messenger-layout.room-active .ib-chat-list-panel{display:none}
+ .ib-messenger-layout.room-active .ib-chat-main{display:flex}
+ .ib-chat-back{display:block}.ib-chat-room-header{padding:10px}.ib-chat-composer{padding:10px}
+ .ib-chat-messages{padding:17px 12px}.ib-chat-bubble-row{max-width:88%}
+ .ib-header-message-link{width:31px;height:31px}
+}
