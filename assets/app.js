@@ -143,3 +143,15 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  a.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>';
  actions.insertBefore(a,bell);
 })();
+
+/* Menu items granted by simulated login role. UI convenience only, not security. */
+(function(){
+ const role=localStorage.getItem('ib-demo-role'),signed=localStorage.getItem('ib-demo-logged-in')==='yes';
+ if(!signed)return;
+ const config=role==='admin'?['협회 관리','dmin-organization.html']:role==='association'?['회원사 현황','member-companies.html']:null;
+ if(!config)return;
+ const nav=document.querySelector('.toplinks');
+ if(nav&&!nav.querySelector('.ib-role-nav')){const a=document.createElement('a');a.className='ib-role-nav';a.href=config[1];a.textContent=config[0];nav.append(a)}
+ const menu=document.querySelector('.ib-profile-menu');
+ if(menu&&!menu.querySelector('.ib-role-profile')){const a=document.createElement('a');a.className='ib-role-profile';a.href=config[1];a.textContent=config[0];menu.insertBefore(a,menu.querySelector('button'))}
+})();
