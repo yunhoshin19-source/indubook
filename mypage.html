@@ -4,8 +4,8 @@
     <div class="ib-member-primary">
       <section class="ib-account-banner ib-member-panel">
         <div class="ib-account-line"><span class="ib-photo-preview" id="ib-profile-photo-preview" aria-label="현재 프로필 사진"></span><div class="ib-account-name"><div class="ib-status-label">ENTERPRISE MEMBER</div><h2 id="ib-account-title">기업회원님, 안녕하세요</h2><p id="ib-account-email">기업회원 계정 · 디자인 시안</p><div class="ib-account-tags"><span>기업회원</span><span>프로필 관리</span></div></div></div>
-        <label class="button secondary small ib-photo-upload-label">프로필 사진 변경<input type="file" id="ib-profile-photo-input" accept="image/png,image/jpeg,image/webp" hidden></label>
-        <p class="ib-small-note">이미지는 현재 브라우저에만 보관됩니다. 실제 서버 계정에는 반영되지 않습니다.</p>
+        <a class="button secondary small ib-photo-upload-label" href="profile-edit.html">프로필 편집하기 →</a>
+        <p class="ib-small-note">이미지는 현재 프로필 편집 화면에서 사진과 소개, 관심 카테고리를 설정할 수 있습니다.</p>
       </section>
       <section class="ib-member-panel">
         <div class="ib-member-section-heading"><div><h2>내가 등록한 카탈로그</h2><p>등록 콘텐츠를 확인하고 새 카탈로그를 추가하세요.</p></div><a class="button primary small" href="register.html">+ 카탈로그 등록</a></div>
@@ -24,7 +24,7 @@
     <aside class="ib-member-aside">
       <section class="ib-member-panel"><div class="ib-member-section-heading"><div><h2>이용 현황</h2><p>서비스 이용 현황을 확인하세요.</p></div></div><div class="ib-member-stat-list"><div><span>등록 카탈로그</span><strong>0 <small>개</small></strong></div><div><span>구독 중인 기업</span><strong id="ib-member-following-count">0 <small>개</small></strong></div><div><span>관심 카탈로그</span><strong id="ib-member-like-count">0 <small>개</small></strong></div></div><a class="button secondary ib-full-button" href="subscriptions.html">이용 플랜·구독 확인</a></section>
       <section class="ib-member-panel"><h2>계정 설정</h2><div class="ib-member-setting-list">
-        <button type="button" data-account-setting="profile">프로필 및 연락처 <span>›</span></button>
+        <a href="profile-edit.html">프로필 및 연락처 <span>›</span></a>
         <button type="button" data-account-setting="password">비밀번호 변경 <span>›</span></button>
         <button type="button" data-account-setting="bizsync">BizSync 계정 연계 <span>›</span></button>
         <a href="notifications.html">알림 설정 <span>›</span></a>
