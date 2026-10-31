@@ -1,5 +1,16 @@
-<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>회원정보 수정 | IndustryBook</title><link rel="stylesheet" href="assets/style.css?v=member-info-v2-20261031"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><main class="container main ib-edit-layout"><div class="ib-edit-heading"><a href="mypage.html" class="ib-edit-back" aria-label="마이페이지로 돌아가기">←</a><h1>회원정보 수정</h1></div>
-<form class="ib-edit-form" id="memberInfoForm">
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>회원정보 수정 | IndustryBook</title><link rel="stylesheet" href="assets/style.css?v=member-info-v3-20261031"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><main class="container main ib-edit-layout"><div class="ib-edit-heading"><a href="mypage.html" class="ib-edit-back" aria-label="마이페이지로 돌아가기">←</a><h1>회원정보 수정</h1></div>
+<section class="ib-edit-form ib-email-auth-panel" aria-labelledby="ibAuthTitle">
+<div class="ib-auth-title"><span class="ib-auth-step">STEP 1</span><h2 id="ibAuthTitle">이메일 인증</h2></div>
+<p>회원가입 시 등록한 이메일을 확인한 뒤 회원정보를 수정할 수 있습니다.</p>
+<label for="ibAuthEmail">가입 이메일</label>
+<input type="email" id="ibAuthEmail" readonly placeholder="등록한 이메일을 확인하세요">
+<p class="ib-member-help">회원정보에서 이메일을 변경하더라도 인증은 기존 가입 이메일을 기준으로 진행합니다.</p>
+<div class="ib-auth-controls"><button class="button secondary" type="button" id="ibAuthRequest">인증번호 발송 (데모)</button><input id="ibAuthCode" type="text" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" autocomplete="one-time-code" placeholder="인증번호 6자리" aria-label="이메일 인증번호"><button class="button primary" type="button" id="ibAuthConfirm">인증 확인</button></div>
+<p class="ib-auth-test-hint" id="ibAuthTestHint" role="status" aria-live="polite">디자인 테스트용 인증입니다. 실제 이메일은 발송되지 않습니다.</p>
+<p class="ib-edit-feedback" id="ibAuthFeedback" role="status" aria-live="polite" hidden></p>
+</section><form class="ib-edit-form ib-member-locked" id="memberInfoForm">
+<div class="ib-auth-title"><span class="ib-auth-step">STEP 2</span><h2>회원정보 수정</h2><span id="ibAuthStatus" class="ib-auth-lock-label">인증 전 · 수정 잠금</span></div>
+<fieldset id="ibMemberFields" disabled><legend class="ib-visually-hidden">인증 후 수정 가능한 회원정보</legend>
 <section class="ib-member-info-intro"><strong>회원가입 정보 관리</strong><p>기업회원 가입 시 입력한 담당자 정보와 회사 정보를 확인·수정합니다. 계정 비밀번호 및 필수 동의 이력은 별도로 관리합니다.</p></section>
 <h2 class="ib-info-subtitle">1. 담당자 정보</h2>
 <div class="ib-edit-field"><label for="memberContactName">이름 <strong>*</strong></label><input id="memberContactName" name="memberName" maxlength="40" autocomplete="name" required placeholder="담당자 이름"></div>
@@ -13,33 +24,7 @@
 <div class="ib-edit-field"><label for="memberInviteCode">협회 인증코드 / 초대코드 <span>(선택)</span></label><input id="memberInviteCode" maxlength="80" placeholder="협회 인증코드 또는 초대코드"><p class="ib-member-help">데모에는 인증코드 확인 기능이 없습니다. 입력한 코드는 자격을 증명하지 않습니다.</p></div>
 <div class="ib-edit-field"><label for="memberOrganization">소속 기관 <span>(자동 확인)</span></label><input id="memberOrganization" readonly placeholder="기업 인증·협회 연동 시 자동 확인"><p class="ib-member-help">가입 시와 동일하게 조회 전용입니다. 실제 소속 기관 변경은 서버 확인이 필요합니다.</p></div>
 <section class="ib-member-info-intro"><strong>비밀번호·이메일 인증·약관 동의</strong><p>가입 당시 비밀번호는 표시하거나 저장하지 않습니다. 비밀번호 변경은 계정 설정 메뉴에서 별도로 진행합니다. 이메일 인증과 필수 동의는 수정 가능한 일반 프로필 정보가 아닌 계정 인증·동의 이력입니다.</p></section>
-<p id="memberInfoFeedback" class="ib-edit-feedback" role="status" aria-live="polite" hidden></p>
+</fieldset><p id="memberInfoFeedback" class="ib-edit-feedback" role="status" aria-live="polite" hidden></p>
 <div class="ib-edit-actions"><a class="button" href="mypage.html">취소</a><button class="button primary" type="submit">저장하기 (데모)</button></div>
 <p class="ib-edit-notice">디자인 시안: 변경값은 현재 브라우저 탭에만 임시 저장하며 실제 계정·사업자 인증 상태는 바뀌지 않습니다.</p>
-</form></main><footer class="footer"><div class="container footer-inner"><div><a class="logo" href="index.html">industry<span>book</span></a><p class="small">24시간 영업하는 디지털 영업사원</p></div><div class="small"><a href="catalogs.html">카탈로그</a> · <a href="companies.html">기업</a> · <a href="login.html">기업회원 로그인</a></div><div class="small">© 2026 IndustryBook · UX prototype</div></div></footer><script src="assets/app.js?v=member-info-v2-20261031"></script><script>
-(function(){
-const fields={memberName:'memberContactName',memberEmail:'memberContactEmail',phone:'memberContactPhone',companyName:'memberCompanyName',companyEnglish:'memberCompanyEnglish',representative:'memberRepresentative',bizNumber:'memberBizNumber',inviteCode:'memberInviteCode',organization:'memberOrganization'};
-const el=k=>document.getElementById(fields[k]);
-const feedback=document.getElementById('memberInfoFeedback');
-const storeKey='ib-demo-member-info';
-function message(s,err){feedback.textContent=s;feedback.hidden=false;feedback.classList.toggle('is-error',!!err)}
-let data={};
-try{data=JSON.parse(sessionStorage.getItem(storeKey)||'{}')}catch(e){}
-el('memberName').value=data.memberName||data.name||'';
-el('memberEmail').value=data.memberEmail||data.email||localStorage.getItem('ib-demo-email')||'';
-for(const k of ['phone','companyName','companyEnglish','representative','bizNumber','inviteCode','organization'])if(typeof data[k]==='string')el(k).value=data[k];
-document.getElementById('memberInfoForm').addEventListener('submit',e=>{
- e.preventDefault();
- const form=e.currentTarget;if(!form.reportValidity())return;
- const biz=el('bizNumber').value.replace(/[^0-9]/g,'');
- if(biz.length!==10){message('사업자등록번호는 숫자 10자리로 입력해 주세요.',true);el('bizNumber').focus();return}
- const phone=el('phone').value.replace(/[\s-]/g,'');
- if(phone&&!/^\+?\d{8,15}$/.test(phone)){message('연락처 형식을 확인해 주세요.',true);el('phone').focus();return}
- const current={};
- for(const [key,id] of Object.entries(fields))current[key]=document.getElementById(id).value.trim();
- current.updatedAt=new Date().toISOString();
- try{sessionStorage.setItem(storeKey,JSON.stringify(current));message('회원가입 정보를 현재 탭에 임시 저장했습니다. 서버 계정 및 인증 정보는 변경되지 않았습니다.',false)}
- catch(err){message('이 브라우저에서 임시 저장하지 못했습니다.',true)}
-});
-})();
-</script></body></html>
+</form></main><footer class="footer"><div class="container footer-inner"><div><a class="logo" href="index.html">industry<span>book</span></a><p class="small">24시간 영업하는 디지털 영업사원</p></div><div class="small"><a href="catalogs.html">카탈로그</a> · <a href="companies.html">기업</a> · <a href="login.html">기업회원 로그인</a></div><div class="small">© 2026 IndustryBook · UX prototype</div></div></footer><script src="assets/app.js?v=member-info-v3-20261031"></script><script src="assets/member-info.js?v=member-info-v3-20261031"></script></body></html>
