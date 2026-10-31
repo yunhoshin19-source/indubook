@@ -25,18 +25,19 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist/assets
-          for page in index catalogs catalog-detail companies company-profile dashboard feed login mypage notifications register signup; do
+          for page in index catalogs catalog-detail companies company-profile dashboard feed login mypage notifications register signup subscriptions; do
             test -f "${page}.html"
             cp "${page}.html" dist/
           done
           test -f assets/style.css
           test -f assets/app.js
           test -f assets/register.js
-          cp assets/style.css assets/app.js assets/register.js dist/assets/
+          test -f assets/member.js
+          cp assets/style.css assets/app.js assets/register.js assets/member.js dist/assets/
           touch dist/.nojekyll
           echo 'Published files:'
           find dist -type f | sort
-          test "$(find dist -type f | wc -l)" -eq 16
+          test "$(find dist -type f | wc -l)" -eq 18
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload clean site
