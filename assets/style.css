@@ -551,3 +551,108 @@ body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,'Ap
 .ib-member-locked .ib-edit-actions button[type="submit"]{pointer-events:none;opacity:.5}
 .ib-auth-controls button:disabled{opacity:.6;cursor:default}
 @media(max-width:640px){.ib-auth-controls{grid-template-columns:1fr 1fr}.ib-auth-controls input{grid-column:1/-1;grid-row:1}.ib-auth-controls .button{justify-content:center}}
+
+
+/* ============================================================
+   IndustryBook Unified Typography v1 — 2026-10-31
+   Typography only; retains all brand colors and layouts.
+   Scale: display 38 / page 30 / section 22 / card 17 /
+          body 14 / label 13 / caption 12.
+   ============================================================ */
+:root{
+ --ib-font:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",
+           "Noto Sans KR",Inter,-apple-system,BlinkMacSystemFont,
+           "Segoe UI",system-ui,sans-serif;
+ --ib-text-display:clamp(30px,3vw,38px);
+ --ib-text-page:30px;
+ --ib-text-section:22px;
+ --ib-text-card:17px;
+ --ib-text-body:14px;
+ --ib-text-label:13px;
+ --ib-text-caption:12px;
+ --ib-line-body:1.65;
+}
+html{font-size:14px}
+body,button,input,select,textarea{
+ font-family:var(--ib-font);
+ font-synthesis:weight;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+}
+body{font-size:var(--ib-text-body);line-height:var(--ib-line-body);font-weight:400;letter-spacing:-.015em}
+button,input,select,textarea{font-size:var(--ib-text-body);line-height:1.5;letter-spacing:inherit}
+h1,h2,h3,h4,h5,h6{line-height:1.36;letter-spacing:-.035em;font-weight:700;word-break:keep-all}
+p{line-height:1.65}
+small,.small,.muted.small,.ib-small-note,.ib-edit-notice,
+.ib-plan-disclaimer,.ib-catalog-disclaimer,.ib-field-note,
+.ib-photo-editor p,.signup-hint,.ib-member-help,.ib-auth-test-hint{
+ font-size:var(--ib-text-caption);
+ line-height:1.65;
+ font-weight:400;
+ letter-spacing:-.01em;
+}
+.logo,.footer .logo{font-weight:800;letter-spacing:-.055em}
+.toplinks,.toplinks a{font-size:var(--ib-text-body);font-weight:550;letter-spacing:-.015em}
+.toplinks a.active,.toplinks a[aria-current="page"]{font-weight:700}
+.eyebrow,.signup-eyebrow,.signup-mini-label,.ib-status-label,
+.ib-pricing-kicker,.ib-aside-subtitle,.ib-reg-num,.ib-auth-step{
+ font-size:11px;letter-spacing:.085em;font-weight:700;
+}
+.hero h1{font-size:var(--ib-text-display);line-height:1.28;font-weight:750;letter-spacing:-.045em}
+.hero p{font-size:15px;line-height:1.75;font-weight:400}
+.section-heading h2,.ib-edit-heading h1,
+.ib-member-page-head h1,.ib-register-title h1{
+ font-size:var(--ib-text-page);font-weight:750;letter-spacing:-.04em;line-height:1.3;
+}
+.section-heading p,.ib-member-page-head p,.ib-register-title p,
+.signup-panel-head p,.ib-member-section-heading p{
+ font-size:var(--ib-text-body);line-height:1.65;font-weight:400;
+}
+.card h3,.ib-member-panel h2,.ib-reg-sectionhead h2,
+.ib-auth-title h2,.ib-info-subtitle,.ib-form-heading h3{
+ font-size:var(--ib-text-card);font-weight:700;line-height:1.4;letter-spacing:-.03em;
+}
+.ib-detail-heading h1,.signup-intro h1{font-weight:750;letter-spacing:-.04em;line-height:1.32}
+.ib-detail-info-card h2,.ib-detail-info-card h3,
+.ib-current-plan h2,.ib-pricing-card h3{font-weight:700;letter-spacing:-.03em}
+.button,.pill,.ib-add-actions .button,.ib-reg-segment label span,
+.ib-auth-controls .button,.signup-submit{
+ font-size:var(--ib-text-label);font-weight:650;letter-spacing:-.015em;line-height:1.4;
+}
+.button.small,.ib-add-actions .button,.ib-photo-upload-label{font-size:12px}
+.field label,.ib-reg-field>label,.ib-edit-field>label,
+.signup-form-panel .field label,.ib-email-auth-panel>label,
+.ib-youtube-form label{
+ font-size:var(--ib-text-label);font-weight:650;line-height:1.55;letter-spacing:-.015em;
+}
+.field input,.field select,.field textarea,.ib-reg-field>input,
+.ib-reg-field>textarea,.ib-edit-field input,.ib-edit-field select,
+.ib-edit-field textarea,.ib-edit-social-line input,
+.signup-form-panel .field input,.ib-email-auth-panel>input,
+.ib-auth-controls input{
+ font-size:var(--ib-text-body);font-weight:400;line-height:1.55;
+}
+.ib-member-stat-list strong,.ib-pricing-price{font-weight:750;letter-spacing:-.04em}
+.ib-account-name h2,.signup-panel-head h2,.ib-member-dialog h2{font-weight:750;letter-spacing:-.04em}
+.ib-reg-chip,.ib-edit-category,.ib-industry-options button,.ib-detail-tags span{
+ font-size:12px;font-weight:550;letter-spacing:-.01em;
+}
+.ib-member-tile strong,.ib-following-item strong{font-weight:650}
+.ib-language-item,.ib-language-trigger,.ib-profile-menu a,
+.ib-profile-menu button,.ib-member-setting-list a,.ib-member-setting-list button{
+ font-size:var(--ib-text-label);font-weight:550;
+}
+.ib-language-item.selected{font-weight:700}
+.ib-member-setting-list a:hover,.ib-member-setting-list button:hover{font-weight:650}
+.ib-footer-group h2{font-size:var(--ib-text-label);font-weight:700}
+.ib-footer-group a,.ib-footer-group span,.ib-footer-brand p{font-size:var(--ib-text-caption)}
+/* Preserve proportional type embedded in catalog document artwork. */
+.ib-catalog-scroll svg text{font-family:inherit}
+@media(max-width:680px){
+ .hero h1{font-size:30px}
+ .section-heading h2,.ib-edit-heading h1,.ib-member-page-head h1,
+ .ib-register-title h1{font-size:25px}
+ .signup-intro h1{font-size:29px}
+ .ib-detail-heading h1{font-size:24px}
+ .card h3{font-size:15px}
+}
