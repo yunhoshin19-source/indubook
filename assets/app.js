@@ -134,3 +134,12 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
     });
   }
 })();
+
+/* Shared message entry, without expanding primary navigation. */
+(function(){
+ const actions=document.querySelector('.top-actions');if(!actions||actions.querySelector('.ib-header-message-link'))return;
+ const bell=actions.querySelector('a[href="notifications.html"]');if(!bell)return;
+ const a=document.createElement('a');a.href='messages.html';a.className='ib-header-message-link';a.setAttribute('aria-label','메시지');
+ a.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>';
+ actions.insertBefore(a,bell);
+})();
