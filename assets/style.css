@@ -792,3 +792,92 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-related-disclaimer{margin-top:21px;color:#99a8bb;font-size:11px;line-height:1.6}
 @media(max-width:850px){.ib-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:580px){.ib-related-heading{align-items:start;flex-direction:column}.ib-related-heading h2{font-size:21px}.ib-related-grid{grid-template-columns:1fr;gap:14px}.ib-related-art{height:190px}.ib-related-more{width:100%}}
+
+/* Company profile: overview, company facts, company-specific announcements */
+.ib-company-profile-page{max-width:1260px;padding-bottom:62px}
+.ib-company-profile-hero{background:#fff;border:1px solid #e1e9f3;border-radius:17px;padding:29px 32px;display:flex;justify-content:space-between;gap:22px;align-items:center}
+.ib-profile-brand{display:flex;align-items:center;gap:20px;min-width:0}
+.ib-profile-avatar-company{width:91px;height:91px;border-radius:21px;background:linear-gradient(140deg,#1b4b79,#287aae);color:white;display:grid;place-items:center;font-size:27px;font-weight:700;flex:none}
+.ib-profile-brand h1{font-size:27px;letter-spacing:-.03em;margin:7px 0 4px;color:#173656}
+.ib-profile-brand p{margin:6px 0;color:#647b95;font-size:13px;line-height:1.6}
+.ib-profile-brand .ib-company-english{color:#97a5b6;font-size:11px;letter-spacing:.06em}
+.ib-company-hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.ib-company-hero-tags span,.ib-company-specialties span{background:#edf3ff;border-radius:30px;padding:6px 11px;color:#3a69b7;font-size:11px}
+.ib-company-profile-actions{display:flex;gap:9px;flex-wrap:wrap}
+.ib-company-profile-actions>.button{white-space:nowrap}
+.ib-company-profile-stats{display:flex;gap:25px;align-items:center;padding:22px 31px;margin:16px 0;background:#fff;border:1px solid #e1e9f3;border-radius:13px}
+.ib-company-profile-stats>div{display:flex;flex-direction:column;gap:6px;min-width:110px}
+.ib-company-profile-stats strong{font-size:20px;color:#173656}
+.ib-company-profile-stats span{color:#8da0b7;font-size:11px}
+.ib-company-profile-tabs{display:flex;gap:32px;border-bottom:1px solid #dfe7f1;margin:24px 0 23px;overflow:auto}
+.ib-company-profile-tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:14px 3px;cursor:pointer;color:#74869d;font-size:15px;font-weight:600;white-space:nowrap}
+.ib-company-profile-tabs button.active,.ib-company-profile-tabs button[aria-selected="true"]{color:#245eea;border-bottom-color:#245eea}
+.ib-company-profile-tabs span{margin-left:5px;font-size:12px;color:inherit}
+.ib-company-profile-panel[hidden]{display:none!important}
+.ib-company-profile-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);gap:20px;align-items:start}
+.ib-company-profile-maincol,.ib-company-profile-aside{display:flex;flex-direction:column;gap:19px}
+.ib-company-info-card{border:1px solid #e0e8f3;background:white;border-radius:15px;padding:27px;box-shadow:0 4px 16px #203a5b08}
+.ib-company-info-card h2,.ib-company-section-title h2{font-size:20px;letter-spacing:-.02em;color:#1c3b60;margin:0}
+.ib-company-card-title{margin-bottom:20px}
+.ib-company-card-title h2{margin-top:8px}
+.ib-company-info-card p{font-size:13px;color:#6b7f99;line-height:1.85}
+.ib-company-info-card .ib-company-intro-lead{font-size:16px;font-weight:650;color:#25466e}
+.ib-company-specialties{margin-top:23px;border-top:1px solid #e8eff6;padding-top:19px}
+.ib-company-specialties strong{display:block;font-size:13px;margin-bottom:12px}
+.ib-company-specialties>div{display:flex;gap:7px;flex-wrap:wrap}
+.ib-company-facts{margin:0;display:flex;flex-direction:column}
+.ib-company-facts>div{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;border-bottom:1px solid #edf1f6;padding:13px 0;font-size:13px}
+.ib-company-facts>div:last-child{border-bottom:0}
+.ib-company-facts dt{color:#899bb2}
+.ib-company-facts dd{margin:0;color:#2e496b;font-weight:550}
+.ib-company-aside-notices{display:flex;flex-direction:column;gap:8px;margin-bottom:17px}
+.ib-about-news-item{border:1px solid #e4ebf4;background:#f8faff;color:#385475;border-radius:9px;padding:13px;text-align:left;font-size:12px;cursor:pointer}
+.ib-about-news-item:hover{color:#245eea;background:#edf4ff}
+.ib-company-section-title{display:flex;align-items:center;justify-content:space-between;gap:17px;flex-wrap:wrap;margin-bottom:21px}
+.ib-company-section-title p{font-size:13px;color:#8a9bb1;margin:7px 0 0}
+.ib-company-section-title>span{color:#8093ae;font-size:12px}
+.ib-company-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.ib-company-catalog-card{background:#fff;border:1px solid #e0e9f2;border-radius:14px;overflow:hidden}
+.ib-company-catalog-card>a{display:block;padding:12px 12px 0}
+.ib-company-catalog-cover{height:190px;border-radius:10px;background:linear-gradient(135deg,#dce9fc,#b9cff2);padding:23px;display:flex;flex-direction:column;justify-content:space-between;color:#1a3d68}
+.ib-company-catalog-cover.alt{background:linear-gradient(135deg,#e2f2f6,#c3e2ec)}
+.ib-company-catalog-cover span{font-size:10px;letter-spacing:.12em;font-weight:700}
+.ib-company-catalog-cover strong{font-size:21px;line-height:1.35}
+.ib-company-catalog-cover small{font-size:11px}
+.ib-company-catalog-body{padding:18px}
+.ib-company-catalog-body>span,.ib-company-catalog-body>p{color:#8091a9;font-size:12px}
+.ib-company-catalog-body h3{margin:10px 0;font-size:16px}
+.ib-company-catalog-body>a{font-size:12px;color:#245eea;font-weight:600}
+.ib-company-prototype-hint{font-size:11px;color:#9babbd;line-height:1.6;margin-top:18px}
+.ib-news-toolbar{display:flex;gap:10px;margin-bottom:16px}
+.ib-news-search{display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid #dce5f0;border-radius:9px;background:white;flex:1;color:#91a5be}
+.ib-news-search input{background:transparent;border:none;outline:0;font-size:13px;width:100%}
+.ib-news-toolbar select{border-radius:9px;border:1px solid #dce5f0;background:#fff;padding:11px;font-size:13px;color:#506787}
+.ib-news-list{border:1px solid #e1e8f2;background:white;border-radius:15px;overflow:hidden}
+.ib-company-notice-row{width:100%;display:flex;flex-direction:column;gap:8px;padding:21px 24px;background:white;border:0;border-bottom:1px solid #e8eef6;text-align:left;cursor:pointer}
+.ib-company-notice-row:last-child{border-bottom:0}
+.ib-company-notice-row:hover{background:#f7faff}
+.ib-company-notice-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ib-company-notice-line strong{font-size:15px;color:#244568;font-weight:650}
+.ib-news-pin-badge{font-size:10px;color:#2359b0;background:#e9f1ff;padding:5px 9px;border-radius:30px;white-space:nowrap}
+.ib-company-notice-summary{font-size:12px;color:#8999ad;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ib-company-notice-meta{font-size:11px;color:#a1afc0}
+.ib-company-notice-empty{padding:54px 20px;text-align:center;color:#8da1b9;font-size:13px}
+.ib-news-list-bottom{margin:21px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ib-news-list-bottom span{font-size:12px;color:#91a2b7}
+.ib-news-list-bottom button[hidden],#ibWriteNotice[hidden],#ibNoticeManageActions[hidden]{display:none!important}
+.ib-company-notice-dialog{width:min(650px,calc(100% - 28px));max-height:88vh;overflow:auto;background:white;border:1px solid #dfe7f2;border-radius:16px;padding:27px;color:#213b5b;box-shadow:0 25px 70px #112e4a40}
+.ib-company-notice-dialog::backdrop{background:#142c4c99}
+.ib-notice-dialog-head{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:25px}
+.ib-notice-dialog-head h2{font-size:20px;margin:0}
+.ib-notice-dialog-close{background:transparent;border:0;color:#8a9bb1;font-size:26px;cursor:pointer}
+.ib-company-notice-dialog form>label{display:block;font-size:13px;font-weight:600;margin:19px 0 9px}
+.ib-company-notice-dialog form>label span{color:#d84e62}
+.ib-company-notice-dialog input[type=text],.ib-company-notice-dialog textarea{display:block;width:100%;border:1px solid #d9e4ef;border-radius:9px;padding:12px 14px;font:inherit;font-size:13px}
+.ib-company-notice-dialog textarea{resize:vertical;line-height:1.7}
+.ib-company-notice-dialog .ib-notice-pin{display:flex;align-items:center;gap:9px;font-weight:500}
+.ib-notice-dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:23px}
+.ib-notice-read-meta{color:#92a3b6;font-size:12px;padding-bottom:17px;border-bottom:1px solid #e6edf5}
+.ib-notice-read-body{white-space:pre-wrap;line-height:1.85;font-size:14px;color:#3f5772;padding:22px 0;overflow-wrap:anywhere}
+@media(max-width:920px){.ib-company-profile-grid{grid-template-columns:1fr}.ib-company-profile-aside{display:grid;grid-template-columns:1fr 1fr}.ib-company-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.ib-company-profile-hero{padding:20px;align-items:start;flex-direction:column}.ib-profile-avatar-company{width:65px;height:65px;font-size:21px;border-radius:14px}.ib-profile-brand h1{font-size:23px}.ib-company-profile-actions{width:100%}.ib-company-profile-actions>.button{flex:1;text-align:center}.ib-company-profile-stats{padding:18px;gap:12px}.ib-company-profile-stats>div{min-width:0;flex:1}.ib-company-profile-stats strong{font-size:16px}.ib-company-profile-tabs{gap:22px}.ib-company-profile-tabs button{font-size:13px}.ib-company-info-card{padding:19px}.ib-company-profile-aside{grid-template-columns:1fr}.ib-company-catalog-grid{grid-template-columns:1fr}.ib-company-facts>div{grid-template-columns:92px 1fr;gap:10px}.ib-news-toolbar{flex-direction:column}.ib-company-notice-row{padding:18px}.ib-company-section-title h2{font-size:18px}}
