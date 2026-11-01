@@ -40,11 +40,12 @@ jobs:
           test -f assets/management.js
           test -f assets/home-recommend.js
           test -f assets/related-catalogs.js
-          cp assets/style.css assets/app.js assets/register.js assets/member.js assets/profile-edit.js assets/member-info.js assets/messages.js assets/roles.js assets/management.js assets/home-recommend.js assets/related-catalogs.js dist/assets/
+          test -f assets/company-profile.js
+          cp assets/style.css assets/app.js assets/register.js assets/member.js assets/profile-edit.js assets/member-info.js assets/messages.js assets/roles.js assets/management.js assets/home-recommend.js assets/related-catalogs.js assets/company-profile.js dist/assets/
           touch dist/.nojekyll
           echo 'Published files:'
           find dist -type f | sort
-          test "$(find dist -type f | wc -l)" -eq 30
+          test "$(find dist -type f | wc -l)" -eq 31
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload clean site
