@@ -17,12 +17,12 @@
  const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(notices));return true}catch(e){alert('브라우저 저장 공간에 저장하지 못했습니다.');return false}};
  function tab(name,changeHash=true){
   document.querySelectorAll('[data-company-tab]').forEach(b=>{const on=b.dataset.companyTab===name;b.setAttribute('aria-selected',String(on));b.classList.toggle('active',on)});
-  for(const k of ['about','catalog','news']){const panel=$({about:'companyAboutPanel',catalog:'companyCatalogPanel',news:'companyNewsPanel'}[k]);panel.hidden=k!==name}
+  for(const k of ['about','products','catalog','news']){const panel=$({about:'companyAboutPanel',products:'companyProductPanel',catalog:'companyCatalogPanel',news:'companyNewsPanel'}[k]);panel.hidden=k!==name}
   if(changeHash)history.replaceState(null,'','#'+name);
  }
  document.querySelectorAll('[data-company-tab]').forEach(btn=>btn.addEventListener('click',()=>tab(btn.dataset.companyTab)));
  $('ibGoNews').addEventListener('click',()=>{tab('news');$('companyNewsTab').focus()});
- const validTab=location.hash.slice(1);tab(['about','catalog','news'].includes(validTab)?validTab:'about',false);
+ const validTab=location.hash.slice(1);tab(['about','products','catalog','news'].includes(validTab)?validTab:'about',false);
  const write=$('ibWriteNotice'),hint=$('ibNoticeOwnerHint');
  if(demoOwner){
   write.hidden=false;
