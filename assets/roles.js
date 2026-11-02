@@ -29,7 +29,7 @@ f.addEventListener('submit',e=>{
  localStorage.setItem(roleKey,roleSelect.value);
  if(roleSelect.value==='association')localStorage.setItem(orgKey,orgSelect.value||'KCCI');
  const next=new URLSearchParams(location.search).get('next');
- if(next&&/^business-request\.html\?(?:[a-zA-Z0-9%&=_-]+)$/.test(next)){location.href=next;}
+ if(next&&/^(?:business-request|messages)\.html\?(?:[a-zA-Z0-9%&=_-]+)$/.test(next)){location.href=next;}
  else location.href=roleSelect.value==='admin'?'dmin-organization.html':roleSelect.value==='association'?'member-companies.html':'mypage.html';
 },true);
 })();
