@@ -2,6 +2,11 @@
 (function(){
 'use strict';
 const $=id=>document.getElementById(id);
+if(localStorage.getItem('ib-demo-logged-in')!=='yes'){
+ const next='messages.html'+location.search;
+ location.replace('login.html?next='+encodeURIComponent(next));
+ return;
+}
 const key='ib-demo-message-threads-v1';
 const directory={kar:{name:'한국AI로봇산업협회',initial:'KAR',link:'company-profile.html'},'co-0':{name:'A 로보틱스',initial:'AR',link:'company-profile.html'},theklab:{name:'더클랩',initial:'TK',link:'company-profile.html'}};
 let threads={};
