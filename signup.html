@@ -151,12 +151,12 @@
 <script>
 (function(){
  const next=new URLSearchParams(location.search).get('next');
- if(!next||!/^business-request\.html\?[a-zA-Z0-9%&=_-]+$/.test(next))return;
+ if(!next||!/^(?:business-request|messages)\.html\?[a-zA-Z0-9%&=_-]+$/.test(next))return;
  const back='login.html?next='+encodeURIComponent(next);
  const links=document.querySelectorAll('a[href="login.html"],a[href^="login.html?"]');
  links.forEach(a=>{a.href=back});
  const note=document.createElement('p');note.className='ib-signup-return-hint';
- note.textContent='가입 절차를 마친 뒤 로그인하면 이전에 선택한 문의/RFQ/RFC 요청을 계속할 수 있습니다.';
+ note.textContent='가입 절차를 마친 뒤 로그인하면 이전에 선택한 메시지 문의 또는 RFQ/RFC 요청을 계속할 수 있습니다.';
  const link=document.createElement('a');link.href=back;link.textContent='로그인 후 요청 계속하기 →';
  note.append(document.createTextNode(' '),link);
  (document.querySelector('.signup-shell')||document.querySelector('main')||document.body).append(note);
