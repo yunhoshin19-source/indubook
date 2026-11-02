@@ -47,7 +47,7 @@ if($('productDetail')){
  const related=document.createElement('div');related.className='ib-product-catalog-ref';const h3=document.createElement('h2');h3.textContent='관련 카탈로그';related.append(h3);
  if(p.catalogIds?.length){p.catalogIds.forEach(cid=>{const a=document.createElement('a');a.href='catalogs.html?q='+encodeURIComponent(p.model);a.textContent='연결 카탈로그 찾기 ('+cid+') →';related.append(a)})}else{const note=document.createElement('p');note.textContent='연결된 카탈로그가 없습니다.';related.append(note)}
  const spec=document.createElement('section');spec.className='ib-product-data-panel';const st=document.createElement('h2');st.textContent='주요 기술 사양';spec.append(st);const dl=document.createElement('dl');dl.className='ib-product-specs';Object.entries(p.specs||{}).forEach(([k,v])=>{const dt=document.createElement('dt');dt.textContent=k;const dd=document.createElement('dd');dd.textContent=v;dl.append(dt,dd)});spec.append(dl);
- const col=document.createElement('div');col.append(spec,related);lower.append(description,col);container.append(lower);
+ const col=document.createElement('div');col.append(spec,related);lower.append(description,col);container.append(lower);if(window.IBProductMedia)window.IBProductMedia.renderDetail(p,visual,related);
  const other=published().filter(x=>x.id!==p.id).sort((a,b)=>Number(b.category===p.category)-Number(a.category===p.category)).slice(0,3);db.renderCards($('productRelated'),other);
 }
 if($('productManageGate')){
@@ -56,22 +56,23 @@ if($('productManageGate')){
  $('productManageGate').hidden=allowed;$('productManageArea').hidden=!allowed;
  if(!allowed)return;
  const rows=$('productManagedRows'),dialog=$('productEditor'),form=$('productEditForm');
+ if(window.IBProductMedia)window.IBProductMedia.init();
  const fields={name:'pName',en:'pEnglish',model:'pModel',category:'pCategory',industry:'pIndustry',status:'pStatus',summary:'pSummary',description:'pDescription'};
- function fill(p){form.reset();$('pId').value=p?.id||'';for(const [k,id] of Object.entries(fields))$(id).value=p?.[k]||({status:'draft'}[k]||'');$('pTags').value=(p?.tags||[]).join(', ');$('pCatalog').value=p?.catalogIds?.[0]||'';$('pSpecs').value=Object.entries(p?.specs||{}).map(([k,v])=>k+': '+v).join('\n');$('productEditorTitle').textContent=p?'제품 수정':'제품 등록';dialog.showModal()}
+ async function fill(p){form.reset();$('pId').value=p?.id||'';for(const [k,id] of Object.entries(fields))$(id).value=p?.[k]||({status:'draft'}[k]||'');$('pTags').value=(p?.tags||[]).join(', ');$('pCatalog').value=p?.catalogIds?.[0]||'';$('pSpecs').value=Object.entries(p?.specs||{}).map(([k,v])=>k+': '+v).join('\n');$('productEditorTitle').textContent=p?'제품 수정':'제품 등록';dialog.showModal();if(window.IBProductMedia)await window.IBProductMedia.load(p)}
  function render(){const data=db.list().filter(p=>p.owner==='co-0');$('managedCount').textContent=data.length+'개 제품';rows.replaceChildren();
  for(const p of data){const row=document.createElement('tr');for(const value of [p.name+' / '+p.model,p.category,p.status==='published'?'공개':'임시저장',p.updated]){const td=document.createElement('td');td.textContent=value;row.append(td)}
- const td=document.createElement('td'),edit=document.createElement('button'),del=document.createElement('button');edit.type=del.type='button';edit.className='button secondary small';edit.textContent='수정';edit.onclick=()=>fill(p);del.className='ib-product-delete';del.textContent='삭제';del.onclick=()=>{if(!confirm(p.name+' 제품을 삭제할까요?'))return;db.save(db.list().filter(x=>x.id!==p.id));render()};td.append(edit,del);row.append(td);rows.append(row)}
+ const td=document.createElement('td'),edit=document.createElement('button'),del=document.createElement('button');edit.type=del.type='button';edit.className='button secondary small';edit.textContent='수정';edit.onclick=()=>fill(p);del.className='ib-product-delete';del.textContent='삭제';del.onclick=async()=>{if(!confirm(p.name+' 제품을 삭제할까요?'))return;try{if(window.IBProductMedia)await window.IBProductMedia.cleanup(p);db.save(db.list().filter(x=>x.id!==p.id));render()}catch(e){alert('파일 삭제에 실패했습니다: '+e.message)}};td.append(edit,del);row.append(td);rows.append(row)}
  if(!data.length){const row=document.createElement('tr'),td=document.createElement('td');td.colSpan=5;td.textContent='등록된 제품이 없습니다. 새 제품을 등록해 주세요.';row.append(td);rows.append(row)}
  }
  $('productCreate').onclick=()=>fill(null);$('productCancel').onclick=()=>dialog.close();$('productEditorClose').onclick=()=>dialog.close();
- form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;
+ form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValidity())return;
  const data=db.list(),id=$('pId').value||'p-'+Date.now().toString(36),prev=data.find(p=>p.id===id);
  const next={...(prev||{}),id,owner:'co-0',company:'A 로보틱스',views:prev?.views||0,likes:prev?.likes||0,updated:new Date().toISOString().slice(0,10),price:'견적 문의'};
  for(const [k,field] of Object.entries(fields))next[k]=$(field).value.trim();
  next.tags=$('pTags').value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,12);
  next.catalogIds=$('pCatalog').value?[$('pCatalog').value]:[];
  next.specs={};$('pSpecs').value.split('\n').forEach(line=>{const i=line.indexOf(':');if(i>0){const k=line.slice(0,i).trim(),v=line.slice(i+1).trim();if(k&&v)next.specs[k]=v}});
- try{db.validate(next);if(prev)Object.assign(prev,next);else data.push(next);db.save(data);dialog.close();render()}catch(err){alert(err.message)}
+ try{db.validate(next);if(window.IBProductMedia){const media=await window.IBProductMedia.persist(prev);Object.assign(next,media)}if(prev)Object.assign(prev,next);else data.push(next);db.save(data);dialog.close();render()}catch(err){alert('제품 또는 첨부 파일 저장에 실패했습니다: '+err.message)}
  });render()
 }
 })();
