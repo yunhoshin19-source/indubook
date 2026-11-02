@@ -16,6 +16,8 @@ const summary=document.createElement('p');summary.textContent=p.summary||'산업
 const foot=document.createElement('div');foot.className='ib-product-card-foot';const company=document.createElement('span');company.textContent=p.company;const more=document.createElement('a');more.href=link.href;more.textContent='제품 보기 →';foot.append(company,more);body.append(cat,title,summary,foot);a.append(body);return a
 }
 window.IBProducts.renderCards=(el,records)=>{el.replaceChildren();records.forEach(p=>el.append(itemCard(p)))};
+if($('homeProductsGrid')){const items=published().sort((a,b)=>(b.views+b.likes*2)-(a.views+a.likes*2)).slice(0,4);db.renderCards($('homeProductsGrid'),items)}
+if($('companyProductsGrid')){const items=published().filter(p=>p.owner==='co-0');db.renderCards($('companyProductsGrid'),items);const count=$('companyProductCount');if(count)count.textContent=items.length}
 if($('productGrid')){
  const search=$('productSearch'),category=$('productCategory'),sort=$('productSort');search.value=query.get('q')||'';category.value=query.get('category')||'';
  function render(){
