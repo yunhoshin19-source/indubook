@@ -161,7 +161,7 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  const nav=document.querySelector('.toplinks');if(!nav||nav.querySelector('a[href="products.html"]'))return;
  const catalog=nav.querySelector('a[href="catalogs.html"]');const a=document.createElement('a');a.href='products.html';a.textContent='제품';a.className='ib-product-nav';
  if(catalog)catalog.after(a);else nav.prepend(a);
- if(location.pathname.endsWith('/products.html')||location.pathname.endsWith('/product-detail.html')||location.pathname.endsWith('/product-manage.html')){
+ if(location.pathname.endsWith('/products.html')||location.pathname.endsWith('/product-detail.html')||location.pathname.endsWith('/product-manage.html')||location.pathname.endsWith('/product-edit.html')){
    nav.querySelectorAll('a').forEach(link=>{link.classList.toggle('active',link===a);if(link===a)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
  }
  const menu=document.querySelector('.ib-profile-menu');
@@ -175,7 +175,7 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  const wrap=document.createElement('div');wrap.className='ib-reg-menu-wrap';
  const trigger=document.createElement('button');trigger.className='button primary small ib-reg-menu-trigger';trigger.type='button';trigger.textContent='+ 등록 ▾';trigger.setAttribute('aria-haspopup','menu');trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-label','등록 메뉴 열기');
  const panel=document.createElement('div');panel.className='ib-reg-menu-panel';panel.id='ibRegistrationMenu';panel.hidden=true;panel.setAttribute('role','menu');
- for(const item of [{url:'product-manage.html?new=1',icon:'▣',label:'제품 등록',caption:'제품 정보 · 사진 · 카탈로그'},{url:'register.html',icon:'▤',label:'카탈로그 등록',caption:'PDF · PPTX · 동영상'}]){
+ for(const item of [{url:'product-edit.html',icon:'▣',label:'제품 등록',caption:'제품 정보 · 사진 · 카탈로그'},{url:'register.html',icon:'▤',label:'카탈로그 등록',caption:'PDF · PPTX · 동영상'}]){
   const a=document.createElement('a');a.href=item.url;a.setAttribute('role','menuitem');const ico=document.createElement('span');ico.textContent=item.icon;const body=document.createElement('span');const strong=document.createElement('strong');strong.textContent=item.label;const small=document.createElement('small');small.textContent=item.caption;body.append(strong,small);a.append(ico,body);panel.append(a);
  }
  wrap.append(trigger,panel);direct.replaceWith(wrap);
