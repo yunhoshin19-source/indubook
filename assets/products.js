@@ -45,7 +45,7 @@ if($('productDetail')){
  [['제조사',p.company],['모델명',p.model],['인더스트리',p.industry],['가격',p.price||'견적 문의'],['등록·수정일',p.updated]].forEach(([k,v])=>{const label=document.createElement('span');label.textContent=k;const value=document.createElement('strong');value.textContent=v;details.append(label,value)});
  const actions=document.createElement('div');actions.className='ib-product-detail-buttons';
  const requestUrl=type=>'business-request.html?type='+encodeURIComponent(type)+'&source=product&id='+encodeURIComponent(p.id);
- const inquiry=document.createElement('a');inquiry.className='button secondary';inquiry.textContent='제품 문의하기';inquiry.href=requestUrl('inquiry');
+ const inquiry=document.createElement('a');inquiry.className='button secondary';inquiry.textContent='제품 문의하기';inquiry.href='messages.html?'+new URLSearchParams({to:p.owner,draft:'[제품 문의] '+p.name+' ('+p.model+')\n제품 관련 문의드립니다.'}).toString();
  const rfq=document.createElement('a');rfq.className='button primary';rfq.textContent='RFQ 견적요청';rfq.href=requestUrl('rfq');
  const company=document.createElement('a');company.className='button secondary';company.href='company-profile.html';company.textContent='기업 페이지 보기';actions.append(inquiry,rfq,company);
  data.append(category,name,english,summary,details,actions);hero.append(visual,data);container.append(hero);
