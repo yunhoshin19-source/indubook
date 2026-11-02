@@ -43,8 +43,11 @@ if($('productDetail')){
  const summary=document.createElement('p');summary.className='ib-product-lead';summary.textContent=p.summary;
  const details=document.createElement('div');details.className='ib-product-detail-facts';
  [['제조사',p.company],['모델명',p.model],['인더스트리',p.industry],['가격',p.price||'견적 문의'],['등록·수정일',p.updated]].forEach(([k,v])=>{const label=document.createElement('span');label.textContent=k;const value=document.createElement('strong');value.textContent=v;details.append(label,value)});
- const actions=document.createElement('div');actions.className='ib-product-detail-buttons';const inquiry=document.createElement('a');inquiry.className='button primary';inquiry.textContent='제품 문의 / RFQ →';inquiry.href='messages.html?to='+encodeURIComponent(p.owner)+'&draft='+encodeURIComponent('[제품 문의] '+p.name+' ('+p.model+')\n견적 및 제품 사양에 대해 문의드립니다.');
- const company=document.createElement('a');company.className='button secondary';company.href='company-profile.html';company.textContent='기업 페이지 보기';actions.append(inquiry,company);
+ const actions=document.createElement('div');actions.className='ib-product-detail-buttons';
+ const requestUrl=type=>'business-request.html?type='+encodeURIComponent(type)+'&source=product&id='+encodeURIComponent(p.id);
+ const inquiry=document.createElement('a');inquiry.className='button secondary';inquiry.textContent='제품 문의하기';inquiry.href=requestUrl('inquiry');
+ const rfq=document.createElement('a');rfq.className='button primary';rfq.textContent='RFQ 견적요청';rfq.href=requestUrl('rfq');
+ const company=document.createElement('a');company.className='button secondary';company.href='company-profile.html';company.textContent='기업 페이지 보기';actions.append(inquiry,rfq,company);
  data.append(category,name,english,summary,details,actions);hero.append(visual,data);container.append(hero);
  const lower=document.createElement('div');lower.className='ib-product-lower';const description=document.createElement('section');description.className='ib-product-data-panel';const h2=document.createElement('h2');h2.textContent='제품 소개';const pp=document.createElement('p');pp.textContent=p.description;description.append(h2,pp);
  const related=document.createElement('div');related.className='ib-product-catalog-ref';const h3=document.createElement('h2');h3.textContent='관련 카탈로그';related.append(h3);
