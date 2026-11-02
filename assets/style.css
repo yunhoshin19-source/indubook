@@ -945,3 +945,58 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 @media(max-width:1050px){.ib-products-grid,.ib-home-products .ib-products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:780px){.ib-products-grid,.ib-home-products .ib-products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-product-detail-main,.ib-product-lower{grid-template-columns:1fr}.ib-product-detail-visual{min-height:300px}}
 @media(max-width:560px){.ib-products-grid,.ib-home-products .ib-products-grid{grid-template-columns:1fr}.ib-product-searchbar{grid-template-columns:1fr 1fr}.ib-product-searchbar input{grid-column:1/-1}.ib-product-editor-grid{grid-template-columns:1fr}.ib-product-editor-grid label.wide{grid-column:1}.ib-product-detail-info h1{font-size:25px}}
+
+/* IndustryBook product registration: tag categories + photo/document media */
+.ib-product-tag-field{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ib-product-tag-field>label{font-size:12px;font-weight:600}
+.ib-product-tag-field>label span{font-size:11px;color:#8195af}
+.ib-product-tag-field>p,.ib-product-media-hint{font-size:11px;color:#8b9ab1;line-height:1.65;margin:0}
+.ib-product-category-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:17px}
+.ib-product-tag{display:inline-flex;align-items:center;gap:5px;background:#edf2ff;color:#3159a4;border-radius:18px;padding:6px 9px;font-size:12px}
+.ib-product-tag button{border:0;background:none;color:#245eea;cursor:pointer;font-size:17px;line-height:1}
+.ib-product-tag-entry{display:flex;gap:7px;align-items:center}
+.ib-product-tag-entry input{width:100%;min-width:0;border-radius:9px;border:1px solid #dce5f0;padding:11px}
+.ib-product-tag-entry .button{flex:none}
+.ib-product-category-suggestions{display:flex;flex-wrap:wrap;gap:6px}
+.ib-product-category-suggestions button{background:#f4f7fb;border:1px solid #e1e9f3;border-radius:18px;padding:6px 10px;color:#647a96;font-size:11px;cursor:pointer}
+.ib-product-category-suggestions button:hover{color:#245eea;border-color:#adc3ef}
+.ib-product-media-section{border-top:1px solid #e6edf6;padding-top:23px;margin-top:23px}
+.ib-product-media-heading{display:flex;justify-content:space-between;gap:10px;align-items:start;margin-bottom:14px}
+.ib-product-media-heading h3{font-size:16px;margin:0 0 8px;font-weight:700;color:#193755}
+.ib-product-media-heading p{font-size:12px;color:#8193ac;margin:0}
+.ib-product-media-heading>span{font-size:12px;color:#6085bc;white-space:nowrap}
+.ib-product-photo-drop{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;min-height:133px;background:#f8fbff;border:2px dashed #cbdaf0;border-radius:12px;cursor:pointer;text-align:center;padding:18px;color:#6486b4}
+.ib-product-photo-drop:hover,.ib-product-photo-drop.dragging,.ib-product-photo-drop:focus-visible{background:#edf5ff;border-color:#245eea;outline:0}
+.ib-product-photo-drop strong{font-size:13px;color:#284b78}
+.ib-product-photo-drop>span:last-child{font-size:11px;color:#8b9eb9}
+.ib-product-media-icon{font-size:28px;color:#6995ce}
+.ib-product-document-drop{min-height:103px}
+.ib-product-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:15px 0 9px}
+.ib-product-photo-item{background:#fff;border:1px solid #e1e9f4;border-radius:10px;overflow:hidden;padding:7px;min-width:0}
+.ib-product-photo-image{aspect-ratio:4/3;background:#f0f5fc;border-radius:7px;overflow:hidden}
+.ib-product-photo-image img{height:100%;width:100%;object-fit:contain}
+.ib-product-photo-star{display:block;margin:8px auto;background:#f2f6fd;color:#6582aa;border:0;border-radius:6px;padding:6px 8px;font-size:11px;cursor:pointer}
+.ib-product-photo-star.selected{background:#e3efff;color:#245eea;font-weight:700}
+.ib-product-photo-actions{display:flex;justify-content:center;align-items:center;gap:5px}
+.ib-product-photo-actions button{border:1px solid #e0e8f3;background:white;border-radius:5px;font-size:11px;padding:5px 8px;cursor:pointer;color:#547193}
+.ib-product-photo-actions button:disabled{opacity:.4;cursor:default}
+.ib-product-document-list{margin-top:13px;display:flex;flex-direction:column;gap:8px}
+.ib-product-document-row{display:flex;align-items:center;gap:10px;border:1px solid #e1e8f3;padding:10px;border-radius:9px}
+.ib-product-document-icon{font-size:10px;font-weight:700;color:#245eea;background:#edf3ff;padding:7px;border-radius:6px}
+.ib-product-document-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#425d7e}
+.ib-product-document-row button{background:white;border:0;color:#be5069;cursor:pointer}
+.ib-product-media-status{font-size:12px;color:#26714b;margin:12px 0 0}.ib-product-media-status.error{color:#b94e5a}
+.ib-product-detail-visual.with-photos{background:#f5f8fd;padding:18px;display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.ib-product-gallery-main{width:100%;flex:1;min-height:270px;max-height:410px;object-fit:contain}
+.ib-product-gallery-strip{display:flex;gap:9px;overflow:auto}
+.ib-product-gallery-strip button{border:1px solid #d9e4f2;border-radius:7px;padding:4px;background:#fff;width:65px;height:60px;flex:none;cursor:pointer}
+.ib-product-gallery-strip img{height:100%;width:100%;object-fit:contain}
+.ib-product-document-link{display:block;width:100%;text-align:left;padding:12px;background:#f3f7ff;border:1px solid #dce7f6;color:#2c5d9e;border-radius:8px;margin:8px 0;cursor:pointer;font-size:12px}
+.ib-reg-menu-wrap{position:relative;display:inline-flex}
+.ib-reg-menu-trigger{white-space:nowrap;cursor:pointer}
+.ib-reg-menu-panel{position:absolute;top:calc(100% + 10px);right:0;width:225px;background:#fff;box-shadow:0 12px 38px #122c4b24;border:1px solid #dfe7f2;border-radius:12px;padding:7px;z-index:900}
+.ib-reg-menu-panel[hidden]{display:none!important}
+.ib-reg-menu-panel a{display:flex;gap:10px;align-items:center;padding:12px;border-radius:9px;text-decoration:none;font-size:13px;color:#304b6c}
+.ib-reg-menu-panel a:hover{background:#edf3ff;color:#245eea}
+.ib-reg-menu-panel small{display:block;font-size:11px;color:#8b9eb5;margin-top:4px}
+@media(max-width:560px){.ib-product-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-product-tag-entry{flex-wrap:wrap}.ib-product-photo-drop{min-height:116px}.ib-reg-menu-panel{right:-25px;width:220px}}
