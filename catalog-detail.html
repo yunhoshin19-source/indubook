@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>한국AI로봇산업협회 회원사 혜택 | IndustryBook 카탈로그</title><meta name="description" content="IndustryBook 카탈로그 상세 디자인 시안"><link rel="stylesheet" href="assets/style.css?v=product-tags-v2"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html" class="active" aria-current="page">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><main class="container main ib-detail-shell">
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>한국AI로봇산업협회 회원사 혜택 | IndustryBook 카탈로그</title><meta name="description" content="IndustryBook 카탈로그 상세 디자인 시안"><link rel="stylesheet" href="assets/style.css?v=business-request-v1"></head><body><header class="topbar"><div class="top-inner"><a class="logo" href="index.html">industry<span>book</span></a><nav class="toplinks"><a href="index.html">홈</a><a href="catalogs.html" class="active" aria-current="page">카탈로그</a><a href="companies.html">기업 찾기</a><a href="feed.html">관심 피드</a></nav><div class="top-actions"><a class="button primary small" href="register.html">+ 등록</a><select id="language" aria-label="언어"><option value="ko">KO</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href="notifications.html" aria-label="알림">♧</a><a href="login.html" aria-label="로그인">◉</a></div></div></header><main class="container main ib-detail-shell">
  <nav class="ib-breadcrumb" aria-label="현재 위치"><a href="index.html">홈</a><span>›</span><a href="catalogs.html">카탈로그</a><span>›</span><span>카탈로그 상세</span></nav>
  <div class="ib-detail-columns">
   <div class="ib-detail-primary">
@@ -73,7 +73,7 @@
     <div class="ib-company-top"><div class="ib-company-avatar">KAR</div><div><span class="ib-aside-subtitle">PUBLISHER</span><h2>한국AI로봇산업협회</h2><p>AI·로봇 산업 네트워크</p></div></div>
     <div class="ib-company-stats"><div><strong>1</strong><span>카탈로그</span></div><div><strong>2</strong><span>좋아요</span></div><div><strong>195</strong><span>조회 · 샘플</span></div></div>
     <a href="company-profile.html" class="button secondary ib-wide-btn">회사 페이지 보기</a>
-    <button type="button" id="ibContact" class="button primary ib-wide-btn">기업 문의하기</button>
+    <a id="ibContact" href="business-request.html?type=inquiry&amp;source=catalog&amp;id=kar-membership" class="button secondary ib-wide-btn">카탈로그 문의하기</a><a id="ibRFC" href="business-request.html?type=rfc&amp;source=catalog&amp;id=kar-membership" class="button primary ib-wide-btn ib-catalog-rfc">RFC 요청하기</a><p class="ib-request-guest-hint">문의 및 RFC 요청은 회원가입·로그인 후 이용할 수 있습니다.</p>
     <p class="ib-aside-hint">이 페이지의 회사 정보와 수치는 첨부 시안 기준입니다.</p>
    </div>
    <div class="ib-aside-summary"><strong>콘텐츠 안내</strong><p>회원사 혜택과 기업 지원 프로그램을 소개하는 자료입니다.</p><div class="ib-detail-tags"><span>정책</span><span>네트워킹</span><span>컨설팅</span></div></div>
@@ -94,7 +94,7 @@
  tabs.forEach(t=>t.addEventListener('click',()=>select(t.dataset.detailTab)));
  document.getElementById('ibDownload').addEventListener('click',()=>{if(typeof notify==='function')notify('원본 파일 다운로드는 아직 연결되지 않았습니다.')});
  const sheet=document.getElementById('inquirySheet');
- document.getElementById('ibContact').addEventListener('click',()=>{window.location.href='messages.html?to=kar'});
+ // Inquiry and RFC links open the member-gated request page.
  const close=()=>{sheet.hidden=true;document.body.style.overflow=''};
  document.getElementById('inquiryClose').addEventListener('click',close);
  sheet.addEventListener('click',e=>{if(e.target===sheet)close()});
