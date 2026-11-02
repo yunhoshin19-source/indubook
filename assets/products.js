@@ -19,10 +19,13 @@ window.IBProducts.renderCards=(el,records)=>{el.replaceChildren();records.forEac
 if($('homeProductsGrid')){const items=published().sort((a,b)=>(b.views+b.likes*2)-(a.views+a.likes*2)).slice(0,4);db.renderCards($('homeProductsGrid'),items)}
 if($('companyProductsGrid')){const items=published().filter(p=>p.owner==='co-0');db.renderCards($('companyProductsGrid'),items);const count=$('companyProductCount');if(count)count.textContent=items.length}
 if($('productGrid')){
- const search=$('productSearch'),category=$('productCategory'),sort=$('productSort');search.value=query.get('q')||'';category.value=query.get('category')||'';
+ const search=$('productSearch'),category=$('productCategory'),sort=$('productSort');
+ const categories=[...new Set(published().flatMap(p=>Array.isArray(p.categories)&&p.categories.length?p.categories:[p.category]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ko'));
+ for(const tag of categories){const option=document.createElement('option');option.value=tag;option.textContent=tag;category.append(option)}
+ search.value=query.get('q')||'';category.value=query.get('category')||'';
  function render(){
   const q=search.value.trim().toLowerCase();
-  const list=published().filter(p=>(!category.value||p.category===category.value)&&(!q||[p.name,p.en,p.model,p.company,p.category,p.summary,...p.tags].join(' ').toLowerCase().includes(q)));
+  const list=published().filter(p=>(!category.value||(p.categories||[p.category]).includes(category.value))&&(!q||[p.name,p.en,p.model,p.company,p.category,p.summary,...p.tags].join(' ').toLowerCase().includes(q)));
   list.sort((a,b)=>sort.value==='recent'?b.updated.localeCompare(a.updated):sort.value==='popular'?b.views-a.views:(b.views+b.likes*2)-(a.views+a.likes*2));
   db.renderCards($('productGrid'),list);$('productCount').textContent='전체 '+list.length+'개 제품';
   if(!list.length){const msg=document.createElement('p');msg.className='ib-product-empty';msg.textContent='검색 결과가 없습니다.';$('productGrid').append(msg)}
