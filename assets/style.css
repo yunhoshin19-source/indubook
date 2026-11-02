@@ -1021,3 +1021,14 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-catalog-private{color:#ad7b43!important}
 .ib-catalog-manager-quick-actions{display:flex;gap:8px;flex-wrap:wrap}
 @media(max-width:650px){.ib-catalog-manager-stats>div{padding:14px}.ib-catalog-manager-stats strong{font-size:22px}.ib-catalog-manager-tools{flex-direction:column}.ib-catalog-manager-head h1{font-size:24px}}
+
+/* Product registration/editing is now a full page, not a modal */
+.ib-product-edit-page{max-width:1060px;padding-bottom:80px}
+.ib-product-edit-page .ib-product-page-head{margin:16px 0 25px}
+.ib-product-edit-panel{background:#fff;border:1px solid #e2e9f3;border-radius:17px;padding:30px 34px;box-shadow:0 4px 24px #1d39530b}
+.ib-product-edit-panel[hidden],.ib-product-info[hidden]{display:none!important}
+.ib-product-edit-panel .ib-product-edit-form{margin:0}
+.ib-product-edit-panel .ib-product-editor-head{border-bottom:1px solid #e7edf6;padding-bottom:18px;margin-bottom:24px}
+.ib-product-editor-back{font-size:13px;font-weight:600;color:#245eea;text-decoration:none}
+.ib-product-edit-panel .ib-product-editor-actions{position:sticky;bottom:0;background:#fff;z-index:2;border-top:1px solid #e6ebf3;padding:18px 0 5px;box-shadow:0 -8px 18px #fff9}
+@media(max-width:700px){.ib-product-edit-panel{padding:19px 16px}.ib-product-edit-panel .ib-product-editor-actions{flex-wrap:wrap}.ib-product-edit-panel .ib-product-editor-actions>.button{flex:1;justify-content:center}}
