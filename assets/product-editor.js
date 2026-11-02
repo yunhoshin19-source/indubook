@@ -43,6 +43,5 @@ if(window.IBProductMedia)window.IBProductMedia.load(previous);
  next.catalogIds=$('pCatalog').value?[$('pCatalog').value]:[];
  next.specs={};$('pSpecs').value.split('\n').forEach(line=>{const i=line.indexOf(':');if(i>0){const k=line.slice(0,i).trim(),v=line.slice(i+1).trim();if(k&&v)next.specs[k]=v}});
  try{db.validate(next);if(window.IBProductMedia){const media=await window.IBProductMedia.persist(prev);Object.assign(next,media)}if(prev)Object.assign(prev,next);else data.push(next);db.save(data);location.href='product-manage.html?saved=1'}catch(err){alert('제품 또는 첨부 파일 저장에 실패했습니다: '+err.message)}
- });render();if(new URLSearchParams(location.search).get('new')==='1')fill(null)
-}
+ });
 })();
