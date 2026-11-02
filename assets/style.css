@@ -1000,3 +1000,24 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-reg-menu-panel a:hover{background:#edf3ff;color:#245eea}
 .ib-reg-menu-panel small{display:block;font-size:11px;color:#8b9eb5;margin-top:4px}
 @media(max-width:560px){.ib-product-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-product-tag-entry{flex-wrap:wrap}.ib-product-photo-drop{min-height:116px}.ib-reg-menu-panel{right:-25px;width:220px}}
+
+/* Catalog management — mirrors independent product management UI */
+.ib-catalog-manage-entry{white-space:nowrap}
+.ib-catalog-manager{max-width:1260px;padding-bottom:65px}
+.ib-catalog-manager-head{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:0 0 25px}
+.ib-catalog-manager-head h1{font-size:29px;margin:6px 0}
+.ib-catalog-manager-head p{font-size:14px;color:#7c8da3;margin:0}
+.ib-catalog-manager-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.ib-catalog-manager-stats>div{background:#fff;border:1px solid #e0e8f3;border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:9px}
+.ib-catalog-manager-stats span{color:#7c8ea5;font-size:13px}
+.ib-catalog-manager-stats strong{font-size:27px;color:#1d3b60;font-weight:700}
+.ib-catalog-manager-panel{background:#fff;border:1px solid #e0e8f3;border-radius:14px;overflow:hidden}
+.ib-catalog-manager-tools{display:flex;justify-content:space-between;gap:13px;padding:17px}
+.ib-catalog-manager-search{flex:1;background:#f4f7fb;border-radius:9px;padding:10px;display:flex;gap:8px;align-items:center;color:#8196ae}
+.ib-catalog-manager-search input{background:transparent;border:0;outline:0;width:100%;font-size:13px}
+.ib-catalog-manager-tools select{background:white;border:1px solid #dce5f0;border-radius:9px;padding:11px;font-size:13px}
+.ib-catalog-manage-title{color:#1e416d!important;font-weight:650}
+.ib-catalog-public{color:#237657!important}
+.ib-catalog-private{color:#ad7b43!important}
+.ib-catalog-manager-quick-actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:650px){.ib-catalog-manager-stats>div{padding:14px}.ib-catalog-manager-stats strong{font-size:22px}.ib-catalog-manager-tools{flex-direction:column}.ib-catalog-manager-head h1{font-size:24px}}
