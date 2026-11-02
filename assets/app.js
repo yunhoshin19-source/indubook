@@ -155,3 +155,15 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  const menu=document.querySelector('.ib-profile-menu');
  if(menu&&!menu.querySelector('.ib-role-profile')){const a=document.createElement('a');a.className='ib-role-profile';a.href=config[1];a.textContent=config[0];menu.insertBefore(a,menu.querySelector('button'))}
 })();
+
+/* Products: first-class top-level menu, independent from catalogs. */
+(function(){
+ const nav=document.querySelector('.toplinks');if(!nav||nav.querySelector('a[href="products.html"]'))return;
+ const catalog=nav.querySelector('a[href="catalogs.html"]');const a=document.createElement('a');a.href='products.html';a.textContent='제품';a.className='ib-product-nav';
+ if(catalog)catalog.after(a);else nav.prepend(a);
+ if(location.pathname.endsWith('/products.html')||location.pathname.endsWith('/product-detail.html')||location.pathname.endsWith('/product-manage.html')){
+   nav.querySelectorAll('a').forEach(link=>{link.classList.toggle('active',link===a);if(link===a)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
+ }
+ const menu=document.querySelector('.ib-profile-menu');
+ if(menu&&!menu.querySelector('a[href="product-manage.html"]')){const link=document.createElement('a');link.href='product-manage.html';link.textContent='내 제품 관리';menu.insertBefore(link,menu.querySelector('button'))}
+})();
