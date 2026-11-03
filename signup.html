@@ -151,7 +151,7 @@
 <script>
 (function(){
  const next=new URLSearchParams(location.search).get('next');
- if(!next||!/^(?:business-request|messages)\.html\?[a-zA-Z0-9%&=_-]+$/.test(next))return;
+ if(!next||!/^(?:(?:business-request|messages|board-detail)\.html\?[a-zA-Z0-9%&=_-]+|board-write\.html(?:\?id=[a-zA-Z0-9_-]+)?)$/.test(next))return;
  const back='login.html?next='+encodeURIComponent(next);
  const links=document.querySelectorAll('a[href="login.html"],a[href^="login.html?"]');
  links.forEach(a=>{a.href=back});
