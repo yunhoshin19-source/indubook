@@ -184,3 +184,18 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  document.addEventListener('click',e=>{if(!wrap.contains(e.target))close()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){close();trigger.focus()}});
 })();
+
+/* Community: independent top-level navigation beside company search. */
+(function(){
+ const nav=document.querySelector('.toplinks');
+ if(!nav||nav.querySelector('a[href="board.html"]'))return;
+ const a=document.createElement('a');a.href='board.html';a.textContent='커뮤니티';a.className='ib-community-nav';
+ const company=nav.querySelector('a[href="companies.html"]');
+ if(company)company.after(a);else nav.append(a);
+ if(/\/(?:board|board-detail|board-write)\.html$/.test(location.pathname)){
+   nav.querySelectorAll('a').forEach(link=>{
+     link.classList.toggle('active',link===a);
+     if(link===a)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')
+   });
+ }
+})();
