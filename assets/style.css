@@ -1246,3 +1246,114 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
     line-height: 1.5;
   }
 }
+
+/* Community mobile layout: remove horizontal scrolling and allow content to shrink.
+   Category navigation wraps into a two-column grid, rather than a scroll track. */
+@media screen and (max-width: 750px) {
+  .ib-board-page,
+  .ib-board-page *,
+  .ib-board-page *::before,
+  .ib-board-page *::after {
+    box-sizing: border-box;
+  }
+  .ib-board-page {
+    width: calc(100% - 28px);
+    max-width: 100%;
+    min-width: 0;
+    margin-inline: auto;
+    overflow-wrap: anywhere;
+  }
+  .ib-board-page .ib-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  .ib-board-hero {
+    width: 100%;
+    min-width: 0;
+    padding: 22px 18px;
+    margin: 14px 0 20px;
+  }
+  .ib-board-hero > div:first-child {min-width: 0;max-width: 100%}
+  .ib-board-hero h1 {font-size: clamp(20px,5vw,24px);overflow-wrap:anywhere}
+  .ib-board-hero-stats {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .ib-board-hero-stats > span {min-width:0;font-size:10px}
+  .ib-board-hero-stats strong {font-size:17px;display:block;margin:0 0 4px}
+  .ib-board-layout {display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;min-width:0}
+  .ib-board-sidebar,.ib-board-content,.ib-board-side-card,.ib-board-list,.ib-board-item,.ib-board-detail-wrap,.ib-board-detail-card,.ib-board-comments,.ib-board-form-card {
+    min-width:0;
+    max-width:100%;
+  }
+  .ib-board-sidebar {display:flex;flex-direction:column}
+  .ib-board-side-card {padding:17px}
+  .ib-board-side-card #ibBoardCategoryNav,
+  #ibBoardCategoryNav {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+    width:100%;
+    overflow:visible !important;
+    white-space:normal;
+    margin-top:12px;
+    padding:0;
+  }
+  #ibBoardCategoryNav .ib-board-side-link {
+    display:flex;
+    min-width:0;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    padding:11px 10px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    border:1px solid #e4ecf6;
+  }
+  .ib-board-content {padding:16px}
+  .ib-board-content-head {display:flex;flex-wrap:wrap;gap:11px}
+  .ib-board-content-head > div {min-width:0;flex:1 1 170px}
+  .ib-board-content-head > .button {flex:0 0 auto}
+  .ib-board-toolbar {display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
+  .ib-board-toolbar > * {min-width:0;width:100%;max-width:100%}
+  .ib-board-search {width:100%;min-width:0}
+  .ib-board-search input {min-width:0;width:100%}
+  .ib-board-item-top {display:flex;flex-wrap:wrap;gap:7px}
+  .ib-board-date {margin-left:auto;min-width:0}
+  .ib-board-item-title,.ib-board-item-excerpt,.ib-board-item-foot,
+  .ib-board-item-tags,.ib-board-detail-card h1,.ib-board-detail-body,
+  .ib-board-comment p {max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+  .ib-board-item-excerpt {white-space:normal}
+  .ib-board-item-foot {flex-wrap:wrap;gap:7px 12px}
+  .ib-board-bottom {flex-wrap:wrap}
+  .ib-board-bottom .button {max-width:100%}
+  .ib-board-detail-wrap {width:100%;margin:20px 0}
+  .ib-board-detail-card,.ib-board-comments {padding:19px 16px}
+  .ib-board-detail-actions,.ib-board-detail-under,
+  .ib-board-form-actions,.ib-board-auth-actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    min-width:0;
+  }
+  .ib-board-detail-actions > *,.ib-board-detail-under > *,
+  .ib-board-form-actions > *,.ib-board-auth-actions > * {
+    flex:1 1 130px;
+    min-width:0;
+    max-width:100%;
+    text-align:center;
+    justify-content:center;
+  }
+  .ib-board-comment-form textarea,.ib-board-form-card form,
+  .ib-board-form-card input,.ib-board-form-card select,.ib-board-form-card textarea {
+    display:block;
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+  .ib-board-form-head {min-width:0}
+  .ib-board-form-card {padding:18px 16px}
+}
+@media screen and (max-width: 360px) {
+  #ibBoardCategoryNav {grid-template-columns:minmax(0,1fr)}
+  .ib-board-content-head > .button {width:100%;text-align:center;justify-content:center}
+  .ib-board-hero-stats {grid-template-columns:repeat(3,minmax(0,1fr))}
+}
