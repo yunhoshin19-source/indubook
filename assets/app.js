@@ -199,3 +199,46 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
    });
  }
 })();
+
+/* Mobile single-row main navigation + More.
+ * Desktop .toplinks remains unchanged. Extra role links follow demo login state.
+ */
+(function industryMobileNavigation(){
+ const top=document.querySelector('.top-inner'),desktop=document.querySelector('.toplinks');
+ if(!top||!desktop||top.querySelector('.ib-mobile-nav'))return;
+ const nav=document.createElement('nav');nav.className='ib-mobile-nav';nav.setAttribute('aria-label','모바일 주요 메뉴');
+ const primary=[
+  ['홈','index.html',/\/(?:index(?:-v2)?\.html)?$/],
+  ['제품','products.html',/\/(?:products|product-detail|product-manage|product-edit)\.html$/],
+  ['카탈로그','catalogs.html',/\/(?:catalogs|catalog-detail|catalog-manage|register)\.html$/]
+ ];
+ const current=location.pathname;
+ const moreLinks=[['기업 찾기','companies.html',/\/(?:companies|company-profile)\.html$/],
+  ['커뮤니티','board.html',/\/(?:board|board-detail|board-write)\.html$/],
+  ['관심 피드','feed.html',/\/feed\.html$/]];
+ const signed=localStorage.getItem('ib-demo-logged-in')==='yes',role=localStorage.getItem('ib-demo-role');
+ if(signed&&role==='association')moreLinks.push(['회원사 현황','member-companies.html',/\/member-companies\.html$/]);
+ if(signed&&role==='admin')moreLinks.push(['협회 관리','dmin-organization.html',/\/dmin-organization\.html$/]);
+ function link(label,url,pattern){
+  const a=document.createElement('a');a.href=url;a.textContent=label;
+  if(pattern.test(current)){a.classList.add('active');a.setAttribute('aria-current','page')}
+  return a
+ }
+ primary.forEach(([label,url,pattern])=>nav.append(link(label,url,pattern)));
+ const wrap=document.createElement('div');wrap.className='ib-mobile-more';
+ const button=document.createElement('button');button.type='button';button.className='ib-mobile-more-trigger';
+ button.setAttribute('aria-expanded','false');button.setAttribute('aria-haspopup','menu');button.setAttribute('aria-controls','ibMobileMorePanel');
+ const inside=moreLinks.some(x=>x[2].test(current));
+ button.textContent='더보기';if(inside)button.classList.add('active');
+ const chevron=document.createElement('span');chevron.className='ib-mobile-more-chevron';chevron.textContent='⌄';chevron.setAttribute('aria-hidden','true');button.append(chevron);
+ const panel=document.createElement('div');panel.id='ibMobileMorePanel';panel.className='ib-mobile-more-panel';panel.setAttribute('role','menu');panel.hidden=true;
+ moreLinks.forEach(([label,url,pattern])=>{
+  const item=link(label,url,pattern);item.setAttribute('role','menuitem');panel.append(item)
+ });
+ function close(){panel.hidden=true;button.setAttribute('aria-expanded','false');wrap.classList.remove('open')}
+ button.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;button.setAttribute('aria-expanded',String(open));wrap.classList.toggle('open',open)});
+ document.addEventListener('click',event=>{if(!wrap.contains(event.target))close()});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!panel.hidden){close();button.focus()}});
+ wrap.append(button,panel);nav.append(wrap);
+ desktop.after(nav);
+})();
