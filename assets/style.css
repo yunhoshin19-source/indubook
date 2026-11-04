@@ -1202,3 +1202,47 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
   .container .grid .card-body {padding:16px}
   .container .grid .card h3 {font-size:16px;line-height:1.5}
 }
+
+/* Home catalog card layout aligns precisely with single-column product cards on mobile.
+   ID-specific rule overrides older shared .grid 2-column declarations. */
+@media screen and (max-width: 780px) {
+  #homeCatalogGrid.grid.ib-home-catalog-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-flow: row !important;
+    gap: 16px !important;
+    width: 100%;
+  }
+  #homeCatalogGrid > .card.catalog-item {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  #homeCatalogGrid > .card.catalog-item > a:first-child {
+    display: block;
+    margin: 10px 10px 0;
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  #homeCatalogGrid .thumb {
+    height: 195px !important;
+    aspect-ratio: auto !important;
+    width: 100% !important;
+  }
+  #homeCatalogGrid .thumb svg {
+    width: min(78%, 320px);
+    height: 78%;
+    object-fit: contain;
+  }
+  #homeCatalogGrid .card-body {
+    padding: 16px !important;
+  }
+  #homeCatalogGrid .card-body h3 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
