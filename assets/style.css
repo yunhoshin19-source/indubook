@@ -1168,3 +1168,37 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 @media(max-width:370px){
  .ib-mobile-nav>a,.ib-mobile-more-trigger{font-size:12px;padding-left:0;padding-right:0}
 }
+
+/* Mobile single-column content cards — authoritative override.
+   Applies to catalogs, companies, followed feeds, home suggestions and products.
+   Keep header navigation's four-column grid untouched. */
+@media screen and (max-width: 680px){
+  .container .grid,
+  .container .grid.three,
+  .container .grid.two,
+  .container .grid.ib-home-catalog-grid,
+  .container .ib-products-grid,
+  .container .ib-home-products .ib-products-grid,
+  .container .ib-company-catalog-grid,
+  .container .ib-related-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:16px;
+  }
+  .container .grid > .card,
+  .container .grid > .catalog-item,
+  .container .grid > .company-item,
+  .container .ib-products-grid > .ib-product-card,
+  .container .ib-company-catalog-grid > .ib-company-catalog-card,
+  .container .ib-related-grid > .ib-related-card {
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+  .container .card .thumb,
+  .container .card .thumb svg {
+    width:100%;
+  }
+  .container .grid .card-body {padding:16px}
+  .container .grid .card h3 {font-size:16px;line-height:1.5}
+}
