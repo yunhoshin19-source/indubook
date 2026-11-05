@@ -209,8 +209,8 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  const nav=document.createElement('nav');nav.className='ib-mobile-nav';nav.setAttribute('aria-label','모바일 주요 메뉴');
  const primary=[
   ['홈','index.html',/\/(?:index(?:-v2)?\.html)?$/],
-  ['제품','products.html',/\/(?:products|product-detail|product-manage|product-edit)\.html$/],
-  ['카탈로그','catalogs.html',/\/(?:catalogs|catalog-detail|catalog-manage|register)\.html$/]
+  ['기업 카탈로그','catalogs.html',/\/(?:catalogs|catalog-detail|catalog-manage|register)\.html$/],
+  ['제품','products.html',/\/(?:products|product-detail|product-manage|product-edit)\.html$/]
  ];
  const current=location.pathname;
  const moreLinks=[['기업 찾기','companies.html',/\/(?:companies|company-profile)\.html$/],
