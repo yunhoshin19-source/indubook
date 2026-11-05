@@ -242,3 +242,23 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  wrap.append(button,panel);nav.append(wrap);
  desktop.after(nav);
 })();
+
+/* Distinguish enterprise catalogs from per-product PDF/PPT catalog files. */
+(function industryCatalogTerminology(){
+ const renameLink=(a)=>{if(a&&a.getAttribute('href')==='catalogs.html')a.textContent='기업 카탈로그'};
+ document.querySelectorAll('.toplinks a[href="catalogs.html"],.ib-mobile-nav a[href="catalogs.html"]').forEach(renameLink);
+ const register=document.getElementById('ibRegistrationMenu');
+ if(register){
+   const a=register.querySelector('a[href="register.html"]');
+   if(a){
+     const title=a.querySelector('strong'),caption=a.querySelector('small');
+     if(title)title.textContent='기업 카탈로그 등록';
+     if(caption)caption.textContent='기업 홍보 자료 · PDF · PPTX · 동영상';
+   }
+   const product=register.querySelector('a[href="product-edit.html"]');
+   if(product){
+     const caption=product.querySelector('small');
+     if(caption)caption.textContent='제품 정보 · 사진 · 제품 카탈로그';
+   }
+ }
+})();
