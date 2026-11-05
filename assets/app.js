@@ -72,7 +72,15 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
       document.documentElement.lang=code;
       const nav={ko:['홈','카탈로그','기업 찾기','관심 피드','+ 등록'],en:['Home','Catalogs','Companies','Following','+ Register'],ja:['ホーム','カタログ','企業検索','フォロー','+ 登録'],zh:['首页','产品目录','企业','关注动态','+ 发布'],vi:['Trang chủ','Catalogue','Doanh nghiệp','Đang theo dõi','+ Đăng'],fr:['Accueil','Catalogues','Entreprises','Abonnements','+ Publier'],es:['Inicio','Catálogos','Empresas','Siguiendo','+ Publicar'],id:['Beranda','Katalog','Perusahaan','Mengikuti','+ Unggah']};
       const navLinks=[...document.querySelectorAll('.toplinks a')], labels=nav[code];
-      navLinks.slice(0,4).forEach((a,i)=>{a.textContent=labels[i]});
+      const translated={
+        'index.html':labels[0],
+        'catalogs.html':code==='ko'?'기업 카탈로그':labels[1],
+        'products.html':({ko:'제품',en:'Products',ja:'製品',zh:'产品',vi:'Sản phẩm',fr:'Produits',es:'Productos',id:'Produk'})[code],
+        'companies.html':labels[2],
+        'board.html':({ko:'커뮤니티',en:'Community',ja:'コミュニティ',zh:'社区',vi:'Cộng đồng',fr:'Communauté',es:'Comunidad',id:'Komunitas'})[code],
+        'feed.html':labels[3]
+      };
+      navLinks.forEach(a=>{const value=translated[a.getAttribute('href')];if(value)a.textContent=value});
       const reg=actions.querySelector('a[href="register.html"]');if(reg)reg.textContent=labels[4];
     }
     trigger.addEventListener('click',()=>{const next=menu.hidden;menu.hidden=!next;trigger.setAttribute('aria-expanded',String(next))});
