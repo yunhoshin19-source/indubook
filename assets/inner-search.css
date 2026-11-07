@@ -1,0 +1,23 @@
+/* Scoped inner-page search layout. Reuses .container, .searchbox,
+   .button.primary and .button.secondary from the original IndustryBook CSS. */
+.ib-inner-search-strip{background:#fff;border-bottom:1px solid var(--line);color:var(--ink)}
+.ib-inner-search-container{padding-top:13px;padding-bottom:13px}
+.ib-inner-search-form{display:flex;align-items:center;justify-content:center;gap:15px;max-width:1160px;margin:0 auto}
+.ib-inner-scope{border:0;margin:0;padding:0;display:flex;align-items:center;gap:11px;flex:none}
+.ib-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.ib-inner-scope-option{display:inline-flex;align-items:center;gap:4px;cursor:pointer;color:var(--ink);font-size:13px;white-space:nowrap}
+.ib-inner-scope-option input{margin:0;accent-color:var(--blue)}
+.ib-inner-controls{display:flex;align-items:stretch;gap:9px;flex:1;min-width:0;max-width:680px}
+.ib-inner-query.searchbox{flex:1;min-width:0;width:100%;max-width:none;margin:0;background:#fff;color:var(--ink);font:inherit;font-size:14px}
+.ib-inner-controls .button{white-space:nowrap;font-size:13px}
+.ib-inner-filter{color:var(--blue)}
+/* Existing per-page search forms remain in the DOM for legacy scripts;
+   only their redundant visual inputs are hidden once the shared strip exists. */
+.ib-inner-search-enabled .ib-unified-search-form{display:none}
+.ib-inner-search-enabled .ib-products-page #productSearch{display:none}
+.ib-inner-search-enabled .ib-company-search-controls #q{display:none}
+.ib-inner-search-enabled .ib-company-search-controls{display:flex;justify-content:flex-end}
+.ib-inner-search-enabled .ib-company-search-controls .ib-company-country-filter{flex:1;max-width:250px}
+.ib-inner-search-enabled #q.searchbox:not(.ib-inner-query){display:none}
+@media(max-width:950px){.ib-inner-search-form{align-items:stretch;flex-direction:column;gap:9px}.ib-inner-controls{max-width:none}.ib-inner-scope{flex-wrap:wrap}}
+@media(max-width:480px){.ib-inner-search-container{padding-top:11px;padding-bottom:11px}.ib-inner-scope{gap:10px}.ib-inner-scope-option{font-size:12px}.ib-inner-controls{gap:6px}.ib-inner-query.searchbox{font-size:13px;padding:10px;min-height:42px}.ib-inner-controls .button{font-size:12px;padding:10px 11px}.ib-inner-filter{padding:10px 9px}}
