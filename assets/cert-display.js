@@ -28,7 +28,7 @@
  if(page==='company-profile.html'){
   // Do not attach an unrelated logged-in member's certificates to A Robotics.
   const saved=(()=>{try{return JSON.parse(sessionStorage.getItem('ib-demo-member-info')||'{}')}catch{return {}}})();
-  const sameCompany=/^(A\\s*Robotics|A\\s*로보틱스)$/i.test(saved.companyName||'')||/^A\\s*Robotics$/i.test(saved.companyEnglish||'');
+  const sameCompany=/^(A\s*Robotics|A\s*로보틱스)$/i.test(saved.companyName||'')||/^A\s*Robotics$/i.test(saved.companyEnglish||'');
   if(sameCompany&&certs.length){const info=document.querySelector('.ib-company-info-card');
    if(info)info.append(block(certs))}
  }
@@ -49,7 +49,7 @@
    body.append(title,create('div','small muted','내 등록 카탈로그 · 브라우저 데모'));
    const bottom=create('div','ib-cert-meta ib-cert-card-bottom');
    (item.certifications||[]).slice(0,2).forEach(c=>bottom.append(create('span','',c)));
-   if((item.certifications||[]).length>2)bottom.append(create('span','', '+'+(item.certifications.length-2))));
+   if((item.certifications||[]).length>2)bottom.append(create('span','', '+'+(item.certifications.length-2)));
    if((item.certifications||[]).length)bottom.append(create('span','ib-cert-note','기업 입력 · 미검증'));
    if(bottom.childNodes.length)body.append(bottom);
    const nav=create('a','small','내 카탈로그 관리 →');nav.href='catalog-manage.html';body.append(nav);card.append(body);grid.append(card);
