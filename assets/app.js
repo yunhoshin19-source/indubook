@@ -308,3 +308,71 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
    more.append(a);
  }
 })();
+
+
+/* Inner-page search strip: reuse existing IndustryBook controls and design tokens.
+   Home / auth / administration pages are deliberately unaffected. */
+(function industryInnerSearchBar(){
+ const page=location.pathname.split('/').pop()||'index.html';
+ const scopes={'catalogs.html':'catalog','catalog-detail.html':'catalog','products.html':'product','product-detail.html':'product','companies.html':'company','company-profile.html':'company'};
+ const allowed=new Set(['search.html',...Object.keys(scopes),'feed.html']);
+ if(!allowed.has(page))return;
+ const top=document.querySelector('header.topbar');
+ if(!top||document.getElementById('ibInnerSearchStrip'))return;
+ const stylesheet=document.createElement('link');
+ stylesheet.rel='stylesheet';stylesheet.href='assets/inner-search.css?v=inner-search-v1';
+ document.head.append(stylesheet);
+ const params=new URLSearchParams(location.search);
+ const searchPage=page==='search.html';
+ const selected=['all','catalog','product','company'].includes(params.get('type'))&&searchPage?params.get('type'):(scopes[page]||'all');
+ const section=document.createElement('section');
+ section.id='ibInnerSearchStrip';section.className='ib-inner-search-strip';section.setAttribute('aria-label','공통 통합검색');
+ const inner=document.createElement('div');inner.className='container ib-inner-search-container';
+ const form=document.createElement('form');form.className='ib-inner-search-form';form.role='search';form.action='search.html';form.method='get';
+ const options=document.createElement('fieldset');options.className='ib-inner-scope';const legend=document.createElement('legend');legend.className='ib-visually-hidden';legend.textContent='검색 대상';options.append(legend);
+ const labels=[['all','전체'],['catalog','카탈로그'],['product','제품'],['company','기업']];
+ for(const [value,label] of labels){
+  const item=document.createElement('label');item.className='ib-inner-scope-option';
+  const radio=document.createElement('input');radio.type='radio';radio.name='type';radio.value=value;radio.checked=value===selected;
+  const span=document.createElement('span');span.textContent=label;
+  item.append(radio,span);options.append(item);
+ }
+ const field=document.createElement('input');field.name='q';field.className='searchbox ib-inner-query';field.type='search';field.maxLength=120;
+ field.required=true;field.placeholder='기업, 제품, 카탈로그 통합검색';field.setAttribute('aria-label','기업, 제품, 카탈로그 통합검색');
+ field.value=searchPage?(params.get('q')||''):'';
+ const submit=document.createElement('button');submit.type='submit';submit.className='button primary';submit.textContent='검색';
+ const filter=document.createElement('button');filter.type='button';filter.className='button secondary ib-inner-filter';filter.textContent='☷ 필터';filter.setAttribute('aria-label','상세 필터');
+ const controls=document.createElement('div');controls.className='ib-inner-controls';controls.append(field,submit,filter);
+ form.append(options,controls);inner.append(form);section.append(inner);top.after(section);
+ document.body.classList.add('ib-inner-search-enabled');
+ function currentScope(){return form.querySelector('input[name="type"]:checked')?.value||'all'}
+ function resultUrl(openFilter=false){
+  const p=new URLSearchParams();
+  const q=field.value.trim();
+  if(q)p.set('q',q);
+  if(currentScope()!=='all')p.set('type',currentScope());
+  if(searchPage){
+   ['country','region'].forEach(id=>{const v=document.getElementById(id==='country'?'ibGlobalCountry':'ibGlobalRegion')?.value;if(v)p.set(id,v)});
+  }
+  if(openFilter)p.set('filters','1');
+  return 'search.html'+(p.toString()?'?'+p.toString():'');
+ }
+ form.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!field.value.trim()){field.focus();return}
+  location.href=resultUrl();
+ });
+ filter.addEventListener('click',()=>{
+  if(searchPage){document.getElementById('ibOpenFilters')?.click()}
+  else location.href=resultUrl(true);
+ });
+ if(searchPage){
+  document.addEventListener('ib-search-updated',()=>{
+   const p=new URLSearchParams(location.search);
+   field.value=p.get('q')||'';
+   const type=p.get('type')||'all';
+   const target=form.querySelector('input[name="type"][value="'+type+'"]');
+   if(target)target.checked=true;
+  });
+ }
+})();
