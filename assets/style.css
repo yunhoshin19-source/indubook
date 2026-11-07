@@ -1357,3 +1357,71 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
   .ib-board-content-head > .button {width:100%;text-align:center;justify-content:center}
   .ib-board-hero-stats {grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+/* Deal Thread: in-platform B2B business workflow (desktop + mobile) */
+.ib-deal-page{max-width:1440px;padding-bottom:78px}
+.ib-deal-titlebar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:19px 0 24px}
+.ib-deal-titlebar h1{font-size:27px;margin:8px 0;color:#173453;letter-spacing:-.03em}
+.ib-deal-titlebar p{font-size:13px;color:#7b8da4;line-height:1.6;margin:0}
+.ib-deal-statgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px}
+.ib-deal-statgrid>div{background:#fff;border:1px solid #dfe7f2;border-radius:13px;padding:21px}
+.ib-deal-statgrid span{display:block;font-size:12px;color:#7990aa;margin-bottom:11px}
+.ib-deal-statgrid strong{font-size:26px;color:#1c416b}
+.ib-deal-list-panel,.ib-deal-card{background:#fff;border:1px solid #dce6f2;border-radius:15px;min-width:0}
+.ib-deal-list-panel{padding:25px}
+.ib-deal-list-head{display:flex;gap:16px;justify-content:space-between;align-items:center;margin-bottom:18px}
+.ib-deal-list-head h2{margin:0 0 7px;font-size:21px;color:#193b60}
+.ib-deal-list-head p{margin:0;color:#8193a9;font-size:12px}
+.ib-deal-list-head select,.ib-deal-role select{border:1px solid #dce5f1;border-radius:9px;background:#fff;padding:11px 12px;color:#3d597a;font-size:13px}
+.ib-deal-list{border-top:1px solid #e6edf5}
+.ib-deal-list-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 7px;border-bottom:1px solid #e6edf5;text-decoration:none}
+.ib-deal-list-row:hover{background:#f7faff}
+.ib-deal-row-info{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ib-deal-row-info strong{color:#1f426b;font-size:15px;overflow-wrap:anywhere}
+.ib-deal-row-info span,.ib-deal-row-status small{color:#899bb2;font-size:12px}
+.ib-deal-row-status{display:flex;align-items:end;flex-direction:column;gap:8px;flex:none}
+.ib-deal-status-pill{display:inline-block;background:#e9f1ff;color:#285caa;font-weight:700;font-size:11px;border-radius:16px;padding:6px 11px}
+.ib-deal-demo,.ib-deal-role-note{font-size:11px;color:#9aaabd;line-height:1.65;margin:17px 0 0}
+.ib-deal-empty{padding:38px 12px;text-align:center;font-size:13px;color:#8da1b8}
+.ib-deal-stages{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:5px 0 21px}
+.ib-deal-stage{padding:9px 12px;background:#f0f3f8;color:#778ba4;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap}
+.ib-deal-stage.done{background:#e9f6f0;color:#31836a}
+.ib-deal-stage.current{background:#335fec;color:#fff}
+.ib-deal-arrow{color:#a3b2c5}
+.ib-deal-columns{display:grid;grid-template-columns:minmax(230px,1fr) minmax(0,2.2fr) minmax(230px,1fr);gap:15px;align-items:stretch}
+.ib-deal-card{padding:20px}
+.ib-deal-card>h2{font-size:18px;margin:0 0 20px;color:#193b61}
+.ib-deal-summary dl,.ib-deal-control dl,.ib-deal-quote div{margin:0;display:grid;grid-template-columns:minmax(75px,.7fr) minmax(0,1fr);column-gap:9px;row-gap:12px}
+.ib-deal-card dt{color:#7890ab;font-size:12px}
+.ib-deal-card dd{margin:0;color:#25486e;font-weight:600;font-size:12px;overflow-wrap:anywhere}
+.ib-deal-quote{border:1px solid #dce6f2;background:#f8faff;border-radius:11px;margin-top:24px;padding:15px}
+.ib-deal-quote h3{margin:0 0 16px;font-size:15px;color:#183a60}
+.ib-deal-quote p{color:#8b9bb1;font-size:12px}
+.ib-deal-thread{padding:0;display:flex;flex-direction:column;min-height:595px;overflow:hidden}
+.ib-deal-thread-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:19px;border-bottom:1px solid #e0e8f3}
+.ib-deal-thread-heading h2{font-size:18px;color:#193c62;margin:0}
+.ib-deal-thread-heading>span{color:#96a6ba;font-size:11px}
+.ib-deal-messages{background:#f8fbff;flex:1;min-height:350px;max-height:535px;overflow-y:auto;padding:18px}
+.ib-deal-msg{display:flex;margin:10px 0}
+.ib-deal-msg.supplier{justify-content:flex-end}
+.ib-deal-msg.system{justify-content:center}
+.ib-deal-msg-box{background:white;border:1px solid #e0e7f2;border-radius:12px;padding:14px;max-width:85%;min-width:0}
+.ib-deal-msg.supplier .ib-deal-msg-box{background:#ebf1ff;border-color:#eaf1ff}
+.ib-deal-msg.system .ib-deal-msg-box{background:#edf5f1;border-color:#d9ebe1}
+.ib-deal-msg-box strong{display:block;font-size:12px;color:#244567;margin-bottom:9px}
+.ib-deal-msg-box p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.7;color:#365373;margin:0 0 11px}
+.ib-deal-msg-box small{font-size:11px;color:#91a4b9}
+.ib-deal-reply{padding:16px;border-top:1px solid #dfe7f3}
+.ib-deal-reply label{display:block;font-size:12px;color:#7a8fac;margin-bottom:8px}
+.ib-deal-reply textarea{display:block;resize:vertical;min-height:80px;border:1px solid #d4e0ef;border-radius:10px;padding:12px;width:100%;font:inherit;font-size:13px;line-height:1.6}
+.ib-deal-reply-actions{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:12px;flex-wrap:wrap}
+.ib-deal-file-button{border:1px solid #ccd9ea;border-radius:8px;padding:10px;cursor:pointer;color:#42618c!important;margin:0!important}
+#dealFileName{font-size:11px;color:#8a9bb1;flex:1}
+.ib-deal-role{display:grid;gap:8px;margin:18px 0}
+.ib-deal-role label{color:#8193a9;font-size:12px}
+.ib-deal-role select{width:100%}
+#dealActions{display:flex;flex-direction:column;gap:10px}
+#dealActions .button{display:block;width:100%;white-space:normal;text-align:center}
+.ib-deal-completed{color:#268367;font-size:13px;line-height:1.5}
+@media(max-width:1020px){.ib-deal-columns{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}.ib-deal-control{grid-column:1/-1}.ib-deal-stages{gap:5px}.ib-deal-arrow{display:none}}
+@media(max-width:680px){.ib-deal-page{min-width:0;overflow-wrap:anywhere}.ib-deal-titlebar{align-items:flex-start;flex-direction:column}.ib-deal-statgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-deal-columns{display:flex;flex-direction:column}.ib-deal-card{min-width:0}.ib-deal-summary{order:1}.ib-deal-control{order:2}.ib-deal-thread{order:3;min-height:530px}.ib-deal-messages{min-height:260px;max-height:400px}.ib-deal-msg-box{max-width:94%}.ib-deal-list-panel{padding:16px}.ib-deal-list-head{flex-wrap:wrap}.ib-deal-list-head select{width:100%}.ib-deal-list-row{align-items:flex-start}.ib-deal-row-status{max-width:120px}.ib-deal-stages{gap:5px}.ib-deal-stage{font-size:11px;padding:8px}.ib-deal-reply-actions>.button{width:100%}}
