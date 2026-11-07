@@ -29,8 +29,8 @@
   // Do not attach an unrelated logged-in member's certificates to A Robotics.
   const saved=(()=>{try{return JSON.parse(sessionStorage.getItem('ib-demo-member-info')||'{}')}catch{return {}}})();
   const sameCompany=/^(A\s*Robotics|A\s*로보틱스)$/i.test(saved.companyName||'')||/^A\s*Robotics$/i.test(saved.companyEnglish||'');
-  if(sameCompany&&certs.length){const info=document.querySelector('.ib-company-info-card');
-   if(info)info.append(block(certs))}
+  const info=document.querySelector('.ib-company-info-card');
+  if(info)info.append(block(sameCompany?certs:[],'회사 보유 인증정보'));
  }
  if(page==='catalogs.html'){
   const list=getJSON('ib-demo-company-catalogs-v1',[]);
