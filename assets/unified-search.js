@@ -36,6 +36,7 @@ const items=[
 ];
 const types={catalog:'기업 카탈로그',product:'제품',company:'기업'};
 const fromUrl=new URLSearchParams(location.search);
+const openFilterOnLoad=fromUrl.get('filters')==='1';
 const search=$('ibGlobalQuery'),filter=$('ibGlobalCountry'),regionFilter=$('ibGlobalRegion'),target=$('ibGlobalResults');
 function populateRegions(){
  const options=regions[filter.value]||[];
@@ -174,7 +175,7 @@ document.querySelectorAll('[data-global-type]').forEach(b=>b.addEventListener('c
 const originalRender=render;
 render=function(){originalRender();updateFilterUI()};
 render();
-if(new URLSearchParams(location.search).get('filters')==='1'){
+if(openFilterOnLoad){
  const url=new URL(location.href);
  url.searchParams.delete('filters');
  history.replaceState(null,'',url.pathname.split('/').pop()+url.search);
