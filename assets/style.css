@@ -1511,3 +1511,59 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
  .signup-form-step .field select#companyCountry,.ib-edit-field select#memberCompanyCountry{width:100%;max-width:100%}
  .ib-company-country-line{font-size:12px!important}
 }
+
+/* Enterprise-country discovery and unified cross-entity search */
+.ib-company-search-controls{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(210px,.7fr);gap:12px;align-items:end}
+.ib-company-search-controls .searchbox{width:100%;max-width:100%;min-width:0}
+.ib-company-country-filter,.ib-global-country-wrap{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ib-company-country-filter span,.ib-global-country-wrap span{font-size:12px;font-weight:650;color:#637d9b}
+.ib-company-country-filter select,.ib-global-country-wrap select{height:47px;padding:0 12px;border:1px solid #dbe5f1;border-radius:10px;background:#fff;color:#284665;font:inherit;font-size:13px;max-width:100%;min-width:0}
+.ib-company-search-count{font-size:12px;color:#8b9bb0;margin:10px 0 0}
+.company-item.ib-company-search-hidden{display:none!important}
+.ib-company-country-badge{color:#4774a7}
+.ib-unified-search-page{max-width:1200px;padding-bottom:82px;min-width:0}
+.ib-unified-search-header{margin:22px 0}
+.ib-unified-search-header h1{font-size:29px;color:#18395f;margin:7px 0}
+.ib-unified-search-header p{font-size:14px;color:#8194aa}
+.ib-unified-search-form{display:flex;gap:10px;margin:16px 0 21px}
+.ib-unified-search-form input{min-width:0;flex:1;border:1px solid #d8e3f1;border-radius:11px;background:white;padding:14px 17px;font:inherit;font-size:14px}
+.ib-unified-search-form button{min-width:104px}
+.ib-unified-tabs{display:flex;flex-wrap:wrap;gap:7px;border-bottom:1px solid #e3eaf3;padding:0 0 14px}
+.ib-unified-tabs button{border:0;border-radius:10px;background:transparent;color:#7388a1;cursor:pointer;font:inherit;font-size:13px;padding:12px 14px}
+.ib-unified-tabs button span{display:inline-block;background:#eef3fa;color:#7a8da7;border-radius:15px;padding:2px 8px;margin-left:3px;font-size:11px}
+.ib-unified-tabs button.active{background:#eaf1ff;color:#245eea;font-weight:750}
+.ib-unified-tabs button.active span{background:#dce8ff;color:#245eea}
+.ib-unified-search-toolbar{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:24px 0}
+.ib-unified-search-toolbar p{font-size:14px;color:#516986;margin:0;line-height:1.6}
+.ib-global-country-wrap{min-width:215px}
+.ib-unified-results{display:flex;flex-direction:column;gap:24px}
+.ib-unified-group{border:1px solid #e0e9f3;border-radius:15px;background:#fff;padding:20px}
+.ib-unified-group-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.ib-unified-group-heading h2{margin:0;font-size:19px;color:#23446c}
+.ib-unified-more{border:0;background:transparent;cursor:pointer;color:#245eea;font-weight:700;font-size:12px}
+.ib-unified-result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.ib-unified-result{display:flex;align-items:center;gap:13px;min-width:0;padding:17px;border:1px solid #e6edf5;border-radius:11px;text-decoration:none;color:#28486d;transition:border-color .2s}
+.ib-unified-result:hover{border-color:#9bbcff;background:#f9fbff}
+.ib-unified-result-symbol{width:50px;height:50px;display:grid;place-items:center;border-radius:10px;flex:none;background:#eaf2ff;color:#245eea;font-size:24px}
+.ib-unified-result-info{min-width:0;flex:1}
+.ib-unified-result-info strong{display:block;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.ib-unified-result-info p{font-size:12px;color:#8799ae;line-height:1.6;margin:6px 0}
+.ib-unified-country{font-size:11px;color:#4773a4}
+.ib-unified-arrow{font-size:11px;color:#245eea;white-space:nowrap;align-self:flex-end}
+.ib-unified-empty{padding:24px 12px;text-align:center;color:#8799ad;font-size:13px;grid-column:1/-1}
+.ib-unified-disclaimer{color:#9aa9b9;font-size:11px;line-height:1.7;margin-top:22px}
+@media(max-width:780px){
+ .ib-company-search-controls{grid-template-columns:minmax(0,1fr)}
+ .ib-unified-result-list{grid-template-columns:minmax(0,1fr)}
+ .ib-unified-search-toolbar{flex-direction:column;align-items:stretch}
+ .ib-global-country-wrap{min-width:0}
+ .ib-unified-group{padding:15px}
+}
+@media(max-width:480px){
+ .ib-unified-search-form{flex-direction:column}
+ .ib-unified-search-form button{width:100%}
+ .ib-unified-result{padding:13px;gap:10px}
+ .ib-unified-result-symbol{width:43px;height:43px}
+ .ib-unified-arrow{font-size:10px}
+ .ib-unified-tabs button{font-size:12px;padding:10px 8px}
+}
