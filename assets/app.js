@@ -270,3 +270,24 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
    }
  }
 })();
+
+/* Deal management entry: all logged-in roles can access demo negotiation threads. */
+(function(){
+ const signed=localStorage.getItem('ib-demo-logged-in')==='yes';
+ if(!signed)return;
+ const nav=document.querySelector('.toplinks');
+ if(nav&&!nav.querySelector('a[href="deals.html"]')){
+  const a=document.createElement('a');a.href='deals.html';a.textContent='거래 관리';
+  const messages=nav.querySelector('a[href="messages.html"]');
+  if(messages)messages.after(a);else nav.append(a);
+  if(/\/(?:deals|deal-detail)\.html$/.test(location.pathname)){a.classList.add('active');a.setAttribute('aria-current','page')}
+ }
+ const more=document.getElementById('ibMobileMorePanel');
+ if(more&&!more.querySelector('a[href="deals.html"]')){
+  const a=document.createElement('a');a.href='deals.html';a.setAttribute('role','menuitem');a.textContent='거래 관리';
+  if(/\/(?:deals|deal-detail)\.html$/.test(location.pathname)){a.classList.add('active');document.querySelector('.ib-mobile-more-trigger')?.classList.add('active')}
+  more.append(a);
+ }
+ const menu=document.querySelector('.ib-profile-menu');
+ if(menu&&!menu.querySelector('a[href="deals.html"]')){const a=document.createElement('a');a.href='deals.html';a.textContent='거래 관리';menu.append(a)}
+})();
