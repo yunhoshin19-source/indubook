@@ -174,4 +174,10 @@ document.querySelectorAll('[data-global-type]').forEach(b=>b.addEventListener('c
 const originalRender=render;
 render=function(){originalRender();updateFilterUI()};
 render();
+if(new URLSearchParams(location.search).get('filters')==='1'){
+ const url=new URL(location.href);
+ url.searchParams.delete('filters');
+ history.replaceState(null,'',url.pathname.split('/').pop()+url.search);
+ openFilters();
+}
 })();
