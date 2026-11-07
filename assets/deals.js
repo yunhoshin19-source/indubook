@@ -66,7 +66,15 @@ if(root.dataset.dealPage==='list'){
    if(record.status==='quoted')controls.append(button('견적 조건 확인',()=>advance('trading','요청 기업이 견적 조건을 확인하고 거래 진행을 요청했습니다.'),true));
   }
   if(record.status==='trading')controls.append(button('거래 완료 표시 (데모)',()=>advance('completed','양측 거래 완료 상태를 시연합니다.'),true));
-  if(record.status==='completed')controls.append(el('p','ib-deal-completed','거래 완료 상태입니다. 실제 거래·계약 증빙은 포함되지 않습니다.'));
+  if(record.status==='completed'){
+   controls.append(el('p','ib-deal-completed','계약·거래 완료로 표시된 건입니다. 실제 계약서·납품·채권 존재 여부는 별도 확인이 필요합니다.'));
+   if(role==='supplier'){
+     const scf=el('a','button primary ib-scf-deal-entry','공급망 금융 · 운전자금 신청');
+     scf.href='scf.html?deal='+encodeURIComponent(record.id);
+     controls.append(scf);
+     controls.append(el('p','ib-deal-role-note','공급자 전용 신청 경로입니다. 실제 지급은 증빙·금융기관 승인 후 진행됩니다.'));
+   }
+  }
  }
  roleSelect.onchange=render;file.onchange=()=>{$('dealFileName').textContent=file.files[0]?.name||''};
  $('dealReplyForm').onsubmit=e=>{e.preventDefault();const field=$('dealReplyText'),value=field.value.trim();if(!value)return;const role=roleSelect.value;record.history.push({role,author:role==='supplier'?(record.owner||record.receiver):owner,text:value.slice(0,5000),file:file.files[0]?.name||'',at:new Date().toISOString()});if(record.status==='new'&&role==='supplier')record.status='respond';else if(record.status==='respond')record.status='negotiating';save();field.value='';file.value='';$('dealFileName').textContent='';render()};
