@@ -291,3 +291,20 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  const menu=document.querySelector('.ib-profile-menu');
  if(menu&&!menu.querySelector('a[href="deals.html"]')){const a=document.createElement('a');a.href='deals.html';a.textContent='거래 관리';menu.append(a)}
 })();
+
+/* SCF supplier-funding entry (browser demo; server-side ownership must be enforced in production). */
+(function(){
+ if(localStorage.getItem('ib-demo-logged-in')!=='yes')return;
+ const nav=document.querySelector('.toplinks');
+ if(nav&&!nav.querySelector('a[href="scf.html"]')){
+   const a=document.createElement('a');a.href='scf.html';a.textContent='공급망 금융';
+   const deal=nav.querySelector('a[href="deals.html"]');if(deal)deal.after(a);else nav.append(a);
+   if(/\/scf\.html$/.test(location.pathname)){a.classList.add('active');a.setAttribute('aria-current','page')}
+ }
+ const more=document.getElementById('ibMobileMorePanel');
+ if(more&&!more.querySelector('a[href="scf.html"]')){
+   const a=document.createElement('a');a.href='scf.html';a.setAttribute('role','menuitem');a.textContent='공급망 금융';
+   if(/\/scf\.html$/.test(location.pathname)){a.classList.add('active');document.querySelector('.ib-mobile-more-trigger')?.classList.add('active')}
+   more.append(a);
+ }
+})();
