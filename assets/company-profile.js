@@ -7,7 +7,7 @@
  const countries={KR:'대한민국',US:'미국',JP:'일본',CN:'중국',VN:'베트남',DE:'독일',GB:'영국',FR:'프랑스',SG:'싱가포르',IN:'인도',AU:'호주',TW:'대만',OTHER:'기타 국가/지역'};
  try{
   const saved=JSON.parse(sessionStorage.getItem('ib-demo-member-info')||'{}');
-  const sameCompany=/^(A\\s*Robotics|A\\s*로보틱스)$/i.test(String(saved.companyName||''))||/^(A\\s*Robotics)$/i.test(String(saved.companyEnglish||''));
+  const sameCompany=/^(A\s*Robotics|A\s*로보틱스)$/i.test(String(saved.companyName||''))||/^(A\s*Robotics)$/i.test(String(saved.companyEnglish||''));
   const value=sameCompany&&countries[saved.companyCountry]?countries[saved.companyCountry]+' · 가입 데모':'대한민국 · 샘플';
   for(const id of ['ibCompanyCountryHero','ibCompanyCountryFact']){const field=document.getElementById(id);if(field)field.textContent=value}
  }catch(e){}
