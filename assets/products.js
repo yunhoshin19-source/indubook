@@ -13,6 +13,14 @@ const body=document.createElement('div');body.className='ib-product-card-body';
 const cat=document.createElement('span');cat.className='ib-product-category';cat.textContent=p.category;
 const title=document.createElement('a');title.href=link.href;title.className='ib-product-name';title.textContent=p.name;
 const summary=document.createElement('p');summary.textContent=p.summary||'산업용 제품';
+if((p.certifications||[]).length||p.manufacturingCountry||p.distributor){
+ const metadata=document.createElement('div');metadata.className='ib-cert-meta ib-cert-card-bottom';
+ const pieces=[...(p.certifications||[]).slice(0,2).map(c=>'인증 입력: '+c)];
+ if(p.manufacturingCountry)pieces.push('제조국: '+p.manufacturingCountry);
+ if(p.distributor)pieces.push('유통사: '+p.distributor);
+ pieces.slice(0,3).forEach(value=>{const chip=document.createElement('span');chip.textContent=value;metadata.append(chip)});
+ body.append(metadata);
+}
 const foot=document.createElement('div');foot.className='ib-product-card-foot';const company=document.createElement('span');company.textContent=p.company;const more=document.createElement('a');more.href=link.href;more.textContent='제품 보기 →';foot.append(company,more);body.append(cat,title,summary,foot);a.append(body);return a
 }
 window.IBProducts.renderCards=(el,records)=>{el.replaceChildren();records.forEach(p=>el.append(itemCard(p)))};
@@ -42,7 +50,7 @@ if($('productDetail')){
  const name=document.createElement('h1');name.textContent=p.name;const english=document.createElement('p');english.textContent=p.en||'';
  const summary=document.createElement('p');summary.className='ib-product-lead';summary.textContent=p.summary;
  const details=document.createElement('div');details.className='ib-product-detail-facts';
- [['제조사',p.company],['모델명',p.model],['인더스트리',p.industry],['가격',p.price||'견적 문의'],['등록·수정일',p.updated]].forEach(([k,v])=>{const label=document.createElement('span');label.textContent=k;const value=document.createElement('strong');value.textContent=v;details.append(label,value)});
+ [['제조사',p.company],['모델명',p.model],['인더스트리',p.industry],['제조국',p.manufacturingCountry||'미등록'],['유통사',p.distributor||'미등록'],['인증정보',Array.isArray(p.certifications)&&p.certifications.length?p.certifications.join(', ')+' (기업 입력 · 미검증)':'미등록'],['가격',p.price||'견적 문의'],['등록·수정일',p.updated]].forEach(([k,v])=>{const label=document.createElement('span');label.textContent=k;const value=document.createElement('strong');value.textContent=v;details.append(label,value)});
  const actions=document.createElement('div');actions.className='ib-product-detail-buttons';
  const requestUrl=type=>'business-request.html?type='+encodeURIComponent(type)+'&source=product&id='+encodeURIComponent(p.id);
  const inquiry=document.createElement('a');inquiry.className='button secondary';inquiry.textContent='문의';inquiry.href='messages.html?'+new URLSearchParams({to:p.owner,draft:'[제품문의] '+p.name+' ('+p.model+')\n제품 관련 문의드립니다.'}).toString();
