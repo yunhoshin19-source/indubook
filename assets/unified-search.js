@@ -31,7 +31,7 @@ const companyMap=Object.fromEntries(companies.map(x=>[x.id,x]));
 const products=(window.IBProducts?.list?.()||[]).filter(x=>x.status==='published');
 const items=[
  ...catalogSeeds.map(x=>({...x,type:'catalog',company:companyMap[x.companyId]?.name||'',country:companyMap[x.companyId]?.country||'',region:companyMap[x.companyId]?.region||'',href:'catalogs.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.category,companyMap[x.companyId]?.name||'']})),
- ...products.map(x=>({id:x.id,type:'product',name:x.name,company:x.company||companyMap[x.owner]?.name||'',category:(x.categories||[x.category]).join(', '),country:companyMap[x.owner]?.country||'',region:companyMap[x.owner]?.region||'',href:'product-detail.html?id='+encodeURIComponent(x.id),keywords:[x.name,x.en,x.model,x.company,x.category,x.industry,...(x.categories||[]),...(x.tags||[]),x.summary]})),
+ ...products.map(x=>({id:x.id,type:'product',image:x.image||x.thumbnail||x.coverImage||x.images?.[0]||'',name:x.name,company:x.company||companyMap[x.owner]?.name||'',category:(x.categories||[x.category]).join(', '),country:companyMap[x.owner]?.country||'',region:companyMap[x.owner]?.region||'',href:'product-detail.html?id='+encodeURIComponent(x.id),keywords:[x.name,x.en,x.model,x.company,x.category,x.industry,...(x.categories||[]),...(x.tags||[]),x.summary]})),
  ...companies.map(x=>({...x,type:'company',category:x.industry,company:x.name,href:'companies.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.industry,...products.filter(p=>p.owner===x.id).flatMap(p=>[p.name,p.model,p.en,...(p.tags||[])])]}))
 ];
 const types={catalog:'기업 카탈로그',product:'제품',company:'기업'};
@@ -56,21 +56,40 @@ function matches(item,term){
  const normalized=folded([item.name,item.company,item.category,...item.keywords].join(' '));
  return term.split(' ').every(word=>normalized.includes(word));
 }
+// Use a saved product's actual public image when present. Demo records get a clearly
+// illustrative thumbnail; a non-image URL cannot be used as a thumbnail.
+const fallbackArt={
+ catalog:'<svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg"><rect x="53" y="17" width="133" height="116" rx="9" fill="#fff" stroke="#a7c4e8" stroke-width="3"/><path d="M76 40h87M76 52h65" stroke="#9cb8db" stroke-width="5" stroke-linecap="round"/><circle cx="91" cy="87" r="16" fill="#9acafa"/><path d="m80 114 30-33 17 17 14-15 23 31" fill="#5a89c7"/></svg>',
+ product:'<svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg"><path d="m120 19 73 39v57l-73 37-73-37V58z" fill="#dfebfa" stroke="#8cafd8" stroke-width="3"/><path d="m47 58 73 39 73-39M120 97v55" fill="none" stroke="#8cafd8" stroke-width="3"/><path d="m120 19 73 39-73 39-73-39z" fill="#9bbdea"/><circle cx="120" cy="97" r="11" fill="#346bb6"/></svg>',
+ company:'<svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg"><rect x="57" y="24" width="126" height="112" rx="8" fill="#a9c7eb"/><path d="M80 47h18v18H80zm31 0h18v18h-18zm31 0h18v18h-18zM80 80h18v18H80zm31 0h18v18h-18zm31 0h18v18h-18z" fill="#fff"/><path d="M109 136v-26h22v26" fill="#3f74b9"/></svg>'
+};
+function thumbnail(item){
+ const wrap=text('div','ib-result-thumbnail ib-result-thumbnail-'+item.type);
+ const candidate=typeof item.image==='string'?item.image:(typeof item.image?.url==='string'?item.image.url:'');
+ if(candidate && (/^https:\/\//i.test(candidate)||/^data:image\/(png|jpeg|webp|gif);base64,/i.test(candidate)||/^assets\/[\w./-]+\.(png|jpe?g|webp|gif|svg)$/i.test(candidate))){
+  const img=document.createElement('img');img.src=candidate;img.alt=item.name+' 대표이미지';img.loading='lazy';img.decoding='async';
+  img.onerror=()=>{wrap.replaceChildren();wrap.innerHTML=fallbackArt[item.type]};wrap.append(img);
+ }else{
+  wrap.innerHTML=fallbackArt[item.type];
+ }
+ return wrap;
+}
 function card(item){
- const a=text('a','ib-unified-result');
+ const a=text('a','ib-unified-result ib-search-image-card');
  a.href=item.href;
- const symbol=text('span','ib-unified-result-symbol',item.type==='catalog'?'▣':item.type==='product'?'◈':'▤');
  const info=text('div','ib-unified-result-info');
+ info.append(text('span','ib-result-type',types[item.type]));
  info.append(text('strong','',item.name));
  info.append(text('p','',item.type==='company'?item.industry:item.company+' · '+item.category));
  if(item.country){
- const regionName=(regions[item.country]||[]).find(x=>x[0]===item.region)?.[1];
- info.append(text('span','ib-unified-country',(countries[item.country]||'국가 미등록')+(regionName?' · '+regionName:'')+' · 샘플 소재지'));
-}
- const arrow=text('span','ib-unified-arrow','상세 보기 →');
- a.append(symbol,info,arrow);
+  const regionName=(regions[item.country]||[]).find(x=>x[0]===item.region)?.[1];
+  info.append(text('span','ib-unified-country',(countries[item.country]||'국가 미등록')+(regionName?' · '+regionName:'')+' · 샘플 소재지'));
+ }
+ info.append(text('span','ib-unified-arrow','상세 보기 →'));
+ a.append(thumbnail(item),info);
  return a;
 }
+
 function render(){
  const term=folded(search.value),country=filter.value,region=regionFilter.value;
  const matching=items.filter(x=>matches(x,term)&&(!country||x.country===country)&&(!region||x.region===region));
@@ -99,9 +118,56 @@ function render(){
  if(active!=='all')next.set('type',active);
  history.replaceState(null,'','search.html'+(next.toString()?'?'+next:''));
 }
+const overlay=$('ibFilterDialog'),openBtn=$('ibOpenFilters'),badge=$('ibFilterBadge');
+const activeFilters=$('ibActiveFilters');
+let beforeOpen=null;
+function updateFilterUI(){
+ const selected=[filter.value,regionFilter.value].filter(Boolean);
+ badge.hidden=!selected.length;badge.textContent=String(selected.length);
+ openBtn.classList.toggle('has-active-filter',!!selected.length);
+ activeFilters.replaceChildren();
+ if(selected.length){
+  if(filter.value)activeFilters.append(text('span','ib-active-filter-chip',countries[filter.value]||filter.value));
+  if(regionFilter.value)activeFilters.append(text('span','ib-active-filter-chip',(regions[filter.value]||[]).find(x=>x[0]===regionFilter.value)?.[1]||regionFilter.value));
+  const clear=text('button','ib-active-filter-clear','모두 해제 ×');clear.type='button';
+  clear.addEventListener('click',()=>{filter.value='';populateRegions();regionFilter.value='';render()});
+  activeFilters.append(clear);
+ }
+ activeFilters.hidden=!selected.length;
+}
+function openFilters(){
+ beforeOpen={country:filter.value,region:regionFilter.value};
+ overlay.hidden=false;document.body.classList.add('ib-filter-open');
+ openBtn.setAttribute('aria-expanded','true');
+ $('ibCloseFilters').focus();
+}
+function closeFilters(apply=false){
+ if(overlay.hidden)return;
+ if(!apply && beforeOpen){
+  filter.value=beforeOpen.country;populateRegions();regionFilter.value=beforeOpen.region;
+ }
+ overlay.hidden=true;document.body.classList.remove('ib-filter-open');
+ openBtn.setAttribute('aria-expanded','false');beforeOpen=null;
+ if(apply)render();
+ openBtn.focus();
+}
+openBtn.addEventListener('click',openFilters);
+$('ibCloseFilters').addEventListener('click',()=>closeFilters());
+overlay.querySelector('[data-close-filter]').addEventListener('click',()=>closeFilters());
+$('ibApplyFilters').addEventListener('click',()=>closeFilters(true));
+$('ibResetFilters').addEventListener('click',()=>{filter.value='';populateRegions();regionFilter.value='';});
+overlay.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){e.preventDefault();closeFilters();return}
+ if(e.key==='Tab'){
+  const focusable=[...overlay.querySelectorAll('button:not(:disabled),select:not(:disabled)')];
+  const first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+ }
+});
 $('ibGlobalSearchForm').addEventListener('submit',e=>{e.preventDefault();active='all';render()});
-filter.addEventListener('change',()=>{populateRegions();render()});
-regionFilter.addEventListener('change',render);
 document.querySelectorAll('[data-global-type]').forEach(b=>b.addEventListener('click',()=>{active=b.dataset.globalType;render()}));
+const originalRender=render;
+render=function(){originalRender();updateFilterUI()};
 render();
 })();
