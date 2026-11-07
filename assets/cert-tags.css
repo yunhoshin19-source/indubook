@@ -1,0 +1,19 @@
+/* Supplemental certification metadata, inheriting existing IndustryBook typography and palette */
+.ib-cert-entry{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ib-cert-entry input{flex:1;min-width:130px;border:1px solid #d6e0ed;border-radius:10px;padding:12px 14px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.ib-cert-chips,.ib-cert-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ib-cert-chips{margin:9px 0}
+.ib-cert-chip,.ib-cert-meta span{display:inline-flex;align-items:center;gap:5px;border:1px solid #dce6f2;background:#f2f6fd;color:#42658d;border-radius:20px;padding:5px 9px;font-size:11px;line-height:1.35}
+.ib-cert-chip button{background:transparent;border:0;color:#7185a1;font-size:14px;cursor:pointer;padding:0 2px}
+.ib-cert-help{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+.ib-cert-product-fields{border-top:1px solid var(--line);padding:17px 0}
+.ib-cert-product-fields h3{margin:0 0 7px;font-size:16px;color:var(--ink)}
+.ib-cert-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:13px}
+.ib-cert-product-grid label{display:flex;flex-direction:column;gap:7px}
+.ib-cert-product-grid input{width:100%;border:1px solid #d6e0ed;border-radius:10px;padding:12px;font:inherit;font-size:14px}
+.ib-cert-meta{margin-top:10px}
+.ib-cert-meta .ib-cert-note{background:transparent;border:0;color:#8595aa;padding:0}
+.ib-cert-section{margin-top:16px}
+.ib-cert-section h3{margin:0 0 10px;font-size:15px}
+.ib-cert-card-bottom{margin-top:10px;border-top:1px solid #e9eef5;padding-top:8px}
+@media(max-width:600px){.ib-cert-product-grid{grid-template-columns:1fr}.ib-cert-entry{flex-wrap:wrap}.ib-cert-entry .button{flex:none}}
