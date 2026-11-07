@@ -29,9 +29,11 @@ const regions={"KR":[["KR-11","서울"],["KR-41","경기"],["KR-28","인천"],["
 companies.forEach(x=>x.region=demoRegions[x.id]||'');
 const companyMap=Object.fromEntries(companies.map(x=>[x.id,x]));
 const products=(window.IBProducts?.list?.()||[]).filter(x=>x.status==='published');
+const savedCatalogs=(()=>{try{const a=JSON.parse(localStorage.getItem('ib-demo-company-catalogs-v1')||'[]');return Array.isArray(a)?a.filter(x=>x.visibility==='public'):[]}catch{return []}})();
 const items=[
  ...catalogSeeds.map(x=>({...x,type:'catalog',image:x.coverImage||x.thumbnail||'',company:companyMap[x.companyId]?.name||'',country:companyMap[x.companyId]?.country||'',region:companyMap[x.companyId]?.region||'',href:'catalogs.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.category,companyMap[x.companyId]?.name||'']})),
- ...products.map(x=>({id:x.id,type:'product',image:x.thumbnailUrl||x.thumbnail_url||x.coverImageUrl||x.coverImage||x.imageUrl||x.image_url||x.image||x.thumbnail||x.images?.[0]||x.media?.[0]||'',name:x.name,company:x.company||companyMap[x.owner]?.name||'',category:(x.categories||[x.category]).join(', '),country:companyMap[x.owner]?.country||'',region:companyMap[x.owner]?.region||'',href:'product-detail.html?id='+encodeURIComponent(x.id),keywords:[x.name,x.en,x.model,x.company,x.category,x.industry,...(x.categories||[]),...(x.tags||[]),x.summary]})),
+ ...savedCatalogs.map(x=>({id:x.id,type:'catalog',name:x.title,company:'등록 기업 · 데모',category:(x.industries||[]).join(', '),country:'',region:'',href:'catalogs.html?q='+encodeURIComponent(x.title),certifications:x.certifications||[],keywords:[x.title,x.description,...(x.tags||[]),...(x.certifications||[])]})),
+ ...products.map(x=>({id:x.id,type:'product',certifications:x.certifications||[],manufacturingCountry:x.manufacturingCountry||'',distributor:x.distributor||'',image:x.thumbnailUrl||x.thumbnail_url||x.coverImageUrl||x.coverImage||x.imageUrl||x.image_url||x.image||x.thumbnail||x.images?.[0]||x.media?.[0]||'',name:x.name,company:x.company||companyMap[x.owner]?.name||'',category:(x.categories||[x.category]).join(', '),country:companyMap[x.owner]?.country||'',region:companyMap[x.owner]?.region||'',href:'product-detail.html?id='+encodeURIComponent(x.id),keywords:[x.name,x.en,x.model,x.company,x.category,x.industry,...(x.categories||[]),...(x.tags||[]),x.summary]})),
  ...companies.map(x=>({...x,type:'company',image:x.logoUrl||x.logo||x.coverImage||'',category:x.industry,company:x.name,href:'companies.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.industry,...products.filter(p=>p.owner===x.id).flatMap(p=>[p.name,p.model,p.en,...(p.tags||[])])]}))
 ];
 const types={catalog:'기업 카탈로그',product:'제품',company:'기업'};
@@ -88,6 +90,15 @@ function card(item){
  if(item.country){
   const regionName=(regions[item.country]||[]).find(x=>x[0]===item.region)?.[1];
   info.append(text('span','ib-unified-country',(countries[item.country]||'국가 미등록')+(regionName?' · '+regionName:'')+' · 샘플 소재지'));
+ }
+ const certLabels=(item.certifications||[]).slice(0,2);
+ if(certLabels.length||item.manufacturingCountry||item.distributor){
+  const meta=text('div','ib-cert-meta');
+  certLabels.forEach(v=>meta.append(text('span','',v)));
+  if(item.manufacturingCountry)meta.append(text('span','','제조국: '+item.manufacturingCountry));
+  if(item.distributor)meta.append(text('span','','유통사: '+item.distributor));
+  if(certLabels.length)meta.append(text('span','ib-cert-note','기업 입력 · 미검증'));
+  info.append(meta);
  }
  info.append(text('span','ib-unified-arrow','상세 보기 →'));
  a.append(thumbnail(item),info);
