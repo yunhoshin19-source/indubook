@@ -30,9 +30,9 @@ companies.forEach(x=>x.region=demoRegions[x.id]||'');
 const companyMap=Object.fromEntries(companies.map(x=>[x.id,x]));
 const products=(window.IBProducts?.list?.()||[]).filter(x=>x.status==='published');
 const items=[
- ...catalogSeeds.map(x=>({...x,type:'catalog',company:companyMap[x.companyId]?.name||'',country:companyMap[x.companyId]?.country||'',region:companyMap[x.companyId]?.region||'',href:'catalogs.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.category,companyMap[x.companyId]?.name||'']})),
- ...products.map(x=>({id:x.id,type:'product',image:x.image||x.thumbnail||x.coverImage||x.images?.[0]||'',name:x.name,company:x.company||companyMap[x.owner]?.name||'',category:(x.categories||[x.category]).join(', '),country:companyMap[x.owner]?.country||'',region:companyMap[x.owner]?.region||'',href:'product-detail.html?id='+encodeURIComponent(x.id),keywords:[x.name,x.en,x.model,x.company,x.category,x.industry,...(x.categories||[]),...(x.tags||[]),x.summary]})),
- ...companies.map(x=>({...x,type:'company',category:x.industry,company:x.name,href:'companies.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.industry,...products.filter(p=>p.owner===x.id).flatMap(p=>[p.name,p.model,p.en,...(p.tags||[])])]}))
+ ...catalogSeeds.map(x=>({...x,type:'catalog',image:x.coverImage||x.thumbnail||'',company:companyMap[x.companyId]?.name||'',country:companyMap[x.companyId]?.country||'',region:companyMap[x.companyId]?.region||'',href:'catalogs.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.category,companyMap[x.companyId]?.name||'']})),
+ ...products.map(x=>({id:x.id,type:'product',image:x.thumbnailUrl||x.thumbnail_url||x.coverImageUrl||x.coverImage||x.imageUrl||x.image_url||x.image||x.thumbnail||x.images?.[0]||x.media?.[0]||'',name:x.name,company:x.company||companyMap[x.owner]?.name||'',category:(x.categories||[x.category]).join(', '),country:companyMap[x.owner]?.country||'',region:companyMap[x.owner]?.region||'',href:'product-detail.html?id='+encodeURIComponent(x.id),keywords:[x.name,x.en,x.model,x.company,x.category,x.industry,...(x.categories||[]),...(x.tags||[]),x.summary]})),
+ ...companies.map(x=>({...x,type:'company',image:x.logoUrl||x.logo||x.coverImage||'',category:x.industry,company:x.name,href:'companies.html?q='+encodeURIComponent(x.name),keywords:[x.name,x.industry,...products.filter(p=>p.owner===x.id).flatMap(p=>[p.name,p.model,p.en,...(p.tags||[])])]}))
 ];
 const types={catalog:'기업 카탈로그',product:'제품',company:'기업'};
 const fromUrl=new URLSearchParams(location.search);
@@ -65,8 +65,11 @@ const fallbackArt={
 };
 function thumbnail(item){
  const wrap=text('div','ib-result-thumbnail ib-result-thumbnail-'+item.type);
- const candidate=typeof item.image==='string'?item.image:(typeof item.image?.url==='string'?item.image.url:'');
- if(candidate && (/^https:\/\//i.test(candidate)||/^data:image\/(png|jpeg|webp|gif);base64,/i.test(candidate)||/^assets\/[\w./-]+\.(png|jpe?g|webp|gif|svg)$/i.test(candidate))){
+ const raw=item.image;
+ const candidate=typeof raw==='string'?raw:typeof raw?.url==='string'?raw.url:typeof raw?.src==='string'?raw.src:typeof raw?.dataUrl==='string'?raw.dataUrl:'';
+ // Only safe image schemes or relative image assets are accepted.
+ const safe=/^https:\/\//i.test(candidate)||/^data:image\/(png|jpeg|webp|gif);base64,/i.test(candidate)||/^(?!\/|\.|.*\.\.)[\w/-]+\.(png|jpe?g|webp|gif|svg)(?:\?[\w=&-]+)?$/i.test(candidate);
+ if(candidate && safe){
   const img=document.createElement('img');img.src=candidate;img.alt=item.name+' 대표이미지';img.loading='lazy';img.decoding='async';
   img.onerror=()=>{wrap.replaceChildren();wrap.innerHTML=fallbackArt[item.type]};wrap.append(img);
  }else{
