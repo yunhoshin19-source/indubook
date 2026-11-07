@@ -1425,3 +1425,7 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-deal-completed{color:#268367;font-size:13px;line-height:1.5}
 @media(max-width:1020px){.ib-deal-columns{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}.ib-deal-control{grid-column:1/-1}.ib-deal-stages{gap:5px}.ib-deal-arrow{display:none}}
 @media(max-width:680px){.ib-deal-page{min-width:0;overflow-wrap:anywhere}.ib-deal-titlebar{align-items:flex-start;flex-direction:column}.ib-deal-statgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ib-deal-columns{display:flex;flex-direction:column}.ib-deal-card{min-width:0}.ib-deal-summary{order:1}.ib-deal-control{order:2}.ib-deal-thread{order:3;min-height:530px}.ib-deal-messages{min-height:260px;max-height:400px}.ib-deal-msg-box{max-width:94%}.ib-deal-list-panel{padding:16px}.ib-deal-list-head{flex-wrap:wrap}.ib-deal-list-head select{width:100%}.ib-deal-list-row{align-items:flex-start}.ib-deal-row-status{max-width:120px}.ib-deal-stages{gap:5px}.ib-deal-stage{font-size:11px;padding:8px}.ib-deal-reply-actions>.button{width:100%}}
+
+.ib-chat-deal-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
+.ib-chat-deal-actions .button{font-size:12px;white-space:nowrap}
+@media(max-width:680px){.ib-chat-room-header{flex-wrap:wrap;gap:9px}.ib-chat-deal-actions{order:3;display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0}.ib-chat-deal-actions .button{min-width:0;text-align:center;white-space:normal}}
