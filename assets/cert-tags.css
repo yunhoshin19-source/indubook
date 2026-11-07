@@ -19,3 +19,11 @@
 @media(max-width:600px){.ib-cert-product-grid{grid-template-columns:1fr}.ib-cert-entry{flex-wrap:wrap}.ib-cert-entry .button{flex:none}}
 
 .ib-cert-catalog-placeholder{display:flex;align-items:center;justify-content:center;color:#c9e1fb;font-size:58px;min-height:120px}
+
+/* Certificate tags use the SAME existing catalog tag input and chip styling. */
+.ib-register .ib-reg-field>input#regCertInput{display:block;width:100%}
+.ib-register #regCertChips{margin-top:9px;margin-bottom:0}
+.ib-cert-tag-field{display:flex;flex-direction:column;gap:9px;min-width:0}
+.ib-cert-tag-field>label{font:inherit;font-size:13px;font-weight:700;color:var(--ink)}
+.ib-cert-tag-field>input{display:block;width:100%;min-width:0;border:1px solid #d6e0ed;border-radius:10px;padding:13px 14px;font:inherit;font-size:14px;color:var(--ink);background:#fff}
+.ib-cert-tag-field .ib-reg-chips{margin:0}
