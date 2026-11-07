@@ -1,0 +1,17 @@
+/* Site-wide persistent IndustryBook search; injected by shared app.js */
+.topbar .top-inner{gap:clamp(10px,1.3vw,22px)}
+.ib-global-header-search{display:flex;align-items:center;flex:0 1 315px;min-width:175px;max-width:360px;gap:0;background:#fff;border:1px solid #bfcde2;border-radius:11px;height:42px;overflow:hidden}
+.ib-global-header-search select{width:87px;flex:none;min-width:0;appearance:none;border:0;border-right:1px solid #e3e8f1;background:#f3f6fc;color:#294a73;padding:0 5px 0 10px;font-size:12px;height:100%;cursor:pointer}
+.ib-global-header-search input{flex:1;min-width:0;border:0;background:#fff;color:#193a62;padding:0 8px;font:inherit;font-size:12px;outline:none}
+.ib-global-header-search input::placeholder{color:#7187a2}
+.ib-global-header-search button{width:38px;height:100%;border:0;color:#245eea;background:#edf3ff;display:grid;place-items:center;font-size:19px;cursor:pointer}
+.ib-global-search-toggle{display:none;border:1px solid #526886;background:#294563;color:#fff;border-radius:9px;padding:9px 12px;font-size:15px}
+.ib-global-header-search:focus-within{outline:2px solid #94b6f4;outline-offset:1px}
+.ib-global-header-search button:hover{background:#dce8ff}
+.ib-global-header-search .ib-search-scope{color:#254564}
+@media(max-width:1280px){.topbar .top-inner{flex-wrap:wrap}.ib-global-header-search{order:4;flex:1 1 100%;max-width:none;height:43px}.ib-global-header-search input{font-size:13px}.ib-global-header-search select{width:120px}.topbar .toplinks{flex:1}}
+@media(max-width:720px){.ib-global-search-toggle{display:inline-flex;align-items:center;justify-content:center;order:3;margin-left:auto}.ib-global-header-search{display:none;order:6;flex-basis:100%;width:100%;min-width:0}.ib-global-header-search.ib-search-expanded{display:flex}.topbar .top-inner{gap:9px}.ib-global-header-search select{width:105px}}
+/* Search results consume the common header search, preventing duplicate inputs */
+body.ib-shared-search-ready .ib-unified-search-form{display:none}
+body.ib-shared-search-ready .ib-unified-search-header{margin-bottom:22px}
+body.ib-shared-search-ready .ib-unified-tabs{margin-top:13px}
