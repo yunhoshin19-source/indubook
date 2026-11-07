@@ -46,7 +46,7 @@ if($('productDetail')){
  const actions=document.createElement('div');actions.className='ib-product-detail-buttons';
  const requestUrl=type=>'business-request.html?type='+encodeURIComponent(type)+'&source=product&id='+encodeURIComponent(p.id);
  const inquiry=document.createElement('a');inquiry.className='button secondary';inquiry.textContent='문의';inquiry.href='messages.html?'+new URLSearchParams({to:p.owner,draft:'[제품문의] '+p.name+' ('+p.model+')\n제품 관련 문의드립니다.'}).toString();
- const rfq=document.createElement('a');rfq.className='button primary';rfq.textContent='RFQ 견적요청';rfq.href=requestUrl('rfq');
+ const rfq=document.createElement('a');rfq.className='button primary';rfq.textContent='견적 요청';rfq.href=requestUrl('rfq');
  const company=document.createElement('a');company.className='button secondary';company.href='company-profile.html';company.textContent='기업 페이지 보기';actions.append(inquiry,rfq,company);
  data.append(category,name,english,summary,details,actions);hero.append(visual,data);container.append(hero);
  const lower=document.createElement('div');lower.className='ib-product-lower';const description=document.createElement('section');description.className='ib-product-data-panel';const h2=document.createElement('h2');h2.textContent='제품 소개';const pp=document.createElement('p');pp.textContent=p.description;description.append(h2,pp);
