@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="IndustryBook B2B 기업회원 가입 디자인 시안">
 <title>기업회원 가입 | IndustryBook</title>
-<link rel="stylesheet" href="assets/style.css?v=mobile-menu-v1">
+<link rel="stylesheet" href="assets/style.css?v=company-country-v1">
 </head>
 <body>
 <header class="topbar">
@@ -64,6 +64,7 @@
 
       <div class="signup-form-step" data-step="2" hidden>
         <div class="signup-form-heading"><h3>회사 정보</h3><p>회사 및 소속 정보를 등록해 주세요.</p></div>
+        <div class="field"><label for="companyCountry">기업 소재 국가/지역 <span class="required">*</span></label><select id="companyCountry" name="companyCountry" required autocomplete="country"><option value="">국가/지역을 선택해 주세요</option><option value="KR">대한민국 (South Korea)</option><option value="US">미국 (United States)</option><option value="JP">일본 (Japan)</option><option value="CN">중국 (China)</option><option value="VN">베트남 (Vietnam)</option><option value="DE">독일 (Germany)</option><option value="GB">영국 (United Kingdom)</option><option value="FR">프랑스 (France)</option><option value="SG">싱가포르 (Singapore)</option><option value="IN">인도 (India)</option><option value="AU">호주 (Australia)</option><option value="TW">대만 (Taiwan)</option><option value="OTHER">기타 국가/지역</option></select><small class="signup-hint">기업 등록 소재지를 기준으로 선택해 주세요. 선택한 국가/지역은 기업 프로필에 표시됩니다.</small></div>
         <div class="field"><label for="companyName">회사명 <span class="required">*</span></label><input id="companyName" name="companyName" required placeholder="회사명을 입력해 주세요"></div>
         <div class="field"><label for="companyEnglish">회사명 (영문) <span class="required">*</span></label><input id="companyEnglish" name="companyEnglish" required placeholder="Company name in English"></div>
         <div class="field"><label for="representative">대표자명 <span class="required">*</span></label><input id="representative" name="representative" required placeholder="대표자 성명"></div>
@@ -129,13 +130,14 @@
   consents.forEach(x=>x.addEventListener('change',()=>all.checked=consents.every(y=>y.checked)));
   document.getElementById('signupForm').addEventListener('submit',event=>{
     event.preventDefault();
-    if(!verifyFields(['companyName','companyEnglish','representative','bizNumber']))return;
+    if(!verifyFields(['companyCountry','companyName','companyEnglish','representative','bizNumber']))return;
     if(!consents.every(x=>x.checked)){showError('필수 약관에 모두 동의해 주세요.');return}
     // Carry non-secret signup fields into the membership editor in this tab only.
     // Passwords, authentication codes and consent decisions are not stored.
     const saved={
       memberName:document.getElementById('memberName').value.trim(),
       memberEmail:document.getElementById('memberEmail').value.trim(),
+      companyCountry:document.getElementById('companyCountry').value,
       companyName:document.getElementById('companyName').value.trim(),
       companyEnglish:document.getElementById('companyEnglish').value.trim(),
       representative:document.getElementById('representative').value.trim(),
