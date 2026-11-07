@@ -10,7 +10,7 @@ function save(items){try{localStorage.setItem(key,JSON.stringify(items));return 
 const rows=$('ibCatalogManagerRows'),search=$('ibCatalogManagerSearch'),filter=$('ibCatalogManagerFilter'),editor=$('ibCatalogEditor'),form=$('ibCatalogEditForm');
 const txt=(parent,tag,value)=>{const node=document.createElement(tag);node.textContent=value;parent.append(node);return node};
 function close(){if(typeof editor.close==='function')editor.close();else editor.removeAttribute('open')}
-function open(item){$('ibCatalogEditId').value=item.id;$('ibCatalogEditTitle').value=item.title||'';$('ibCatalogEditDescription').value=item.description||'';$('ibCatalogEditIndustries').value=(item.industries||[]).join(', ');$('ibCatalogEditTags').value=(item.tags||[]).join(', ');$('ibCatalogEditVisibility').value=item.visibility||'public';editor.showModal()}
+function open(item){$('ibCatalogEditId').value=item.id;$('ibCatalogEditTitle').value=item.title||'';$('ibCatalogEditDescription').value=item.description||'';$('ibCatalogEditIndustries').value=(item.industries||[]).join(', ');$('ibCatalogEditTags').value=(item.tags||[]).join(', ');$('ibCatalogEditCertifications').value=(item.certifications||[]).join(', ');$('ibCatalogEditVisibility').value=item.visibility||'public';editor.showModal()}
 function render(){
  const all=read(),q=search.value.trim().toLowerCase();
  $('ibCatalogCountAll').textContent=all.length;
@@ -38,7 +38,7 @@ form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())
  const parse=(id,max)=>[...new Set($(id).value.split(',').map(v=>v.trim()).filter(Boolean))].slice(0,max);
  item.title=$('ibCatalogEditTitle').value.trim();if(!item.title){alert('제목을 입력해 주세요.');return}
  item.description=$('ibCatalogEditDescription').value.trim();
- item.industries=parse('ibCatalogEditIndustries',3);item.tags=parse('ibCatalogEditTags',15);
+ item.industries=parse('ibCatalogEditIndustries',3);item.tags=parse('ibCatalogEditTags',15);item.certifications=parse('ibCatalogEditCertifications',12);
  item.visibility=$('ibCatalogEditVisibility').value;item.updated=new Date().toISOString();
  if(save(items)){close();render()}
 });
