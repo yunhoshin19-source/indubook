@@ -40,6 +40,12 @@ function list(){
 function room(){
  const details=info(active),target=$('ibChatMessages');target.replaceChildren();
  $('ibChatCompany').textContent=details.name;$('ibChatAvatar').textContent=details.initial;$('ibChatCompanyLink').href=details.link;
+ const deal=$('ibChatToDeal');
+ if(deal){
+  if(active==='kar'){deal.href='business-request.html?type=rfc&source=catalog&id=kar-membership';deal.textContent='협업·제안 요청 시작'}
+  else if(active==='co-0'){deal.href='business-request.html?type=rfq&source=product&id=p-cr20';deal.textContent='견적 요청 시작'}
+  else {deal.href='deals.html';deal.textContent='거래 관리 열기'}
+ }
  if(!threads[active]?.length){
   const empty=make('div','ib-chat-empty-room');
   empty.append(make('strong','','아직 대화 내역이 없습니다.'),make('p','','아래 입력창을 통해 문의 메시지를 작성할 수 있습니다.'));
