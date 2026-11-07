@@ -1429,3 +1429,55 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-chat-deal-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
 .ib-chat-deal-actions .button{font-size:12px;white-space:nowrap}
 @media(max-width:680px){.ib-chat-room-header{flex-wrap:wrap;gap:9px}.ib-chat-deal-actions{order:3;display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0}.ib-chat-deal-actions .button{min-width:0;text-align:center;white-space:normal}}
+
+/* Supply Chain Finance — contract-completion-triggered supplier application demo */
+.ib-scf-page{max-width:1250px;padding-bottom:85px}
+.ib-scf-header{display:flex;justify-content:space-between;gap:18px;align-items:center;margin:20px 0 22px}
+.ib-scf-header h1{font-size:29px;color:#17365b;margin:9px 0}
+.ib-scf-header p{font-size:13px;color:#748aa3;line-height:1.7}
+.ib-scf-notice{border:1px solid #e4d6ae;background:#fffaf0;border-radius:12px;padding:17px 20px;margin-bottom:20px;color:#775b2f}
+.ib-scf-notice strong{font-size:14px}.ib-scf-notice p{font-size:12px;line-height:1.7;margin:7px 0 0}
+.ib-scf-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:20px}
+.ib-scf-summary>div{background:#fff;border:1px solid #e0e9f4;border-radius:13px;padding:21px}
+.ib-scf-summary span{display:block;font-size:12px;color:#8397af;margin-bottom:10px}
+.ib-scf-summary strong{font-size:24px;color:#1e467a}
+.ib-scf-panel{background:#fff;border:1px solid #dce6f2;border-radius:15px;padding:25px;margin-bottom:19px;min-width:0}
+.ib-scf-panel h2{margin:0 0 13px;font-size:20px;color:#1b3b63}
+.ib-scf-panel h3{font-size:15px;margin:27px 0 12px;color:#254b75}
+.ib-scf-panel-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
+.ib-scf-panel-title p,.ib-scf-help{color:#899ab1;font-size:12px;line-height:1.7;margin:0}
+.ib-scf-deal-list{border-top:1px solid #e7edf6}
+.ib-scf-deal-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 4px;border-bottom:1px solid #e7edf6}
+.ib-scf-deal-main{display:flex;flex-direction:column;gap:7px;min-width:0}
+.ib-scf-deal-main strong{font-size:15px;color:#254468;overflow-wrap:anywhere}
+.ib-scf-deal-main span{font-size:12px;color:#788ba4;overflow-wrap:anywhere}
+.ib-scf-sample{font-size:11px;color:#ba7b32}
+.ib-scf-empty{padding:29px 6px;font-size:13px;color:#8294aa}
+.ib-scf-app-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(275px,.8fr);gap:18px;align-items:start}
+.ib-scf-facts{display:grid;grid-template-columns:155px minmax(0,1fr);row-gap:12px;column-gap:12px;border-bottom:1px solid #e7edf6;padding:6px 0 24px;margin:0 0 20px}
+.ib-scf-facts dt{font-size:12px;color:#8498ae}
+.ib-scf-facts dd{font-size:13px;color:#25476f;margin:0;overflow-wrap:anywhere;font-weight:600}
+.ib-scf-panel label:not(.ib-scf-check){display:block;font-size:12px;color:#365879;font-weight:650;margin:19px 0 10px}
+.ib-scf-panel input[type="date"],.ib-scf-panel input[type="number"],.ib-scf-panel textarea,.ib-scf-panel select{display:block;width:100%;min-width:0;max-width:100%;border:1px solid #d9e4f2;border-radius:9px;padding:12px 13px;font:inherit;font-size:13px;background:#fff}
+.ib-scf-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#425d7b;line-height:1.7;padding:10px 0}
+.ib-scf-check input{flex:none;margin-top:5px;accent-color:#245eea}
+.ib-scf-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.ib-scf-terms{border:1px solid #cdddff;background:#f2f7ff;border-radius:11px;padding:19px;margin:20px 0}
+.ib-scf-terms span{font-size:12px;color:#617ea4}
+.ib-scf-terms strong{font-size:24px;color:#245eea;display:block;margin:10px 0}
+.ib-scf-terms small{display:block;font-size:11px;color:#718baa;line-height:1.65}
+.ib-scf-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:21px}
+.ib-scf-actions button:disabled{opacity:.55;cursor:not-allowed}
+.ib-scf-stages{display:flex;flex-direction:column;gap:12px}
+.ib-scf-stage{display:flex;gap:12px;align-items:flex-start}
+.ib-scf-stage-index{display:grid;place-items:center;width:29px;height:29px;flex:none;border-radius:50%;background:#edf2f7;color:#8294ad;font-weight:700;font-size:12px}
+.ib-scf-stage-illustrative .ib-scf-stage-index{background:#dce9ff;color:#245eea}
+.ib-scf-stage-text{display:flex;flex-direction:column;gap:4px;padding-top:3px}
+.ib-scf-stage-text strong{font-size:12px;color:#294969}
+.ib-scf-stage-text small{font-size:11px;color:#8b9eb7;line-height:1.5}
+.ib-scf-divider{border-top:1px solid #e3ebf6;margin:24px 0}
+.ib-scf-flow p{font-size:12px;color:#6e86a4;line-height:1.7;margin:9px 0}
+.ib-scf-status{border-radius:15px;background:#edf3ff;color:#245eea;padding:7px 11px;font-size:11px;font-weight:700}
+.ib-scf-wide{display:block;text-align:center;margin-top:20px}
+@media(max-width:800px){.ib-scf-app-grid{grid-template-columns:minmax(0,1fr)}.ib-scf-header{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){.ib-scf-page{min-width:0}.ib-scf-panel{padding:17px}.ib-scf-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.ib-scf-summary>div{padding:12px}.ib-scf-summary strong{font-size:20px}.ib-scf-deal-row{flex-direction:column;align-items:stretch}.ib-scf-deal-row .button{width:100%;text-align:center}.ib-scf-fields{grid-template-columns:minmax(0,1fr)}.ib-scf-facts{grid-template-columns:minmax(0,1fr);gap:5px}.ib-scf-facts dd{margin-bottom:9px}.ib-scf-actions>.button{flex:1}}
