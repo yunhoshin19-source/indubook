@@ -17,3 +17,5 @@
 .ib-cert-section h3{margin:0 0 10px;font-size:15px}
 .ib-cert-card-bottom{margin-top:10px;border-top:1px solid #e9eef5;padding-top:8px}
 @media(max-width:600px){.ib-cert-product-grid{grid-template-columns:1fr}.ib-cert-entry{flex-wrap:wrap}.ib-cert-entry .button{flex:none}}
+
+.ib-cert-catalog-placeholder{display:flex;align-items:center;justify-content:center;color:#c9e1fb;font-size:58px;min-height:120px}
