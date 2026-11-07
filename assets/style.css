@@ -1481,3 +1481,33 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 .ib-scf-wide{display:block;text-align:center;margin-top:20px}
 @media(max-width:800px){.ib-scf-app-grid{grid-template-columns:minmax(0,1fr)}.ib-scf-header{align-items:flex-start;flex-direction:column}}
 @media(max-width:600px){.ib-scf-page{min-width:0}.ib-scf-panel{padding:17px}.ib-scf-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.ib-scf-summary>div{padding:12px}.ib-scf-summary strong{font-size:20px}.ib-scf-deal-row{flex-direction:column;align-items:stretch}.ib-scf-deal-row .button{width:100%;text-align:center}.ib-scf-fields{grid-template-columns:minmax(0,1fr)}.ib-scf-facts{grid-template-columns:minmax(0,1fr);gap:5px}.ib-scf-facts dd{margin-bottom:9px}.ib-scf-actions>.button{flex:1}}
+
+/* Company registration country/region across signup, profile and member editor */
+.signup-form-step .field select#companyCountry,
+.ib-edit-field select#memberCompanyCountry {
+ width:100%;
+ min-width:0;
+ display:block;
+ background:#fff;
+ border:1px solid #d5e0ef;
+ border-radius:10px;
+ padding:13px 15px;
+ min-height:46px;
+ color:#264465;
+ font:inherit;
+ font-size:14px;
+ box-sizing:border-box;
+}
+.signup-form-step .field select#companyCountry:focus,
+.ib-edit-field select#memberCompanyCountry:focus {
+ outline:2px solid #90b5ff;
+ outline-offset:1px;
+ border-color:#245eea;
+}
+.ib-edit-field select#memberCompanyCountry:disabled{color:#697f99;background:#f1f4fa}
+.ib-company-country-line{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:9px 0!important;color:#7388a6;font-size:12px!important;line-height:1.5}
+.ib-company-country-line strong{color:#245eea;font-weight:700}
+@media(max-width:680px){
+ .signup-form-step .field select#companyCountry,.ib-edit-field select#memberCompanyCountry{width:100%;max-width:100%}
+ .ib-company-country-line{font-size:12px!important}
+}
