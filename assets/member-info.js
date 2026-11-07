@@ -4,7 +4,7 @@
 (function(){
 'use strict';
 const $=id=>document.getElementById(id);
-const fields={memberName:'memberContactName',memberEmail:'memberContactEmail',phone:'memberContactPhone',companyName:'memberCompanyName',companyEnglish:'memberCompanyEnglish',representative:'memberRepresentative',bizNumber:'memberBizNumber',inviteCode:'memberInviteCode',organization:'memberOrganization'};
+const fields={memberName:'memberContactName',memberEmail:'memberContactEmail',phone:'memberContactPhone',companyCountry:'memberCompanyCountry',companyName:'memberCompanyName',companyEnglish:'memberCompanyEnglish',representative:'memberRepresentative',bizNumber:'memberBizNumber',inviteCode:'memberInviteCode',organization:'memberOrganization'};
 const el=key=>$(fields[key]);
 const feedback=$('memberInfoFeedback');
 const authFeedback=$('ibAuthFeedback');
@@ -21,7 +21,7 @@ registeredEmail=(data.registeredEmail||loginEmail||data.memberEmail||data.email|
 $('ibAuthEmail').value=registeredEmail;
 el('memberName').value=data.memberName||data.name||'';
 el('memberEmail').value=data.memberEmail||data.email||registeredEmail;
-for(const key of ['phone','companyName','companyEnglish','representative','bizNumber','inviteCode','organization'])if(typeof data[key]==='string')el(key).value=data[key];
+for(const key of ['phone','companyCountry','companyName','companyEnglish','representative','bizNumber','inviteCode','organization'])if(typeof data[key]==='string')el(key).value=data[key];
 function updateLock(verified){
  authenticated=verified;
  $('ibMemberFields').disabled=!verified;
