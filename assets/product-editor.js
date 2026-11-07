@@ -10,6 +10,14 @@ $('productEditGate').hidden=allowed;$('productEditArea').hidden=!allowed;
 if(!allowed)return;
 const form=$('productEditForm');
 if(window.IBProductMedia)window.IBProductMedia.init();
+const productCerts=window.IBCertTags?.create('pCertInput','pCertAdd','pCertChips');
+window.addEventListener('ib:product-ai-extracted',e=>{
+ const suggestion=e.detail||{};
+ if(Array.isArray(suggestion.certifications))productCerts?.set(suggestion.certifications);
+ if(typeof suggestion.manufacturingCountry==='string')$('pManufacturingCountry').value=suggestion.manufacturingCountry;
+ if(typeof suggestion.distributor==='string')$('pDistributor').value=suggestion.distributor;
+ $('pCertAiStatus').textContent='AI 추출 초안입니다. 인증·제조국·유통사를 확인한 뒤 저장하세요.';
+});
  const fields={name:'pName',en:'pEnglish',model:'pModel',industry:'pIndustry',status:'pStatus',summary:'pSummary',description:'pDescription'};
  const defaultCategorySuggestions=['로봇·자동화','산업기계','전기·전자','부품','소재','장비','IT서비스','기술서비스','제조업','스마트팩토리','센서','에너지','건설','바이오','모빌리티','반도체','화학','물류'];
  let categoryTags=[];
@@ -24,6 +32,9 @@ const previous=requestedId?db.get(requestedId):null;
 if(requestedId&&(!previous||!db.isOwner(previous))){$('productEditArea').hidden=true;$('productEditGate').hidden=false;$('productEditGate').textContent='수정 가능한 제품을 찾을 수 없습니다.';return;}
 categoryTags=Array.isArray(previous?.categories)?[...previous.categories]:previous?.category?[previous.category]:[];
 renderCategoryTags();
+productCerts?.set(previous?.certifications||[]);
+$('pManufacturingCountry').value=previous?.manufacturingCountry||'';
+$('pDistributor').value=previous?.distributor||'';
 $('pId').value=previous?.id||'';
 for(const [key,id] of Object.entries(fields))$(id).value=previous?.[key]||({status:'draft'}[key]||'');
 $('pTags').value=(previous?.tags||[]).join(', ');
@@ -39,6 +50,10 @@ if(window.IBProductMedia)window.IBProductMedia.load(previous);
  if($('pCategoryInput').value.trim())addCategory($('pCategoryInput').value);
  if(!categoryTags.length){alert('제품 카테고리를 1개 이상 등록해 주세요.');$('pCategoryInput').focus();return}
  next.categories=[...categoryTags];next.category=categoryTags[0];
+ next.certifications=productCerts?.get()||[];
+ next.manufacturingCountry=$('pManufacturingCountry').value.trim();
+ next.distributor=$('pDistributor').value.trim();
+ next.certificationsSource='company-entered';
  next.tags=$('pTags').value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,12);
  next.catalogIds=$('pCatalog').value?[$('pCatalog').value]:[];
  next.specs={};$('pSpecs').value.split('\n').forEach(line=>{const i=line.indexOf(':');if(i>0){const k=line.slice(0,i).trim(),v=line.slice(i+1).trim();if(k&&v)next.specs[k]=v}});
