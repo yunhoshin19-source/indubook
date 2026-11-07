@@ -14,10 +14,30 @@
 /* Existing per-page search forms remain in the DOM for legacy scripts;
    only their redundant visual inputs are hidden once the shared strip exists. */
 .ib-inner-search-enabled .ib-unified-search-form{display:none}
-.ib-inner-search-enabled .ib-products-page #productSearch{display:none}
-.ib-inner-search-enabled .ib-company-search-controls #q{display:none}
-.ib-inner-search-enabled .ib-company-search-controls{display:flex;justify-content:flex-end}
-.ib-inner-search-enabled .ib-company-search-controls .ib-company-country-filter{flex:1;max-width:250px}
-.ib-inner-search-enabled #q.searchbox:not(.ib-inner-query){display:none}
+ .ib-inner-search-enabled .ib-products-page #productSearch{display:none!important}
+ .ib-inner-search-enabled .ib-company-search-controls #q{display:none!important}
+ .ib-inner-search-enabled .ib-company-search-controls{display:none!important}
+ .ib-inner-search-enabled .container.main>#q.searchbox{display:none!important}
+.ib-inner-search-enabled .ib-unified-search-toolbar #ibOpenFilters{display:none!important}
 @media(max-width:950px){.ib-inner-search-form{align-items:stretch;flex-direction:column;gap:9px}.ib-inner-controls{max-width:none}.ib-inner-scope{flex-wrap:wrap}}
 @media(max-width:480px){.ib-inner-search-container{padding-top:11px;padding-bottom:11px}.ib-inner-scope{gap:10px}.ib-inner-scope-option{font-size:12px}.ib-inner-controls{gap:6px}.ib-inner-query.searchbox{font-size:13px;padding:10px;min-height:42px}.ib-inner-controls .button{font-size:12px;padding:10px 11px}.ib-inner-filter{padding:10px 9px}}
+
+/* Keep the single search strip fully visible on narrow screens. */
+.ib-inner-search-strip{position:relative;z-index:1}
+.ib-inner-search-form{min-width:0}
+.ib-inner-search-enabled .ib-unified-search-form{display:none!important}
+@media(max-width:950px){
+ .ib-inner-search-strip{display:block!important}
+ .ib-inner-search-container{width:min(100% - 32px,1320px)}
+ .ib-inner-search-form{display:flex;flex-direction:column;align-items:stretch}
+ .ib-inner-controls{display:flex;width:100%;max-width:none}
+ .ib-inner-scope{display:flex;overflow-x:auto;flex-wrap:nowrap;gap:12px;padding:2px 0 4px}
+ .ib-inner-scope-option{flex:none}
+}
+@media(max-width:480px){
+ .ib-inner-search-strip{display:block!important}
+ .ib-inner-query.searchbox{display:block!important;min-width:0;flex:1 1 0}
+ .ib-inner-controls{display:flex;gap:6px}
+ .ib-inner-controls .button{flex:0 0 auto}
+ .ib-inner-scope-option{font-size:12px}
+}
