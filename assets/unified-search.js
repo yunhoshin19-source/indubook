@@ -120,6 +120,7 @@ function render(){
  if(region)next.set('region',region);
  if(active!=='all')next.set('type',active);
  history.replaceState(null,'','search.html'+(next.toString()?'?'+next:''));
+ document.dispatchEvent(new Event('ib-search-updated'));
 }
 const overlay=$('ibFilterDialog'),openBtn=$('ibOpenFilters'),badge=$('ibFilterBadge');
 const activeFilters=$('ibActiveFilters');
