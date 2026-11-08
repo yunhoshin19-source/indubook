@@ -99,6 +99,7 @@ function card(item){
   if(item.distributor)meta.append(text('span','','유통사: '+item.distributor));
   if(certLabels.length)meta.append(text('span','ib-cert-note','기업 입력 · 미검증'));
   info.append(meta);
+  if(certLabels.length)info.append(text('p','ib-cert-disclaimer','본 인증 정보는 기업이 제출한 서류를 바탕으로 등록되었으며, 최종 거래 전 양사 간의 원본 확인이 필요합니다'));
  }
  info.append(text('span','ib-unified-arrow','상세 보기 →'));
  a.append(thumbnail(item),info);
