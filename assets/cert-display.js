@@ -15,7 +15,7 @@
   if(list.length)list.slice(0,12).forEach(value=>row.append(create('span','',value)));
   else row.append(create('p','ib-cert-help','등록된 인증정보가 없습니다.'));
   section.append(row);
-  section.append(create('p','ib-cert-help','기업이 입력한 정보이며 인증기관 검증 전입니다.'));
+  if(list.length)section.append(create('p','ib-cert-disclaimer',window.IB_CERT_DISCLAIMER||'본 인증 정보는 기업이 제출한 서류를 바탕으로 등록되었으며, 최종 거래 전 양사 간의 원본 확인이 필요합니다'));
   return section;
  }
  if(page==='mypage.html'){
@@ -51,7 +51,7 @@
    (item.certifications||[]).slice(0,2).forEach(c=>bottom.append(create('span','',c)));
    if((item.certifications||[]).length>2)bottom.append(create('span','', '+'+(item.certifications.length-2)));
    if((item.certifications||[]).length)bottom.append(create('span','ib-cert-note','기업 입력 · 미검증'));
-   if(bottom.childNodes.length)body.append(bottom);
+   if(bottom.childNodes.length){body.append(bottom);body.append(create('p','ib-cert-disclaimer',window.IB_CERT_DISCLAIMER||'본 인증 정보는 기업이 제출한 서류를 바탕으로 등록되었으며, 최종 거래 전 양사 간의 원본 확인이 필요합니다'))}
    const nav=create('a','small','내 카탈로그 관리 →');nav.href='catalog-manage.html';body.append(nav);card.append(body);grid.append(card);
   }
   const query=document.getElementById('q');
