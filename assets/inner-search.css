@@ -2,6 +2,8 @@
    Existing typography, primary/secondary buttons and functionality are preserved. */
 .ib-inner-search-strip{position:relative;z-index:1;background:#fff;border-bottom:1px solid var(--line);color:var(--ink)}
 .ib-inner-search-container{padding:14px 16px 16px}
+/* Match the site's existing font stack, including native fieldset/radio controls. */
+.ib-inner-search-strip,.ib-inner-search-strip input,.ib-inner-search-strip button,.ib-inner-search-strip label,.ib-inner-search-strip fieldset{font-family:Inter,Pretendard,"Noto Sans KR",system-ui,sans-serif}
 .ib-inner-search-form{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:9px;width:100%;max-width:900px;min-width:0;margin:0 auto}
 .ib-inner-scope{display:flex;align-items:center;flex-wrap:wrap;gap:14px;min-width:0;min-inline-size:0;width:100%;margin:0;padding:0 8px;border:0;outline:0;background:transparent;box-shadow:none}
 .ib-inner-scope-option{display:inline-flex;align-items:center;gap:4px;cursor:pointer;color:var(--ink);font-size:13px;white-space:nowrap}
