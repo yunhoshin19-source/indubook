@@ -27,8 +27,9 @@
  .ib-inner-search-strip{display:block!important}
  .ib-inner-search-container{width:min(100% - 32px,900px);padding:12px 0 14px}
  .ib-inner-search-form{width:100%;gap:9px}
- .ib-inner-scope{flex-wrap:nowrap;overflow-x:auto;gap:12px;padding:1px 3px 5px}
- .ib-inner-scope-option{flex:none}
+ .ib-inner-scope{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;justify-items:center;flex-wrap:nowrap;overflow:visible;gap:0;width:100%;min-width:0;padding:1px 0 5px}
+ .ib-inner-scope-option{display:inline-flex;justify-content:center;align-items:center;gap:4px;min-width:0;flex:none;font-family:inherit;color:#526780;line-height:1.5}
+ .ib-inner-scope-option input{flex:none;vertical-align:middle}
  .ib-inner-controls{display:flex;width:100%;gap:7px}
 }
 @media(max-width:480px){
