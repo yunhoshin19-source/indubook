@@ -1567,3 +1567,50 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
  .ib-unified-arrow{font-size:10px}
  .ib-unified-tabs button{font-size:12px;padding:10px 8px}
 }
+
+/* Mobile header alignment v2: match shared search 16px horizontal gutters. */
+@media(max-width:680px){
+  .topbar .top-inner{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    align-items:center;
+    gap:10px;
+    padding:12px 16px 8px;
+    height:auto;
+    min-height:0;
+  }
+  .topbar .top-inner>.logo{
+    grid-column:1;
+    grid-row:1;
+    justify-self:start;
+    min-width:0;
+    margin:0;
+  }
+  .topbar .top-inner>.top-actions{
+    grid-column:1;
+    grid-row:2;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+    gap:6px;
+    width:100%;
+    min-width:0;
+    margin:0;
+  }
+  .topbar .top-inner>.top-actions>*{flex:0 0 auto}
+  .topbar .top-inner>.toplinks{display:none!important}
+  .topbar .top-inner>.ib-mobile-nav{
+    grid-column:1;
+    grid-row:3;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:4px;
+    width:100%;
+    min-width:0;
+    margin:0;
+    padding:8px 0 0;
+    border-top:1px solid #e9eef6;
+    flex:none;
+  }
+}
