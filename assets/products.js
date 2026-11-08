@@ -20,6 +20,7 @@ if((p.certifications||[]).length||p.manufacturingCountry||p.distributor){
  if(p.distributor)pieces.push('유통사: '+p.distributor);
  pieces.slice(0,3).forEach(value=>{const chip=document.createElement('span');chip.textContent=value;metadata.append(chip)});
  body.append(metadata);
+ if((p.certifications||[]).length){const note=document.createElement('p');note.className='ib-cert-disclaimer';note.textContent='본 인증 정보는 기업이 제출한 서류를 바탕으로 등록되었으며, 최종 거래 전 양사 간의 원본 확인이 필요합니다';body.append(note)}
 }
 const foot=document.createElement('div');foot.className='ib-product-card-foot';const company=document.createElement('span');company.textContent=p.company;const more=document.createElement('a');more.href=link.href;more.textContent='제품 보기 →';foot.append(company,more);body.append(cat,title,summary,foot);a.append(body);return a
 }
@@ -51,6 +52,7 @@ if($('productDetail')){
  const summary=document.createElement('p');summary.className='ib-product-lead';summary.textContent=p.summary;
  const details=document.createElement('div');details.className='ib-product-detail-facts';
  [['제조사',p.company],['모델명',p.model],['인더스트리',p.industry],['제조국',p.manufacturingCountry||'미등록'],['유통사',p.distributor||'미등록'],['인증정보',Array.isArray(p.certifications)&&p.certifications.length?p.certifications.join(', ')+' (기업 입력 · 미검증)':'미등록'],['가격',p.price||'견적 문의'],['등록·수정일',p.updated]].forEach(([k,v])=>{const label=document.createElement('span');label.textContent=k;const value=document.createElement('strong');value.textContent=v;details.append(label,value)});
+ if(Array.isArray(p.certifications)&&p.certifications.length){const note=document.createElement('p');note.className='ib-cert-disclaimer';note.textContent='본 인증 정보는 기업이 제출한 서류를 바탕으로 등록되었으며, 최종 거래 전 양사 간의 원본 확인이 필요합니다';info.append(note)}
  const actions=document.createElement('div');actions.className='ib-product-detail-buttons';
  const requestUrl=type=>'business-request.html?type='+encodeURIComponent(type)+'&source=product&id='+encodeURIComponent(p.id);
  const inquiry=document.createElement('a');inquiry.className='button secondary';inquiry.textContent='문의';inquiry.href='messages.html?'+new URLSearchParams({to:p.owner,draft:'[제품문의] '+p.name+' ('+p.model+')\n제품 관련 문의드립니다.'}).toString();
