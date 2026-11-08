@@ -317,14 +317,14 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 (function industryInnerSearchBar(){
  'use strict';
  const page=location.pathname.split('/').pop()||'index.html';
- if(page==='index.html')return;
+ if(['index.html','board.html','feed.html','deals.html','scf.html'].includes(page))return;
  const top=document.querySelector('header.topbar');
  if(!top||document.getElementById('ibInnerSearchStrip'))return;
 
  // Never put a search form into the header. Remove any legacy injected header widgets.
  document.querySelectorAll('.ib-global-header-search,.ib-global-search-toggle').forEach(el=>el.remove());
  const css=document.createElement('link');css.rel='stylesheet';
- css.href='assets/inner-search.css?v=inner-search-font-v3';document.head.append(css);
+ css.href='assets/inner-search.css?v=inner-search-consistency-v4';document.head.append(css);
 
  const categories={
   'catalogs.html':'catalog','catalog-detail.html':'catalog','catalog-manage.html':'catalog',
