@@ -25,3 +25,14 @@
 @keyframes ibv2Float{50%{transform:translateY(-10px)}}@keyframes ibv2Pulse{50%{box-shadow:0 0 0 55px #2899ff12,0 0 0 106px #2899ff06}}
 @media(max-width:800px){.ibv2-stage{grid-template-columns:1fr;padding:42px 25px 70px}.ibv2-hero{min-height:0}.ibv2-hero:before{background:linear-gradient(90deg,#03182ff2,#03182fa9),url("https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1000&q=80") center/cover}.ibv2-visual{display:none}.ibv2-search{max-width:none}.ibv2-search button{padding:11px 14px}.ibv2-hero h1{font-size:clamp(33px,7vw,50px)}}
 @media(prefers-reduced-motion:reduce){.ibv2-hero *{animation:none!important;transition:none!important}}
+
+/* Audience actions under the existing unified search */
+.ibv2-audience-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px;max-width:600px}
+.ibv2-hero .ibv2-audience-link{display:flex;flex-direction:column;justify-content:center;gap:5px;min-height:85px;border:1px solid #d6eaff7a;border-radius:14px;padding:14px 16px;text-decoration:none;color:#fff;background:#ffffff12;transition:background .2s,border-color .2s,transform .2s}
+.ibv2-hero .ibv2-audience-link:hover{background:#ffffff24;border-color:#b8e6ff;transform:translateY(-2px)}
+.ibv2-audience-label{font-size:12px;color:#b7d7f4}
+.ibv2-audience-link strong{font-size:15px;font-weight:800;line-height:1.4;letter-spacing:-.02em}
+.ibv2-hero .ibv2-audience-supplier{background:#fff;color:#113453;border-color:#fff}
+.ibv2-hero .ibv2-audience-supplier .ibv2-audience-label{color:#486781}
+.ibv2-hero .ibv2-audience-supplier:hover{background:#e8f5ff;color:#113453}
+@media(max-width:480px){.ibv2-audience-actions{grid-template-columns:1fr}.ibv2-hero .ibv2-audience-link{min-height:65px}.ibv2-search{padding-left:12px}.ibv2-search input{font-size:13px}}
