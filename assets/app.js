@@ -332,7 +332,33 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  // Never put a search form into the header. Remove any legacy injected header widgets.
  document.querySelectorAll('.ib-global-header-search,.ib-global-search-toggle').forEach(el=>el.remove());
  const css=document.createElement('link');css.rel='stylesheet';
- css.href='assets/inner-search.css?v=inner-search-mobile-align-v5';document.head.append(css);
+ css.href='assets/inner-search.css?v=inner-search-layout-recovery-v6';document.head.append(css);
+ // Critical layout fallback: keep the fieldset and controls aligned even if external CSS is stale or blocked.
+ // Scoped exclusively to the shared search bar; no existing components elsewhere are changed.
+ const fallback=document.createElement('style');fallback.id='ibInnerSearchCriticalLayout';
+ fallback.textContent=`
+ #ibInnerSearchStrip{display:block;background:#fff;border-bottom:1px solid var(--line,#dfe6f0)}
+ #ibInnerSearchStrip .ib-inner-search-container{padding:14px 16px 16px}
+ #ibInnerSearchStrip .ib-inner-search-form{display:flex;flex-direction:column;align-items:stretch;gap:9px;max-width:900px;min-width:0;margin:0 auto;width:100%}
+ #ibInnerSearchStrip .ib-inner-scope{display:flex;align-items:center;flex-wrap:wrap;gap:14px;width:100%;min-inline-size:0;min-width:0;margin:0;padding:0 8px;border:0;outline:0;background:transparent;box-shadow:none}
+ #ibInnerSearchStrip .ib-inner-scope-option{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;color:#526780;font-family:Inter,Pretendard,"Noto Sans KR",system-ui,sans-serif;font-size:13px;font-weight:500;line-height:1.5}
+ #ibInnerSearchStrip .ib-inner-scope-option input{margin:0;accent-color:var(--blue,#245eea)}
+ #ibInnerSearchStrip .ib-inner-controls{display:flex;align-items:stretch;gap:9px;width:100%;min-width:0}
+ #ibInnerSearchStrip .ib-inner-query.searchbox{display:block;flex:1 1 0;min-width:0;width:100%;max-width:none;box-sizing:border-box;margin:0;padding:12px 19px;border:1px solid #d9e2ef;border-radius:10px;background:#fff;color:var(--ink,#17253a);font-family:Inter,Pretendard,"Noto Sans KR",system-ui,sans-serif;font-size:14px}
+ #ibInnerSearchStrip .ib-inner-controls .button{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;white-space:nowrap;font-size:13px;min-height:46px;padding:0 18px;border-radius:14px}
+ #ibInnerSearchStrip .ib-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+ @media(max-width:950px){
+  #ibInnerSearchStrip .ib-inner-search-container{width:min(100% - 32px,900px);padding:12px 0 14px}
+  #ibInnerSearchStrip .ib-inner-scope{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;justify-items:center;overflow:visible;padding:1px 0 5px}
+  #ibInnerSearchStrip .ib-inner-scope-option{justify-content:center;min-width:0;font-size:12px}
+  #ibInnerSearchStrip .ib-inner-controls{gap:7px}
+ }
+ @media(max-width:480px){
+  #ibInnerSearchStrip .ib-inner-query.searchbox{font-size:13px;padding:10px 13px;min-height:42px}
+  #ibInnerSearchStrip .ib-inner-controls .button{font-size:12px;padding:0 11px;min-height:42px;border-radius:12px}
+ }
+ `;
+ document.head.append(fallback);
 
  const categories={
   'catalogs.html':'catalog','catalog-detail.html':'catalog','catalog-manage.html':'catalog',
