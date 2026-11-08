@@ -40,3 +40,7 @@
 .ib-product-editor-grid .ib-cert-tag-field>input#pCertInput{display:block;width:100%;max-width:none;min-width:0;box-sizing:border-box;padding:13px 14px;border:1px solid #d6e0ed;border-radius:10px;background:#fff;color:var(--ink);font:inherit;font-size:14px}
 .ib-product-editor-grid .ib-cert-tag-field>.ib-reg-chips{width:100%;display:flex;flex-wrap:wrap;gap:7px;margin-top:0}
 @media(max-width:700px){.ib-product-editor-grid>.ib-cert-product-fields.wide{grid-column:1/-1}}
+
+/* Submitted-certification notice: subtle, legible, and scoped to certification metadata. */
+.ib-cert-disclaimer{display:block;width:100%;margin:7px 0 0;color:#8292a7;font-size:11px;font-weight:400;line-height:1.55;overflow-wrap:anywhere}
+.ib-search-image-card .ib-cert-disclaimer{font-size:10px}
