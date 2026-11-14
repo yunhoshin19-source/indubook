@@ -1660,3 +1660,18 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
 @media(max-width:370px){
  .topbar .top-inner>.ib-mobile-nav>a{font-size:12px;padding:10px 12px}
 }
+
+/* IndustryBook homepage hero registration promo — local to hero only. */
+.hero .ib-hero-register-promo{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:23px;padding:15px 17px;border:1px solid rgba(198,218,250,.20);border-radius:13px;background:rgba(7,24,51,.35);max-width:740px}
+.hero .ib-hero-register-promo-copy{flex:1 1 270px;min-width:0}
+.hero .ib-hero-register-promo-kicker{display:inline-block;margin:0 0 5px;padding:3px 7px;border-radius:4px;background:rgba(72,132,240,.25);color:#b8d3ff;font-size:10px;font-weight:650}
+.hero .ib-hero-register-promo-copy>strong{display:block;color:#fff;font-size:16px;font-weight:700;line-height:1.35;letter-spacing:-.02em}
+.hero .ib-hero-register-promo-copy>p{margin:5px 0 0;color:#c2d2e8;font-size:11px;line-height:1.55}
+.hero .ib-hero-register-promo-actions{display:flex;flex:0 1 auto;align-items:center;gap:7px;flex-wrap:wrap}
+.hero .ib-hero-register-promo-actions .button{min-height:34px;padding:8px 11px;font-size:11px;line-height:1.2;white-space:nowrap;text-decoration:none}
+.hero .ib-hero-register-promo-actions .button.secondary{color:#f5f8ff;background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.22)}
+@media(max-width:760px){
+ .hero .ib-hero-register-promo{align-items:flex-start;margin-top:18px;padding:14px;gap:12px}
+ .hero .ib-hero-register-promo-actions{width:100%;flex:1 1 100%}
+ .hero .ib-hero-register-promo-actions .button{width:auto;flex:1 1 auto;text-align:center}
+}
