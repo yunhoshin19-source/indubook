@@ -224,41 +224,35 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
  const top=document.querySelector('.top-inner'),desktop=document.querySelector('.toplinks');
  if(!top||!desktop||top.querySelector('.ib-mobile-nav'))return;
  const nav=document.createElement('nav');nav.className='ib-mobile-nav';nav.setAttribute('aria-label','모바일 주요 메뉴');
- const primary=[
-  ['기업 카탈로그','catalogs.html',/\/(?:catalogs|catalog-detail|catalog-manage|register)\.html$/],
-  ['제품','products.html',/\/(?:products|product-detail|product-manage|product-edit)\.html$/]
- ];
  const current=location.pathname;
- const moreLinks=[['기업 찾기','companies.html',/\/(?:companies|company-profile)\.html$/],
+ const links=[
+  ['기업 카탈로그','catalogs.html',/\/(?:catalogs|catalog-detail|catalog-manage|register)\.html$/],
+  ['제품','products.html',/\/(?:products|product-detail|product-manage|product-edit)\.html$/],
+  ['기업 찾기','companies.html',/\/(?:companies|company-profile)\.html$/],
   ['커뮤니티','board.html',/\/(?:board|board-detail|board-write)\.html$/],
-  ['관심 피드','feed.html',/\/feed\.html$/]];
+  ['관심 피드','feed.html',/\/feed\.html$/]
+ ];
  const signed=localStorage.getItem('ib-demo-logged-in')==='yes',role=localStorage.getItem('ib-demo-role');
- if(signed&&role==='association')moreLinks.push(['회원사 현황','member-companies.html',/\/member-companies\.html$/]);
- if(signed&&role==='admin')moreLinks.push(['협회 관리','dmin-organization.html',/\/dmin-organization\.html$/]);
- function link(label,url,pattern){
+ if(signed){
+  links.push(['거래 관리','deals.html',/\/(?:deals|deal-detail)\.html$/]);
+  links.push(['공급망 금융','scf.html',/\/scf\.html$/]);
+ }
+ if(signed&&role==='association')links.push(['회원사 현황','member-companies.html',/\/member-companies\.html$/]);
+ if(signed&&role==='admin')links.push(['협회 관리','dmin-organization.html',/\/dmin-organization\.html$/]);
+ for(const [label,url,pattern] of links){
   const a=document.createElement('a');a.href=url;a.textContent=label;
   if(pattern.test(current)){a.classList.add('active');a.setAttribute('aria-current','page')}
-  return a
+  nav.append(a);
  }
- primary.forEach(([label,url,pattern])=>nav.append(link(label,url,pattern)));
- const wrap=document.createElement('div');wrap.className='ib-mobile-more';
- const button=document.createElement('button');button.type='button';button.className='ib-mobile-more-trigger';
- button.setAttribute('aria-expanded','false');button.setAttribute('aria-haspopup','menu');button.setAttribute('aria-controls','ibMobileMorePanel');
- const inside=moreLinks.some(x=>x[2].test(current));
- button.textContent='더보기';if(inside)button.classList.add('active');
- const chevron=document.createElement('span');chevron.className='ib-mobile-more-chevron';chevron.textContent='⌄';chevron.setAttribute('aria-hidden','true');button.append(chevron);
- const panel=document.createElement('div');panel.id='ibMobileMorePanel';panel.className='ib-mobile-more-panel';panel.setAttribute('role','menu');panel.hidden=true;
- moreLinks.forEach(([label,url,pattern])=>{
-  const item=link(label,url,pattern);item.setAttribute('role','menuitem');panel.append(item)
- });
- function close(){panel.hidden=true;button.setAttribute('aria-expanded','false');wrap.classList.remove('open')}
- button.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;button.setAttribute('aria-expanded',String(open));wrap.classList.toggle('open',open)});
- document.addEventListener('click',event=>{if(!wrap.contains(event.target))close()});
- document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!panel.hidden){close();button.focus()}});
- wrap.append(button,panel);nav.append(wrap);
  desktop.after(nav);
+ // Expose the current page tab without moving the document's vertical scroll.
+ if(window.matchMedia('(max-width:680px)').matches){
+  requestAnimationFrame(()=>{
+   const active=nav.querySelector('a.active');
+   if(active)nav.scrollLeft=Math.max(0,active.offsetLeft-nav.offsetLeft-(nav.clientWidth-active.offsetWidth)/2);
+  });
+ }
 })();
-
 /* Distinguish enterprise catalogs from per-product PDF/PPT catalog files. */
 (function industryCatalogTerminology(){
  const renameLink=(a)=>{if(a&&a.getAttribute('href')==='catalogs.html')a.textContent='기업 카탈로그'};
@@ -290,12 +284,7 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
   if(messages)messages.after(a);else nav.append(a);
   if(/\/(?:deals|deal-detail)\.html$/.test(location.pathname)){a.classList.add('active');a.setAttribute('aria-current','page')}
  }
- const more=document.getElementById('ibMobileMorePanel');
- if(more&&!more.querySelector('a[href="deals.html"]')){
-  const a=document.createElement('a');a.href='deals.html';a.setAttribute('role','menuitem');a.textContent='거래 관리';
-  if(/\/(?:deals|deal-detail)\.html$/.test(location.pathname)){a.classList.add('active');document.querySelector('.ib-mobile-more-trigger')?.classList.add('active')}
-  more.append(a);
- }
+
  const menu=document.querySelector('.ib-profile-menu');
  if(menu&&!menu.querySelector('a[href="deals.html"]')){const a=document.createElement('a');a.href='deals.html';a.textContent='거래 관리';menu.append(a)}
 })();
@@ -309,12 +298,7 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
    const deal=nav.querySelector('a[href="deals.html"]');if(deal)deal.after(a);else nav.append(a);
    if(/\/scf\.html$/.test(location.pathname)){a.classList.add('active');a.setAttribute('aria-current','page')}
  }
- const more=document.getElementById('ibMobileMorePanel');
- if(more&&!more.querySelector('a[href="scf.html"]')){
-   const a=document.createElement('a');a.href='scf.html';a.setAttribute('role','menuitem');a.textContent='공급망 금융';
-   if(/\/scf\.html$/.test(location.pathname)){a.classList.add('active');document.querySelector('.ib-mobile-more-trigger')?.classList.add('active')}
-   more.append(a);
- }
+
 })();
 
 
