@@ -1693,3 +1693,23 @@ p{font-weight:400;line-height:1.65;word-break:keep-all}
  .topbar .ib-reg-menu-trigger{font-size:10px;padding:8px 7px}
  .topbar .top-inner>.top-actions{gap:3px}
 }
+
+/* Catalog/product registration: mobile icon, desktop descriptive text. */
+.topbar .ib-reg-menu-trigger .ib-reg-mobile-icon{display:none}
+.topbar .ib-reg-menu-trigger .ib-reg-desktop-label{display:inline}
+@media(max-width:680px){
+ .topbar .ib-reg-menu-wrap{flex:0 0 auto}
+ .topbar .ib-reg-menu-trigger{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:40px;min-width:42px;min-height:40px;
+  padding:0;border-radius:10px;line-height:1;
+ }
+ .topbar .ib-reg-menu-trigger .ib-reg-desktop-label{display:none}
+ .topbar .ib-reg-menu-trigger .ib-reg-mobile-icon{display:inline-flex;position:relative;align-items:center;justify-content:center}
+ .topbar .ib-reg-menu-trigger .ib-reg-mobile-icon svg{display:block;width:22px;height:22px}
+ .topbar .ib-reg-menu-trigger .ib-reg-mobile-plus{
+  position:absolute;right:-5px;bottom:-5px;display:grid;place-items:center;
+  width:11px;height:11px;border:1px solid #fff;border-radius:50%;
+  background:#245eea;color:#fff;font-size:10px;font-weight:700;line-height:1;
+ }
+}
