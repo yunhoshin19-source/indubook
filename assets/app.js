@@ -111,10 +111,12 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
       const menu=document.createElement('div');menu.className='ib-profile-menu';menu.hidden=true;
       const name=document.createElement('div');name.className='ib-profile-heading';name.textContent=localStorage.getItem('ib-demo-email')||'기업회원 (데모)';
       const my=document.createElement('a');my.href='mypage.html';my.textContent='마이페이지';
-      const dash=document.createElement('a');dash.href='dashboard.html';dash.textContent='기업 대시보드';
+      const dash=document.createElement('a');dash.href='dashboard.html';dash.textContent='내 기업 관리';
+      const messages=document.createElement('a');messages.href='messages.html';messages.textContent='메시지함';
+      const notifications=document.createElement('a');notifications.href='notifications.html';notifications.textContent='알림 센터';
       const out=document.createElement('button');out.type='button';out.textContent='로그아웃';
       out.addEventListener('click',()=>{localStorage.removeItem('ib-demo-logged-in');localStorage.removeItem('ib-demo-email');window.location.href='index.html'});
-      menu.append(name,my,dash,out);group.append(btn,menu);
+      menu.append(name,my,dash,messages,notifications,out);group.append(btn,menu);
       profileIcon.replaceWith(group);
       btn.addEventListener('click',()=>{menu.hidden=!menu.hidden;btn.setAttribute('aria-expanded',String(!menu.hidden))});
       document.addEventListener('click',e=>{if(!group.contains(e.target)){menu.hidden=true;btn.setAttribute('aria-expanded','false')}});
@@ -152,15 +154,30 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
   }
 })();
 
-/* Shared message entry, without expanding primary navigation. */
-(function(){
- const actions=document.querySelector('.top-actions');if(!actions||actions.querySelector('.ib-header-message-link'))return;
- const bell=actions.querySelector('a[href="notifications.html"]');if(!bell)return;
- const a=document.createElement('a');a.href='messages.html';a.className='ib-header-message-link';a.setAttribute('aria-label','메시지');
- a.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>';
- actions.insertBefore(a,bell);
+/* Single header notification entry for activity and messages; existing pages remain separate. */
+(function industryUnifiedHeaderAlerts(){
+ const actions=document.querySelector('.top-actions');
+ if(!actions)return;
+ const bell=actions.querySelector('a[href="notifications.html"]');
+ if(!bell)return;
+ actions.querySelectorAll('.ib-header-message-link').forEach(el=>el.remove());
+ bell.classList.add('ib-header-notification-link');
+ bell.setAttribute('aria-label','알림 센터');
+ bell.innerHTML='<svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 10h18c0-2-3-3-3-10Z"/><path d="M10 21h4"/></svg>';
+ const badge=document.createElement('span');badge.className='ib-header-alert-count';
+ badge.setAttribute('aria-label','새 알림 수');
+ const render=()=>{
+  if(localStorage.getItem('ib-demo-logged-in')!=='yes'){badge.hidden=true;return}
+  // Two existing notification cards are sample data. No unread-message backend is connected.
+  const count=localStorage.getItem('ib-demo-alerts-seen-v1')==='yes'?0:2;
+  badge.textContent=count>99?'99+':String(count);
+  badge.hidden=count===0;
+  bell.setAttribute('aria-label',count?'알림 센터 · 샘플 알림 '+count+'건':'알림 센터');
+ };
+ bell.append(badge);render();
+ window.addEventListener('storage',render);
 })();
-
+ 
 /* Menu items granted by simulated login role. UI convenience only, not security. */
 (function(){
  const role=localStorage.getItem('ib-demo-role'),signed=localStorage.getItem('ib-demo-logged-in')==='yes';
